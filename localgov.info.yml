@@ -1,0 +1,40 @@
+name: LocalGovDrupal
+type: profile
+description: 'Install a LocalGovDrupal site.'
+core: 8.x
+install:
+  # Core
+  - drupal:automated_cron
+  - drupal:breakpoint
+  - drupal:block
+  - drupal:block_content
+  - drupal:ckeditor
+  - drupal:config
+  - drupal:contextual
+  - drupal:datetime
+  - drupal:dblog
+  - drupal:dynamic_page_cache
+  - drupal:editor
+  - drupal:entity_reference
+  - drupal:field_ui
+  - drupal:file
+  - drupal:help
+  - drupal:history
+  - drupal:image
+  - drupal:node
+  - drupal:menu_link_content
+  - drupal:menu_ui
+  - drupal:options
+  - drupal:page_cache
+  - drupal:path
+  - drupal:quickedit
+  - drupal:search
+  - drupal:taxonomy
+  - drupal:toolbar
+  - drupal:views
+  - drupal:views_ui
+  # LocalGovDrupal
+  - localgov_core:localgov_core
+themes:
+  - bartik
+  - claro
