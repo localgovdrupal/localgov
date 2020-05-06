@@ -12,16 +12,13 @@
     ],
     "require": {
         "drupal/core": "^8.8",
+        "drupal/console": "~1.0",
+        "drupal/devel": "^2.1",
+        "drush/drush": "~9",
         "localgovdrupal/localgov_core": "dev-master"
     },
     "require-dev": {
-        "drupal/console": "~1.0",
-        "drupal/core-dev": "^8.8",
-        "drupal/devel": "^2.1",
-        "drush/drush": "~9"
-    },
-    "conflict": {
-        "drupal/drupal": "*"
+        "drupal/core-dev": "^8.8"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
