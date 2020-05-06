@@ -19,3 +19,13 @@ discovery phase can be found here:
 <https://drive.google.com/open?id=1CJWkNMh6rjF6Ml-WwEwWgt9UPNpTEgODYJN3hCaySJk?>
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for current contribution guidelines.
+
+## Issue tracking
+
+In the early development stages, most issues will be tracked in this respository https://github.com/localgovdrupal/localgov/issues.
+
+Development issues relating to specific projects or module should be tracked in the project repository.
+In the future we might set up a separate repository for centralised issue tracking of bug reports for end users. 
+
+
+
