@@ -33,6 +33,9 @@ install:
   - drupal:toolbar
   - drupal:views
   - drupal:views_ui
+  # Contrib
+  - admin_toolbar:admin_toolbar
+  - admin_toolbar:admin_toolbar_tools
   # LocalGovDrupal
   - localgov_core:localgov_core
 themes:

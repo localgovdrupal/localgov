@@ -11,6 +11,7 @@
         }
     ],
     "require": {
+        "drupal/admin_toolbar": "^2.2",
         "drupal/core": "^8.8",
         "drupal/console": "~1.0",
         "drupal/devel": "^2.1",
