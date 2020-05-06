@@ -28,7 +28,6 @@ install:
   - drupal:page_cache
   - drupal:path
   - drupal:quickedit
-  - drupal:search
   - drupal:taxonomy
   - drupal:toolbar
   - drupal:views
