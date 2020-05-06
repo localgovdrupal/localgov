@@ -12,6 +12,12 @@ To install LocalGovDrupal use the
 composer create-project  --stability dev localgovdrupal/localgov-project MY_PROJECT
 ```
 
+Note: If developing locally and you want to force composer to clone again from source rather than use composer cache, you can add the --no-cache flag.
+
+```bash
+composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache
+```
+
 ## Contributing
 
 The development and contribution processes and standards proposed in the
