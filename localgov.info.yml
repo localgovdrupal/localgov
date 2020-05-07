@@ -2,6 +2,8 @@ name: LocalGovDrupal
 type: profile
 description: 'Install a LocalGovDrupal site.'
 core: 8.x
+core_version_requirement: ^8
+
 install:
   # Core
   - drupal:automated_cron
@@ -37,6 +39,10 @@ install:
   - admin_toolbar:admin_toolbar_tools
   # LocalGovDrupal
   - localgov_core:localgov_core
+
+dependencies:
+  - localgov_core:localgov_core
+
 themes:
   - bartik
   - claro
