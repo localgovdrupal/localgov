@@ -19,7 +19,9 @@ class LocalGovProfileTest extends BrowserTestBase {
   /**
    * Test core modules enabled and uninstallable.
    */
-  public function testDependenciesInstalledAndUninstallable() {
+  public function testLocalGovDrupalProfile() {
+
+    // Test core modules enabled and uninstallable.
     $this->assertTrue($this->container->get('module_handler')->moduleExists('localgov_core'));
     try {
       $this->container->get('module_installer')->uninstall(['localgov_core']);
@@ -28,28 +30,16 @@ class LocalGovProfileTest extends BrowserTestBase {
     catch (ModuleUninstallValidatorException $e) {
       $this->assertContains('module is required', $e->getMessage());
     }
-  }
 
-  /**
-   * Test front page loads after site install.
-   */
-  public function testFrontPageLoadsForAnonymousUsers() {
+    // Test front page loads after site install.
     $this->drupalGet('<front>');
     $this->assertResponse(Response::HTTP_OK);
-  }
 
-  /**
-   * Admin pages are not accessible to anonymous users.
-   */
-  public function testAdminPageIsNotAccessibleToAnonymousUsers() {
+    // Admin pages are not accessible to anonymous users.
     $this->drupalGet('admin');
     $this->assertResponse(Response::HTTP_FORBIDDEN);
-  }
 
-  /**
-   * Admin pages are accessible to administrators.
-   */
-  public function testAdminPageIsAccessibleByAdminUsers() {
+    // Admin pages are accessible to administrators.
     $adminUser = $this->createUser([
       'access administration pages',
     ]);
