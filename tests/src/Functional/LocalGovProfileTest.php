@@ -17,6 +17,15 @@ class LocalGovProfileTest extends BrowserTestBase {
   protected $profile = 'localgov';
 
   /**
+   * Disable schema checking because some contrib modules are borked.
+   *
+   * @see \Drupal\Core\Config\Development\ConfigSchemaChecker
+   *
+   * {@inheritdoc}
+   */
+  protected $strictConfigSchema = FALSE;
+
+  /**
    * Test core modules enabled and uninstallable.
    */
   public function testLocalGovDrupalProfile() {
