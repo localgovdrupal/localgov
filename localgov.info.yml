@@ -35,6 +35,7 @@ install:
   # Contrib
   - admin_toolbar:admin_toolbar
   - admin_toolbar:admin_toolbar_tools
+  - sitemap:sitemap
   # LocalGovDrupal
   - localgov_core:localgov_core
   - localgov_paragraphs:localgov_paragraphs
