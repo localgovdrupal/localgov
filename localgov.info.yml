@@ -37,10 +37,12 @@ install:
   - admin_toolbar:admin_toolbar_tools
   # LocalGovDrupal
   - localgov_core:localgov_core
+  - localgov_paragraphs:localgov_paragraphs
 
 dependencies:
   - localgov_core:localgov_core
+  - localgov_paragraphs:localgov_paragraphs
 
 themes:
-  - bartik
   - claro
+  - localgov_theme
