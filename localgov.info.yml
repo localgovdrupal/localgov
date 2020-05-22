@@ -44,5 +44,5 @@ dependencies:
   - localgov_paragraphs:localgov_paragraphs
 
 themes:
-  - bartik
   - claro
+  - localgov_theme
