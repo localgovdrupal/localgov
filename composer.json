@@ -8,10 +8,6 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        {
-            "type": "vcs",
-            "url":  "git@github.com:localgovdrupal/localgov_services.git"
         }
     ],
     "require": {
@@ -21,8 +17,8 @@
         "drupal/devel": "^2.1",
         "drush/drush": "~9",
         "localgovdrupal/localgov_core": "dev-master",
-        "localgovdrupal/localgov_services": "dev-develop",
-        "localgovdrupal/localgov_paragraphs": "dev-feature/32-core-paragraphs",
+        "localgovdrupal/localgov_services": "dev-master",
+        "localgovdrupal/localgov_paragraphs": "dev-master",
         "localgovdrupal/localgov_theme": "dev-master"
     },
     "require-dev": {
