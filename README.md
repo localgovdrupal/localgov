@@ -26,6 +26,14 @@ update with the `--no-cache` flag.
 composer update --no-cache
 ```
 
+If you want to be sure you are getting the latest commits when developing, clearing composer cache, deleting the folders and re-running composer update seems to be a solid approach:
+
+```bash
+rm -rf web/profiles/contrib/ web/modules/contrib/; 
+composer clear-cache; composer update --with-dependencies --no-cache; 
+lando drush si localgov -y;
+```
+
 ## Contributing
 
 The development and contribution processes and standards proposed in the
