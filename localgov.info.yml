@@ -38,6 +38,7 @@ install:
   # LocalGovDrupal
   - localgov_core:localgov_core
   - localgov_paragraphs:localgov_paragraphs
+  - localgov_services_page:localgov_services_page
 
 dependencies:
   - localgov_core:localgov_core
