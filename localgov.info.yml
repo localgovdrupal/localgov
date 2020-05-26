@@ -35,10 +35,15 @@ install:
   # Contrib
   - admin_toolbar:admin_toolbar
   - admin_toolbar:admin_toolbar_tools
+  - entity_browser:entity_browser
   # LocalGovDrupal
   - localgov_core:localgov_core
   - localgov_paragraphs:localgov_paragraphs
+  - localgov_services:localgov_services
+  - localgov_services_navigation:localgov_services_navigation
+  - localgov_page_components:localgov_page_components
   - localgov_services_page:localgov_services_page
+
 
 dependencies:
   - localgov_core:localgov_core
