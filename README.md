@@ -30,7 +30,8 @@ If you want to be sure you are getting the latest commits when developing, clear
 
 ```bash
 rm -rf web/profiles/contrib/ web/modules/contrib/; 
-composer clear-cache; composer update --with-dependencies --no-cache; 
+composer clear-cache; composer update --with-dependencies --no-cache;
+lando start;
 lando drush si localgov -y;
 ```
 
