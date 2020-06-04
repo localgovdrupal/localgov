@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_core
+  theme:
+    - localgov_theme
+id: localgov_nodeheaderblock
+theme: localgov_theme
+region: content_top
+weight: -1
+provider: null
+plugin: localgov_node_header_block
+settings:
+  id: localgov_node_header_block
+  label: 'Node header block'
+  provider: localgov_core
+  label_display: '0'
+visibility: {  }
