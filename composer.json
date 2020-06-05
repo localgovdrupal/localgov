@@ -16,10 +16,10 @@
         "drupal/console": "~1.0",
         "drupal/devel": "^2.1",
         "drush/drush": "~9",
-        "localgovdrupal/localgov_core": "dev-feature/14-move-block-config",
+        "localgovdrupal/localgov_core": "dev-master",
         "localgovdrupal/localgov_services": "dev-master",
         "localgovdrupal/localgov_paragraphs": "dev-master",
-        "localgovdrupal/localgov_theme": "dev-feature/14-header-and-footer"
+        "localgovdrupal/localgov_theme": "dev-master"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8"
