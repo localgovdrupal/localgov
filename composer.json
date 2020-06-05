@@ -17,8 +17,9 @@
         "drupal/devel": "^2.1",
         "drush/drush": "~9",
         "localgovdrupal/localgov_core": "dev-master",
-        "localgovdrupal/localgov_services": "dev-master",
+        "localgovdrupal/localgov_demo": "dev-master",
         "localgovdrupal/localgov_paragraphs": "dev-master",
+        "localgovdrupal/localgov_services": "dev-master",
         "localgovdrupal/localgov_theme": "dev-master"
     },
     "require-dev": {
