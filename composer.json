@@ -20,7 +20,8 @@
         "localgovdrupal/localgov_services": "dev-feature/31-service-paths-other",
         "localgovdrupal/localgov_paragraphs": "dev-master",
         "localgovdrupal/localgov_theme": "dev-master",
-        "localgovdrupal/localgov_guides": "dev-master"
+        "localgovdrupal/localgov_guides": "dev-master",
+        "localgovdrupal/localgov_demo": "dev-master"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8"
