@@ -19,7 +19,8 @@
         "localgovdrupal/localgov_core": "dev-master",
         "localgovdrupal/localgov_services": "dev-master",
         "localgovdrupal/localgov_paragraphs": "dev-master",
-        "localgovdrupal/localgov_theme": "dev-master"
+        "localgovdrupal/localgov_theme": "dev-master",
+        "localgovdrupal/localgov_guides": "dev-master"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8"
