@@ -23,7 +23,7 @@ After researching a number of successful open source communities, we have taken 
 
 ## Shared code repository
 
-The shared project code lives on Github. (https://gitlab.com/localgovdrupal)
+The shared project code lives on Github. (https://github.com/localgovdrupal)
 
 ## Logging Issues
 
