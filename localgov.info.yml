@@ -36,7 +36,7 @@ install:
   - admin_toolbar:admin_toolbar
   - admin_toolbar:admin_toolbar_tools
   - entity_browser:entity_browser
-  - sitemap:sitemap
+  - simple_sitemap:simple_sitemap
   # LocalGovDrupal
   - localgov_core:localgov_core
   - localgov_paragraphs:localgov_paragraphs
