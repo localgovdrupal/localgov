@@ -17,7 +17,7 @@
         "drupal/devel": "^2.1",
         "drush/drush": "~9",
         "localgovdrupal/localgov_core": "dev-master",
-        "localgovdrupal/localgov_services": "dev-feature/31-service-paths-other",
+        "localgovdrupal/localgov_services": "dev-master",
         "localgovdrupal/localgov_paragraphs": "dev-master",
         "localgovdrupal/localgov_theme": "dev-master",
         "localgovdrupal/localgov_guides": "dev-master",
