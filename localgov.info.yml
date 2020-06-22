@@ -2,6 +2,7 @@ name: LocalGovDrupal
 type: profile
 description: 'Install a LocalGovDrupal site.'
 core_version_requirement: ^8.8 || ^9
+
 install:
   # Core
   - drupal:automated_cron
@@ -38,16 +39,17 @@ install:
   - entity_browser:entity_browser
   # LocalGovDrupal
   - localgov_core:localgov_core
+  - localgov_core:localgov_media
+  - localgov_page_components:localgov_page_components
   - localgov_paragraphs:localgov_paragraphs
   - localgov_services:localgov_services
-  - localgov_services_navigation:localgov_services_navigation
-  - localgov_page_components:localgov_page_components
-  - localgov_services_page:localgov_services_page
-
+  - localgov_services:localgov_services_landing
+  - localgov_services:localgov_services_navigation
+  - localgov_services:localgov_services_page
+  - localgov_services:localgov_services_sublanding
 
 dependencies:
   - localgov_core:localgov_core
-  - localgov_paragraphs:localgov_paragraphs
 
 themes:
   - claro
