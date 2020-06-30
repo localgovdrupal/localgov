@@ -34,5 +34,15 @@
         "sort-packages": true
     },
     "extra": {
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/core": {
+                "Allow hook on site install completion, https://www.drupal.org/project/drupal/issues/2924549": "https://www.drupal.org/files/issues/2020-05-04/2924549-38.patch"
+            }
+        }
     }
 }
