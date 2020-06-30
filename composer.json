@@ -20,7 +20,7 @@
         "localgovdrupal/localgov_core": "dev-master",
         "localgovdrupal/localgov_demo": "dev-master",
         "localgovdrupal/localgov_paragraphs": "dev-master",
-        "localgovdrupal/localgov_services": "dev-master",
+        "localgovdrupal/localgov_services": "dev-feature/49-sitemap",
         "localgovdrupal/localgov_theme": "dev-master"
     },
     "require-dev": {
