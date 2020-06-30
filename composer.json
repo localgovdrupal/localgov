@@ -18,10 +18,12 @@
         "drupal/simple_sitemap": "^3.7",
         "drush/drush": "~9",
         "localgovdrupal/localgov_core": "dev-master",
-        "localgovdrupal/localgov_demo": "dev-master",
-        "localgovdrupal/localgov_paragraphs": "dev-master",
         "localgovdrupal/localgov_services": "dev-master",
-        "localgovdrupal/localgov_theme": "dev-master"
+        "localgovdrupal/localgov_paragraphs": "dev-master",
+        "localgovdrupal/localgov_theme": "dev-master",
+        "localgovdrupal/localgov_guides": "dev-master",
+        "localgovdrupal/localgov_step_by_step": "dev-master",
+        "localgovdrupal/localgov_demo": "dev-master"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8"

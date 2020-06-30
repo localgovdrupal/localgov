@@ -29,10 +29,12 @@ composer update --no-cache
 If you want to be sure you are getting the latest commits when developing, clearing composer cache, deleting the folders and re-running composer update seems to be a solid approach:
 
 ```bash
-rm -rf web/profiles/contrib/ web/modules/contrib/; 
+
+rm -rf web/profiles/contrib/ web/modules/contrib/ web/themes/contrib/; 
 composer clear-cache; composer update --with-dependencies --no-cache;
 lando start;
 lando drush si localgov -y;
+
 ```
 
 ## Contributing
