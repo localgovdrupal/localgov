@@ -1,0 +1,34 @@
+name: Test LocalGovDrupal
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone drupal_container
+        uses: actions/checkout@v2
+        with:
+          repository: localgovdrupal/drupal-container
+          ref: master
+
+      - name: Create LocalGovDrupal project
+        run: composer create-project --stability dev localgovdrupal/localgov-project html
+
+      - name: Checkout localgov branch to test
+        uses: actions/checkout@v2
+        with:
+          path: html/web/profiles/contrib/localgov
+
+      - name: Start Docker environment
+        run: docker-compose up -d
+
+      - name: Run tests
+        run: ./run-tests.sh
+        shell: bash

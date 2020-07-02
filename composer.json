@@ -15,6 +15,7 @@
         "drupal/core": "^8.8",
         "drupal/console": "~1.0",
         "drupal/devel": "^2.1",
+        "drupal/simple_sitemap": "^3.7",
         "drush/drush": "~9",
         "localgovdrupal/localgov_core": "dev-master",
         "localgovdrupal/localgov_campaigns": "dev-master",
