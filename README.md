@@ -39,10 +39,6 @@ lando drush si localgov -y;
 
 ## Contributing
 
-The development and contribution processes and standards proposed in the
-discovery phase can be found here:
-<https://drive.google.com/open?id=1CJWkNMh6rjF6Ml-WwEwWgt9UPNpTEgODYJN3hCaySJk?>
-
 See [CONTRIBUTING.md](CONTRIBUTING.md) for current contribution guidelines.
 
 ## Issue tracking
