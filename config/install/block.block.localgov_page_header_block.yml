@@ -5,15 +5,15 @@ dependencies:
     - localgov_core
   theme:
     - localgov_theme
-id: localgov_nodeheaderblock
+id: localgov_page_header_block
 theme: localgov_theme
 region: content_top
-weight: -1
+weight: -10
 provider: null
-plugin: localgov_node_header_block
+plugin: localgov_page_header_block
 settings:
-  id: localgov_node_header_block
-  label: 'Node header block'
+  id: localgov_page_header_block
+  label: 'Page header block'
   provider: localgov_core
   label_display: '0'
 visibility: {  }
