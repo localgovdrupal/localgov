@@ -20,12 +20,13 @@
         "localgovdrupal/localgov_alert_banner": "dev-master",
         "localgovdrupal/localgov_core": "dev-master",
         "localgovdrupal/localgov_campaigns": "dev-master",
-        "localgovdrupal/localgov_services": "dev-master",
-        "localgovdrupal/localgov_paragraphs": "dev-master",
-        "localgovdrupal/localgov_theme": "dev-master",
+        "localgovdrupal/localgov_directories": "dev-master",
+        "localgovdrupal/localgov_demo": "dev-master",
         "localgovdrupal/localgov_guides": "dev-master",
+        "localgovdrupal/localgov_paragraphs": "dev-master",
+        "localgovdrupal/localgov_services": "dev-master",
         "localgovdrupal/localgov_step_by_step": "dev-master",
-        "localgovdrupal/localgov_demo": "dev-master"
+        "localgovdrupal/localgov_theme": "dev-master"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8"
