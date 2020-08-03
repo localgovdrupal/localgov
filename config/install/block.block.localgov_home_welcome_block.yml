@@ -1,8 +1,6 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - localgov_core
   theme:
     - localgov_theme
 id: localgov_home_welcome_block
@@ -14,7 +12,7 @@ plugin: localgov_home_welcome_block
 settings:
   id: localgov_home_welcome_block
   label: 'Home welcome block'
-  provider: localgov_core
+  provider: null
   label_display: '0'
 visibility:
   request_path:
