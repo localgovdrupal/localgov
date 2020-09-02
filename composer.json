@@ -21,6 +21,7 @@
         "localgovdrupal/localgov_core": "dev-master",
         "localgovdrupal/localgov_campaigns": "dev-master",
         "localgovdrupal/localgov_services": "dev-master",
+        "localgovdrupal/localgov_menu_link_group": "dev-master",
         "localgovdrupal/localgov_paragraphs": "dev-master",
         "localgovdrupal/localgov_theme": "dev-master",
         "localgovdrupal/localgov_guides": "dev-master",
