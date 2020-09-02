@@ -41,6 +41,7 @@ install:
   # LocalGovDrupal
   - localgov_core:localgov_core
   - localgov_core:localgov_media
+  - localgov_core:localgov_menu_link_group
   - localgov_page_components:localgov_page_components
   - localgov_paragraphs:localgov_paragraphs
   - localgov_services:localgov_services
