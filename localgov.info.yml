@@ -38,9 +38,10 @@ install:
   - admin_toolbar:admin_toolbar_tools
   - entity_browser:entity_browser
   - simple_sitemap:simple_sitemap
-  # LocalGovDrupal
+  # LocalGov Drupal
   - localgov_core:localgov_core
   - localgov_core:localgov_media
+  - localgov_menu_link_group:localgov_menu_link_group
   - localgov_page_components:localgov_page_components
   - localgov_paragraphs:localgov_paragraphs
   - localgov_services:localgov_services
