@@ -6,17 +6,17 @@ share Drupal code.
 ## Installing LocalGovDrupal
 
 To install LocalGovDrupal use the
-[Composer-based project template](https://github.com/localgovdrupal/localgov_project).
+[Composer-based project template](https://github.com/localgovdrupal/localgov_project). Change `MY_PROJECT` to whatever you'd like your folder to be called.
 
 ```bash
-composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
+COMPOSER_MEMORY_LIMIT=-1 composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
 ```
 
 **Note**: If developing locally and you want to force composer to clone again
 from source rather than use composer cache, you can add the `--no-cache` flag.
 
 ```bash
-composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache
+COMPOSER_MEMORY_LIMIT=-1 composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache
 ```
 
 If you just want to pull in the latest changes to LocalGovDrupal run composer
