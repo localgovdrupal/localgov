@@ -1,11 +1,11 @@
-# LocalGovDrupal
+# LocalGov Drupal
 
 Drupal distribution and install profile to help UK councils collaborate and
 share Drupal code.
 
-## Installing LocalGovDrupal
+## Installing LocalGov Drupal
 
-To install LocalGovDrupal use the
+To install LocalGov Drupal use the
 [Composer-based project template](https://github.com/localgovdrupal/localgov_project). Change `MY_PROJECT` to whatever you'd like your folder to be called.
 
 ```bash
@@ -19,7 +19,7 @@ from source rather than use composer cache, you can add the `--no-cache` flag.
 COMPOSER_MEMORY_LIMIT=-1 composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache
 ```
 
-If you just want to pull in the latest changes to LocalGovDrupal run composer
+If you just want to pull in the latest changes to LocalGov Drupal run composer
 update with the `--no-cache` flag.
 
 ```bash
@@ -84,7 +84,7 @@ lando phix
 ## Running tests
 
 The included `phpunit.xml.dist` file contains configuration for automatically
-running the LocalGovDrupal test suite.
+running the LocalGov Drupal test suite.
 
 To run all LocalGicDrupal tests with Lando use:
 
