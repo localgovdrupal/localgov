@@ -16,7 +16,7 @@
         "drupal/console": "~1.0",
         "drupal/devel": "^2.1",
         "drupal/simple_sitemap": "^3.7",
-        "drush/drush": "~9",
+        "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "dev-master",
         "localgovdrupal/localgov_core": "dev-master",
         "localgovdrupal/localgov_campaigns": "dev-master",
