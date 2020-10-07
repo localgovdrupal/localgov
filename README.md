@@ -86,7 +86,7 @@ lando phix
 The included `phpunit.xml.dist` file contains configuration for automatically
 running the LocalGov Drupal test suite.
 
-To run all LocalGicDrupal tests with Lando use:
+To run all LocalGov Drupal tests with Lando use:
 
 ```bash
 lando phpunit
