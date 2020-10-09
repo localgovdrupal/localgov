@@ -6,17 +6,18 @@ share Drupal code.
 ## Installing LocalGov Drupal
 
 To install LocalGov Drupal use the
-[Composer-based project template](https://github.com/localgovdrupal/localgov_project). Change `MY_PROJECT` to whatever you'd like your folder to be called.
+[Composer-based project template](https://github.com/localgovdrupal/localgov_project).
+Change `MY_PROJECT` to whatever you'd like your folder to be called.
 
 ```bash
-COMPOSER_MEMORY_LIMIT=-1 composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
+composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
 ```
 
 **Note**: If developing locally and you want to force composer to clone again
 from source rather than use composer cache, you can add the `--no-cache` flag.
 
 ```bash
-COMPOSER_MEMORY_LIMIT=-1 composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache
+composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache
 ```
 
 If you just want to pull in the latest changes to LocalGov Drupal run composer
@@ -26,15 +27,25 @@ update with the `--no-cache` flag.
 composer update --no-cache
 ```
 
-If you want to be sure you are getting the latest commits when developing, clearing composer cache, deleting the folders and re-running composer update seems to be a solid approach:
+If you want to be sure you are getting the latest commits when developing,
+clearing composer cache, deleting the folders and re-running composer update
+seems to be a solid approach:
 
 ```bash
 
-rm -rf web/profiles/contrib/ web/modules/contrib/ web/themes/contrib/; 
+rm -rf web/profiles/contrib/ web/modules/contrib/ web/themes/contrib/;
 composer clear-cache; composer update --with-dependencies --no-cache;
 lando start;
 lando drush si localgov -y;
 
+```
+
+If you run into [memory limit errors](https://getcomposer.org/doc/articles/troubleshooting.md#memory-limit-errors)
+when running Composer commands, prefix the commands with `COMPOSER_MEMORY_LIMIT=-1`.
+For example, to install the project run:
+
+```bash
+COMPOSER_MEMORY_LIMIT=-1 composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
 ```
 
 ## Contributing
