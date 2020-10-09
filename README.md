@@ -6,7 +6,8 @@ share Drupal code.
 ## Installing LocalGov Drupal
 
 To install LocalGov Drupal use the
-[Composer-based project template](https://github.com/localgovdrupal/localgov_project). Change `MY_PROJECT` to whatever you'd like your folder to be called.
+[Composer-based project template](https://github.com/localgovdrupal/localgov_project).
+Change `MY_PROJECT` to whatever you'd like your folder to be called.
 
 ```bash
 COMPOSER_MEMORY_LIMIT=-1 composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
@@ -26,11 +27,13 @@ update with the `--no-cache` flag.
 composer update --no-cache
 ```
 
-If you want to be sure you are getting the latest commits when developing, clearing composer cache, deleting the folders and re-running composer update seems to be a solid approach:
+If you want to be sure you are getting the latest commits when developing,
+clearing composer cache, deleting the folders and re-running composer update
+seems to be a solid approach:
 
 ```bash
 
-rm -rf web/profiles/contrib/ web/modules/contrib/ web/themes/contrib/; 
+rm -rf web/profiles/contrib/ web/modules/contrib/ web/themes/contrib/;
 composer clear-cache; composer update --with-dependencies --no-cache;
 lando start;
 lando drush si localgov -y;
