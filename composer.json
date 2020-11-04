@@ -12,8 +12,7 @@
     ],
     "require": {
         "drupal/admin_toolbar": "^2.2",
-        "drupal/core": "^8.8",
-        "drupal/console": "~1.0",
+        "drupal/core": "^8.9",
         "drupal/devel": "^2.1",
         "drupal/simple_sitemap": "^3.7",
         "drush/drush": ">=10",
@@ -31,7 +30,7 @@
         "localgovdrupal/localgov_theme": "^1.0@alpha"
     },
     "require-dev": {
-        "drupal/core-dev": "^8.8"
+        "drupal/core-dev": "^8.9"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
