@@ -1,19 +1,45 @@
 # LocalGov Drupal
 
 Drupal distribution and install profile to help UK councils collaborate and
-share Drupal code.
+share Drupal code for publishing website content.
 
-## Installing LocalGov Drupal
+## Requirements for instaling LocalGov Drupal locally
 
-To install LocalGov Drupal use the
+to install locally, you will need Composer and Lando. 
+
+https://getcomposer.org/
+https://lando.dev/
+
+Also see the Lando requirements section for details of Docker requirements.
+
+https://docs.lando.dev/basics/installation.html#system-requirements
+
+## Installing LocalGov Drupal locally
+
+To install LocalGov Drupal locally for testing or development, use the
 [Composer-based project template](https://github.com/localgovdrupal/localgov_project).
-Change `MY_PROJECT` to whatever you'd like your folder to be called.
+
+Change `MY_PROJECT` to whatever you'd like your project directory to be called.
 
 ```bash
 composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
 ```
 
-**Note**: If developing locally and you want to force composer to clone again
+Change directory into the MY_PROJECT directory and run lando start.
+
+```bash
+cd MY_PROJECT
+lando start
+```
+
+Once lando has finished building, run the site installer.
+
+```bash
+lando drush si localgov -y
+```
+## Composer notes
+
+If developing locally and you want to force composer to clone again
 from source rather than use composer cache, you can add the `--no-cache` flag.
 
 ```bash
@@ -33,7 +59,7 @@ seems to be a solid approach:
 
 ```bash
 
-rm -rf web/profiles/contrib/ web/modules/contrib/ web/themes/contrib/;
+rm -rf web/;
 composer clear-cache; composer update --with-dependencies --no-cache;
 lando start;
 lando drush si localgov -y;
