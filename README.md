@@ -3,7 +3,7 @@
 Drupal distribution and install profile to help UK councils collaborate and
 share Drupal code for publishing website content.
 
-## Requirements for instaling LocalGov Drupal locally
+## Requirements for installing LocalGov Drupal locally
 
 to install locally, you will need Composer and Lando. 
 
@@ -59,7 +59,7 @@ seems to be a solid approach:
 
 ```bash
 
-rm -rf web/;
+rm -rf web/profiles/contrib/ web/modules/contrib/ web/themes/contrib/;
 composer clear-cache; composer update --with-dependencies --no-cache;
 lando start;
 lando drush si localgov -y;
