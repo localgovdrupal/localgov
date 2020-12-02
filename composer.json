@@ -8,6 +8,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+          "type": "vcs",
+          "url": "https://git.drupalcode.org/issue/dbal-3185995.git"
         }
     ],
     "require": {
@@ -27,7 +31,8 @@
         "localgovdrupal/localgov_services": "^1.0@alpha",
         "localgovdrupal/localgov_step_by_step": "^1.0@alpha",
         "localgovdrupal/localgov_subsites": "^1.0@alpha",
-	"localgovdrupal/localgov_theme": "^1.0@alpha"
+	    "localgovdrupal/localgov_theme": "^1.0@alpha",
+        "drupal/dbal": "dev-3185995-connection-factory-expects as 1.2"
     },
     "require-dev": {
         "drupal/core-dev": "^8.9"
