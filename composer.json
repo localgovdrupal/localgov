@@ -44,7 +44,8 @@
       },
       "patches": {
         "drupal/core": {
-          "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-05-28/3092181-87-89x.patch"
+          "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-05-28/3092181-87-89x.patch",
+          "Fix to system.module to avoid breaking tests in PHP 7.4 https://www.drupal.org/project/drupal/issues/3191012#comment-13955587": "https://www.drupal.org/files/issues/2021-01-05/fix-php74-tests-3191012-2.patch"
         }
       }
     }
