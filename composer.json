@@ -26,6 +26,7 @@
         "localgovdrupal/localgov_paragraphs": "^1.0@alpha",
         "localgovdrupal/localgov_services": "^1.0@alpha",
         "localgovdrupal/localgov_step_by_step": "^1.0@alpha",
+        "localgovdrupal/localgov_subsites": "^1.0@alpha",
         "localgovdrupal/localgov_theme": "^1.0@alpha"
     },
     "require-dev": {
