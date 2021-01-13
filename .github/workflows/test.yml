@@ -1,14 +1,14 @@
-name: Test LocalGov Drupal
+name: Execute Drupal's run-tests.sh for this branch
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
-  test:
-
+  instance-1:
+    name: 'Execute run-tests.sh'
     runs-on: ubuntu-latest
 
     steps:
@@ -16,8 +16,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '7.4'
- 
-      - name: Clone drupal_container
+
+      - name: Clone drupal-container
         uses: actions/checkout@v2
         with:
           repository: localgovdrupal/drupal-container
@@ -26,20 +26,25 @@ jobs:
       - name: Create LocalGov Drupal project
         run: composer create-project --stability dev localgovdrupal/localgov-project html
 
-      - name: Setup package source for the test target
-        run: |
-          composer --working-dir=html config repositories.1 vcs git@github.com:${{ github.repository }}.git
-          composer global config github-oauth.github.com ${{ github.token }}
-      - name: Extract Git branch name outside of a pull request
+      - name: Save git branch and git repo names to env if not a pull request
         if: github.event_name != 'pull_request'
-        run: echo "GIT_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+        run: |
+          echo "GIT_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+          echo "GIT_REPO=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
 
-      - name: Extract Git branch name from a pull request
+      - name: Save git branch and git repo names to env if is a pull request
         if: github.event_name == 'pull_request'
-        run: echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
+        run: |
+          echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
+          echo "GIT_REPO=${{ github.event.pull_request.head.repo.full_name }}" >> $GITHUB_ENV
 
-      - name: Grab test target
-        run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
+      - name: Setup package source and authentication for the test target
+        run: |
+          composer --working-dir=html config repositories.1 vcs git@github.com:${GIT_REPO}.git
+          composer global config github-oauth.github.com ${{ github.token }}
+
+      - name: Grab test target for hardcoded package name 'localgov'
+        run: composer --working-dir=html require localgovdrupal/localgov:"dev-${GIT_BRANCH} as 1.0.x-dev"
 
       - name: Start Docker environment
         run: docker-compose up -d
