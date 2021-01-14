@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  instance-1:
+  test:
     name: 'Execute run-tests.sh'
     runs-on: ubuntu-latest
 
@@ -43,8 +43,8 @@ jobs:
           composer --working-dir=html config repositories.1 vcs git@github.com:${GIT_REPO}.git
           composer global config github-oauth.github.com ${{ github.token }}
 
-      - name: Grab test target for hardcoded package name 'localgov'
-        run: composer --working-dir=html require localgovdrupal/localgov:"dev-${GIT_BRANCH} as 1.0.x-dev"
+      - name: Grab test target from this repo
+        run: composer --working-dir=html require localgovdrupal/${{ github.event.repository.name }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
 
       - name: Start Docker environment
         run: docker-compose up -d
