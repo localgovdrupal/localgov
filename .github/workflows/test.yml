@@ -18,7 +18,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .
-          key: ${{ github.sha }}
+          key: cache-localgov-drupal
 
       - name: setup PHP
         uses: shivammathur/setup-php@v2
@@ -68,7 +68,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .
-          key: ${{ github.sha }}
+          key: cache-localgov-drupal
+          restore-keys: |
+           localgov-
 
       - name: Run coding standards checks
         run: |
@@ -90,9 +92,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .
-          key: ${{ github.sha }}
+          key: cache-localgov-drupal
           restore-keys: |
-            ${{ github.sha }}
+           localgov-
 
       - name: Run deprecated code checks
         run: |
@@ -112,12 +114,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .
-          key: ${{ github.sha }}
+          key: cache-localgov-drupal
           restore-keys: |
-            ${{ github.sha }}
+           localgov-
 
-      - name: Start Docker environment
-        run: docker-compose up
+#       - name: Start Docker environment
+#         run: docker-compose up
 
       - name: Run PHPUnit tests
         run: |
