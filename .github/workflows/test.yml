@@ -1,23 +1,24 @@
-name: Execute Drupal's run-tests.sh for this branch
+name: Test LocalGov Drupal
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
 
 jobs:
-  test:
-    name: 'Execute run-tests.sh'
-    runs-on: ubuntu-latest
 
+  install:
+    name: Install LocalGov Drupal
+    runs-on: ubuntu-latest
     steps:
+
       - name: setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '7.4'
 
-      - name: Clone drupal-container
+      - name: Clone drupal_container
         uses: actions/checkout@v2
         with:
           repository: localgovdrupal/drupal-container
@@ -26,29 +27,82 @@ jobs:
       - name: Create LocalGov Drupal project
         run: composer create-project --stability dev localgovdrupal/localgov-project html
 
-      - name: Save git branch and git repo names to env if not a pull request
-        if: github.event_name != 'pull_request'
+      - name: Setup package source for the test target
         run: |
-          echo "GIT_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
-          echo "GIT_REPO=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
-
-      - name: Save git branch and git repo names to env if is a pull request
-        if: github.event_name == 'pull_request'
-        run: |
-          echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
-          echo "GIT_REPO=${{ github.event.pull_request.head.repo.full_name }}" >> $GITHUB_ENV
-
-      - name: Setup package source and authentication for the test target
-        run: |
-          composer --working-dir=html config repositories.1 vcs git@github.com:${GIT_REPO}.git
+          composer --working-dir=html config repositories.1 vcs git@github.com:${{ github.repository }}.git
           composer global config github-oauth.github.com ${{ github.token }}
 
-      - name: Grab test target from this repo
-        run: composer --working-dir=html require localgovdrupal/${{ github.event.repository.name }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
+      - name: Extract Git branch name outside of a pull request
+        if: github.event_name != 'pull_request'
+        run: echo "GIT_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+      - name: Extract Git branch name from a pull request
+        if: github.event_name == 'pull_request'
+        run: echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
+
+      - name: Grab test target
+        run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
+
+      - name: Save Drupal site for use in tests
+        uses: actions/upload-artifact@v2
+        with:
+          name: localgovdrupal
+          path: .
+
+  phpcs:
+    name: Coding standards checks
+    needs: install
+    runs-on: ubuntu-latest
+    container:
+      image: localgovdrupal/apache-php:php7.4
+
+    steps:
+      - name: Download Drupal site
+        uses: actions/download-artifact@v2
+        with:
+          name: localgovdrupal
+
+      - name: Run coding standards checks
+        run: |
+          cd html
+          ./bin/phpcs
+
+  phpstan:
+    name: Deprecated code checks
+    needs: install
+    runs-on: ubuntu-latest
+    container:
+      image: localgovdrupal/apache-php:php7.4
+
+    steps:
+      - name: Download Drupal site
+        uses: actions/download-artifact@v2
+        with:
+          name: localgovdrupal
+
+      - name: Run deprecated code checks
+        run: |
+          cd html
+          ./bin/phpstan analyse -c ./phpstan.neon ./web/profiles/contrib/localgov/ ./web/modules/contrib/localgov_*
+
+  phpunit:
+    name: PHPUnit tests
+    needs: install
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Drupal site
+        uses: actions/download-artifact@v2
+        with:
+          name: localgovdrupal
 
       - name: Start Docker environment
-        run: docker-compose up -d
+        run: docker-compose up
 
-      - name: Run tests
-        run: ./run-tests.sh
-        shell: bash
+      - name: Run PHPUnit tests
+        run: |
+          cd html
+          mkdir -p web/sites/simpletest
+          chmod 777 web/sites/simpletest
+          sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" phpunit.xml.dist
+          ./bin/paratest --processes=4 --verbose=1
