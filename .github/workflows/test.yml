@@ -52,7 +52,7 @@ jobs:
         
       - run: |
           ls -la
-          cwd
+          pwd
 
   phpcs:
     name: Coding standards checks
