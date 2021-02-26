@@ -13,6 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Cached workspace
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-localgov-drupal
+        with:
+          path: .
+          key: ${{ github.sha }}
+
       - name: setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -43,12 +51,6 @@ jobs:
       - name: Grab test target
         run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
 
-      - name: Save Drupal site for use in tests
-        uses: actions/upload-artifact@v2
-        with:
-          name: localgovdrupal
-          path: .
-
   phpcs:
     name: Coding standards checks
     needs: install
@@ -57,10 +59,14 @@ jobs:
       image: localgovdrupal/apache-php:php7.4
 
     steps:
-      - name: Download Drupal site
-        uses: actions/download-artifact@v2
+
+      - name: Cached workspace
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-localgov-drupal
         with:
-          name: localgovdrupal
+          path: .
+          key: ${{ github.sha }}
 
       - name: Run coding standards checks
         run: |
@@ -75,10 +81,14 @@ jobs:
       image: localgovdrupal/apache-php:php7.4
 
     steps:
-      - name: Download Drupal site
-        uses: actions/download-artifact@v2
+
+      - name: Cached workspace
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-localgov-drupal
         with:
-          name: localgovdrupal
+          path: .
+          key: ${{ github.sha }}
 
       - name: Run deprecated code checks
         run: |
@@ -91,10 +101,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download Drupal site
-        uses: actions/download-artifact@v2
+
+      - name: Cached workspace
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-localgov-drupal
         with:
-          name: localgovdrupal
+          path: .
+          key: ${{ github.sha }}
 
       - name: Start Docker environment
         run: docker-compose up
