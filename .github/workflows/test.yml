@@ -14,9 +14,8 @@ jobs:
     steps:
 
       - name: Cached workspace
+        id: cache-localgov-drupal
         uses: actions/cache@v2
-        env:
-          cache-name: cache-localgov-drupal
         with:
           path: .
           key: ${{ github.sha }}
@@ -61,9 +60,8 @@ jobs:
     steps:
 
       - name: Cached workspace
+        id: cache-localgov-drupal
         uses: actions/cache@v2
-        env:
-          cache-name: cache-localgov-drupal
         with:
           path: .
           key: ${{ github.sha }}
@@ -83,9 +81,8 @@ jobs:
     steps:
 
       - name: Cached workspace
+        id: cache-localgov-drupal
         uses: actions/cache@v2
-        env:
-          cache-name: cache-localgov-drupal
         with:
           path: .
           key: ${{ github.sha }}
@@ -103,9 +100,8 @@ jobs:
     steps:
 
       - name: Cached workspace
+        id: cache-localgov-drupal
         uses: actions/cache@v2
-        env:
-          cache-name: cache-localgov-drupal
         with:
           path: .
           key: ${{ github.sha }}
