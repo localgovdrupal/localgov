@@ -49,6 +49,10 @@ jobs:
 
       - name: Grab test target
         run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
+        
+      - run: |
+          ls -la
+          cwd
 
   phpcs:
     name: Coding standards checks
@@ -68,6 +72,7 @@ jobs:
 
       - name: Run coding standards checks
         run: |
+          ls -la
           cd html
           ./bin/phpcs
 
@@ -86,9 +91,12 @@ jobs:
         with:
           path: .
           key: ${{ github.sha }}
+          restore-keys: |
+            ${{ github.sha }}
 
       - name: Run deprecated code checks
         run: |
+          ls -la
           cd html
           ./bin/phpstan analyse -c ./phpstan.neon ./web/profiles/contrib/localgov/ ./web/modules/contrib/localgov_*
 
@@ -105,12 +113,15 @@ jobs:
         with:
           path: .
           key: ${{ github.sha }}
+          restore-keys: |
+            ${{ github.sha }}
 
       - name: Start Docker environment
         run: docker-compose up
 
       - name: Run PHPUnit tests
         run: |
+          ls -la
           cd html
           mkdir -p web/sites/simpletest
           chmod 777 web/sites/simpletest
