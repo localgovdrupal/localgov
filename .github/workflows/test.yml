@@ -21,7 +21,7 @@ jobs:
         id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
             
       - run: |
@@ -83,7 +83,7 @@ jobs:
         id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
@@ -99,7 +99,7 @@ jobs:
 
   phpstan:
     name: Deprecated code checks
-    needs: build
+    needs: phpcs
     runs-on: ubuntu-latest
     container:
       image: localgovdrupal/apache-php:php7.4
@@ -130,7 +130,7 @@ jobs:
 
   phpunit:
     name: PHPUnit tests
-    needs: build
+    needs: phpstan
     runs-on: ubuntu-latest
 
     steps:
