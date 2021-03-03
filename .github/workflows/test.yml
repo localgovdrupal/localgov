@@ -17,7 +17,7 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: ./html
+          path: .
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
       
       - name: Setup PHP
@@ -63,7 +63,7 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: ./html
+          path: .
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
@@ -88,7 +88,7 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: ./html
+          path: .
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
@@ -113,7 +113,7 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: ./html
+          path: .
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
