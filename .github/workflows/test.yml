@@ -107,6 +107,12 @@ jobs:
     
     steps:
 
+      - name: Clone drupal_container
+        uses: actions/checkout@v2
+        with:
+          repository: localgovdrupal/drupal-container
+          ref: master
+
       - name: Cached workspace
         uses: actions/cache@v2
         with:
@@ -114,12 +120,6 @@ jobs:
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
-
-      - name: Clone drupal_container
-        uses: actions/checkout@v2
-        with:
-          repository: localgovdrupal/drupal-container
-          ref: master
 
       - name: Start Docker environment
         run: docker-compose -f html/docker-compose.yml up -d
