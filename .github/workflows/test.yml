@@ -11,24 +11,16 @@ jobs:
   build:
     name: Install LocalGov Drupal
     runs-on: ubuntu-latest
+      
     steps:
-            
-      - run: |
-          ls -la
-          pwd
 
       - name: Cached workspace
-        id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
           path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
-            
-      - run: |
-          ls -la
-          pwd
-
-      - name: setup PHP
+      
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '7.4'
@@ -38,13 +30,9 @@ jobs:
         with:
           repository: localgovdrupal/drupal-container
           ref: master
-            
-      - run: |
-          ls -la
-          pwd
 
       - name: Create LocalGov Drupal project
-        run: composer create-project --stability dev localgovdrupal/localgov-project html
+        run: composer create-project --stability dev localgovdrupal/localgov-project ./html
 
       - name: Setup package source for the test target
         run: |
@@ -61,67 +49,54 @@ jobs:
 
       - name: Grab test target
         run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
-        
-      - run: |
-          ls -la
-          pwd
+
+      - name: Cache docker-compose.yml
+        run: cp docker-compose.yml html/
 
   phpcs:
     name: Coding standards checks
     needs: build
     runs-on: ubuntu-latest
-    container:
-      image: localgovdrupal/apache-php:php7.4
-
+      
     steps:
-            
-      - run: |
-          ls -la
-          pwd
 
       - name: Cached workspace
-        id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
           path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
-            
-      - run: |
-          ls -la
-          pwd
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
 
       - name: Run coding standards checks
         run: |
           cd html
-          ./bin/phpcs
+          ./bin/phpcs -p
 
   phpstan:
     name: Deprecated code checks
-    needs: phpcs
+    needs: build
     runs-on: ubuntu-latest
-    container:
-      image: localgovdrupal/apache-php:php7.4
 
     steps:
-            
-      - run: |
-          ls -la
-          pwd
 
       - name: Cached workspace
-        id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
-            
-      - run: |
-          ls -la
-          pwd
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
 
       - name: Run deprecated code checks
         run: |
@@ -130,31 +105,25 @@ jobs:
 
   phpunit:
     name: PHPUnit tests
-    needs: phpstan
+    needs: build
     runs-on: ubuntu-latest
-
+    
     steps:
 
       - name: Cached workspace
-        id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
-            
-      - run: |
-          ls -la
-          pwd
 
       - name: Start Docker environment
-        run: docker-compose up
+        run: docker-compose -f html/docker-compose.yml up
 
       - name: Run PHPUnit tests
         run: |
-          cd html
-          mkdir -p web/sites/simpletest
-          chmod 777 web/sites/simpletest
-          sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" phpunit.xml.dist
-          ./bin/paratest --processes=4 --verbose=1
+          docker exec -t drupal bash -c "mkdir -p /var/www/html/web/sites/simpletest && chmod 777 /var/www/html/web/sites/simpletest"
+          docker exec -u docker -t drupal bash -c 'sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" /var/www/html/phpunit.xml.dist'
+          docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/phpunit --testdox"
+          # docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/paratest --processes=4 --verbose=1"
