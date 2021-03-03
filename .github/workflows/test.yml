@@ -115,15 +115,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-localgov-build-
 
+      - name: Clone drupal_container
+        uses: actions/checkout@v2
+        with:
+          repository: localgovdrupal/drupal-container
+          ref: master
+
       - name: Start Docker environment
         run: docker-compose up
 
       - name: Run PHPUnit tests
         run: |
-          chown -R docker:docker html
-          cd html
-          mkdir -p web/sites/simpletest
-          chmod 777 web/sites/simpletest
-          sed -i "s#http://localgov.lndo.site#http://localhost#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" phpunit.xml.dist
-          sudo -E -u docker ./bin/phpunit --testdox
-          #./bin/paratest --processes=4 --verbose=1
+          docker exec -t drupal bash -c "mkdir -p /var/www/html/web/sites/simpletest && chmod 777 /var/www/html/web/sites/simpletest"
+          docker exec -u docker -t drupal bash -c 'sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" /var/www/html/phpunit.xml.dist'
+          docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/phpunit --testdox"
+          # docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/paratest --processes=4 --verbose=1"
