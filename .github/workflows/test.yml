@@ -125,6 +125,9 @@ jobs:
           MINK_DRIVER_ARGS_WEBDRIVER: '["chromedriver", {"browserName":"chrome","chromeOptions":{"args":["--disable-gpu","--headless", "--no-sandbox", "--disable-dev-shm-usage"]}}, "http://chromedriver:9515"]'
           SYMFONY_DEPRECATIONS_HELPER: weak
         run: |
+          sed -i "s#/var/www/html/web#$GITHUB_WORKSPACE/html/web#" /etc/apache2/sites-available/vhost.conf
+          sed -i "s#www-data#docker#" /etc/apache2/envvars
+          service apache2 start
           chown -R docker:docker html
           cd html
           mkdir -p web/sites/simpletest
