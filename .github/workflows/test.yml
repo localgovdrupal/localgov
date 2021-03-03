@@ -120,9 +120,13 @@ jobs:
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
+      
+      - run: |
+          ls -la
+          ls -la html
 
       - name: Start Docker environment
-        run: docker-compose -f html/docker-compose.yml up -d
+        run: docker-compose -f docker-compose.yml up -d
 
       - name: Run PHPUnit tests
         run: |
