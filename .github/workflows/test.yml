@@ -53,7 +53,7 @@ jobs:
         run: echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
 
       - name: Grab test target
-        run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
+        run: composer --working-dir=html --no-cache require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
         
       - run: |
           ls -la
@@ -89,7 +89,7 @@ jobs:
 
   phpstan:
     name: Deprecated code checks
-    needs: phpcs
+    needs: build
     runs-on: ubuntu-latest
     container:
       image: localgovdrupal/apache-php:php7.4
@@ -120,6 +120,15 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: localgovdrupal/apache-php:php7.4
+    
+    services:
+        chrome:
+          image: drupalci/webdriver-chromedriver:production
+          ports:
+            - 4444:4444
+            - 9515:9515
+          options: >-
+            --entrypoint 'chromedriver --log-path=/tmp/chromedriver.log --verbose --whitelisted-ips='
 
     steps:
 
