@@ -129,7 +129,7 @@ jobs:
           cd html
           mkdir -p web/sites/simpletest
           chmod 777 web/sites/simpletest
-          sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" phpunit.xml.dist
+          sed -i "s#http://localgov.lndo.site#http://localhost#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" phpunit.xml.dist
           apt-get update && apt-get install sudo --yes
           sudo -E -u docker ./bin/phpunit --testdox
           #./bin/paratest --processes=4 --verbose=1
