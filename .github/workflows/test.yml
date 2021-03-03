@@ -19,7 +19,7 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: ./html
+          path: ./
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
 
       - name: Clone drupal_container
@@ -59,7 +59,7 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: ./html
+          path: ./
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
@@ -81,7 +81,7 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: ./html
+          path: ./
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
@@ -95,30 +95,30 @@ jobs:
     name: PHPUnit tests
     needs: build
     runs-on: ubuntu-latest
-    container:
-      image: localgovdrupal/apache-php:php7.4
+#     container:
+#       image: localgovdrupal/apache-php:php7.4
     
-    services:
-        chrome:
-          image: drupalci/webdriver-chromedriver:production
-          ports:
-            - 4444:4444
-            - 9515:9515
-          #options: >-
-          #  --entrypoint 'chromedriver --log-path=/tmp/chromedriver.log --verbose --whitelisted-ips='
+#     services:
+#         chrome:
+#           image: drupalci/webdriver-chromedriver:production
+#           ports:
+#             - 4444:4444
+#             - 9515:9515
+#           #options: >-
+#           #  --entrypoint 'chromedriver --log-path=/tmp/chromedriver.log --verbose --whitelisted-ips='
 
     steps:
 
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: ./html
+          path: ./
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
 
-#       - name: Start Docker environment
-#         run: docker-compose up
+      - name: Start Docker environment
+        run: docker-compose up
 
       - name: Run PHPUnit tests
         env:
