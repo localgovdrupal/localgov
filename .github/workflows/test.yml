@@ -17,7 +17,7 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: .
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
       
       - name: Setup PHP
@@ -50,9 +50,6 @@ jobs:
       - name: Grab test target
         run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
 
-      - name: Cache docker-compose.yml
-        run: cp docker-compose.yml html/
-
   phpcs:
     name: Coding standards checks
     needs: build
@@ -63,7 +60,7 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: .
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
@@ -88,7 +85,7 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: .
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
@@ -113,10 +110,16 @@ jobs:
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: .
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
+
+      - name: Clone drupal_container
+        uses: actions/checkout@v2
+        with:
+          repository: localgovdrupal/drupal-container
+          ref: master
 
       - name: Start Docker environment
         run: docker-compose -f html/docker-compose.yml up -d
