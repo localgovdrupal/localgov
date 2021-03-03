@@ -87,7 +87,7 @@ jobs:
           
   phpunit:
     name: PHPUnit tests
-    needs: phpcs
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
