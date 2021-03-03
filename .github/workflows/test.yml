@@ -119,7 +119,7 @@ jobs:
             ${{ runner.os }}-localgov-build-
 
       - name: Start Docker environment
-        run: docker-compose -f html/docker-compose.yml up
+        run: docker-compose -f html/docker-compose.yml up -d
 
       - name: Run PHPUnit tests
         run: |
