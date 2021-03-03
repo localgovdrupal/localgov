@@ -21,14 +21,6 @@ jobs:
         with:
           path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
-          
-      - name: Composer cache 
-        uses: actions/cache@v2
-        with:
-          path: ~/.composer/cache
-          key: ${{ runner.os }}-composer
-          restore-keys: |
-            ${{ runner.os }}-composer
 
       - name: Clone drupal_container
         uses: actions/checkout@v2
@@ -53,7 +45,7 @@ jobs:
         run: echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
 
       - name: Grab test target
-        run: composer --working-dir=html --no-cache require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
+        run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
         
       - run: |
           php -v
@@ -146,8 +138,8 @@ jobs:
           pwd
           ls -la html
 
-      - name: Start Docker environment
-        run: docker-compose up
+#       - name: Start Docker environment
+#         run: docker-compose up
 
       - name: Run PHPUnit tests
         run: |
