@@ -32,7 +32,7 @@ jobs:
           ref: master
 
       - name: Create LocalGov Drupal project
-        run: composer create-project --stability dev localgovdrupal/localgov-project html
+        run: composer create-project --stability dev localgovdrupal/localgov-project ./html
 
       - name: Setup package source for the test target
         run: |
@@ -49,6 +49,9 @@ jobs:
 
       - name: Grab test target
         run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
+
+      - name: Cache docker-compose.yml
+        run: cp docker-compose.yml html/
 
   phpcs:
     name: Coding standards checks
@@ -115,14 +118,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-localgov-build-
 
-      - name: Clone drupal_container
-        uses: actions/checkout@v2
-        with:
-          repository: localgovdrupal/drupal-container
-          ref: master
-
       - name: Start Docker environment
-        run: docker-compose up
+        run: docker-compose -f html/docker-compose.yml up
 
       - name: Run PHPUnit tests
         run: |
