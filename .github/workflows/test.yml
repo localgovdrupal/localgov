@@ -17,11 +17,21 @@ jobs:
     steps:
 
       - name: Cached workspace
-        id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
           path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
+          
+      - name: Composer cache 
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
 
       - name: Clone drupal_container
         uses: actions/checkout@v2
@@ -79,11 +89,11 @@ jobs:
       - name: Run coding standards checks
         run: |
           cd html
-          ./bin/phpcs
+          ./bin/phpcs -p
 
   phpstan:
     name: Deprecated code checks
-    needs: build
+    needs: phpcs
     runs-on: ubuntu-latest
     container:
       image: localgovdrupal/apache-php:php7.4
