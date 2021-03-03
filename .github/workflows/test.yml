@@ -46,12 +46,6 @@ jobs:
 
       - name: Grab test target
         run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
-        
-      - run: |
-          php -v
-          ls -la
-          pwd
-          ls -la html
 
   phpcs:
     name: Coding standards checks
@@ -69,11 +63,6 @@ jobs:
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
-            
-      - run: |
-          ls -la
-          pwd
-          ls -la html
 
       - name: Run coding standards checks
         run: |
@@ -96,11 +85,6 @@ jobs:
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
-            
-      - run: |
-          ls -la
-          pwd
-          ls -la html
 
       - name: Run deprecated code checks
         run: |
@@ -132,19 +116,20 @@ jobs:
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
-            
-      - run: |
-          ls -la
-          pwd
-          ls -la html
 
 #       - name: Start Docker environment
 #         run: docker-compose up
 
       - name: Run PHPUnit tests
+        env:
+          MINK_DRIVER_ARGS_WEBDRIVER: '["chromedriver", {"browserName":"chrome","chromeOptions":{"args":["--disable-gpu","--headless", "--no-sandbox", "--disable-dev-shm-usage"]}}, "http://chromedriver:9515"]'
+          SYMFONY_DEPRECATIONS_HELPER: weak
         run: |
+          chown -R docker:docker html
           cd html
           mkdir -p web/sites/simpletest
           chmod 777 web/sites/simpletest
           sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" phpunit.xml.dist
-          ./bin/paratest --processes=4 --verbose=1
+          apt-get update && apt-get install sudo --yes
+          sudo -E -u docker ./bin/phpunit --testdox
+          #./bin/paratest --processes=4 --verbose=1
