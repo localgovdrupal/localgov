@@ -20,18 +20,15 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./html
-          key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
+          key: ${{ runner.os }}-localgov-build-${{ github.sha }}
           
       - name: Composer cache 
-        id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v2
+        uses: actions/cache@v2
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          path: ~/.composer/cache
+          key: ${{ runner.os }}-composer
           restore-keys: |
-            ${{ runner.os }}-composer-
+            ${{ runner.os }}-composer
 
       - name: Clone drupal_container
         uses: actions/checkout@v2
@@ -73,11 +70,10 @@ jobs:
     steps:
 
       - name: Cached workspace
-        id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
           path: ./html
-          key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
+          key: ${{ runner.os }}-localgov-build-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
             
@@ -101,11 +97,10 @@ jobs:
     steps:
 
       - name: Cached workspace
-        id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}
-          key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
+          key: ${{ runner.os }}-localgov-build-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
             
@@ -129,11 +124,10 @@ jobs:
     steps:
 
       - name: Cached workspace
-        id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}
-          key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
+          key: ${{ runner.os }}-localgov-build-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
             
