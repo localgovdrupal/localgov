@@ -11,11 +11,10 @@ jobs:
   build:
     name: Install LocalGov Drupal
     runs-on: ubuntu-latest
+    container:
+      image: localgovdrupal/apache-php:php7.4
+      
     steps:
-            
-      - run: |
-          ls -la
-          pwd
 
       - name: Cached workspace
         id: cache-localgov-drupal
@@ -23,12 +22,35 @@ jobs:
         with:
           path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
-            
+
+      - name: Clone drupal_container
+        uses: actions/checkout@v2
+        with:
+          repository: localgovdrupal/drupal-container
+          ref: master
+
+      - name: Create LocalGov Drupal project
+        run: composer create-project --stability dev localgovdrupal/localgov-project html
+
+      - name: Setup package source for the test target
+        run: |
+          composer --working-dir=html config repositories.1 vcs git@github.com:${{ github.repository }}.git
+          composer global config github-oauth.github.com ${{ github.token }}
+
+      - name: Extract Git branch name outside of a pull request
+        if: github.event_name != 'pull_request'
+        run: echo "GIT_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+      - name: Extract Git branch name from a pull request
+        if: github.event_name == 'pull_request'
+        run: echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
+
+      - name: Grab test target
+        run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
+        
       - run: |
           ls -la
           pwd
-          mkdir html
-          touch html/test.txt
           ls -la html
 
   phpcs:
@@ -39,10 +61,6 @@ jobs:
       image: localgovdrupal/apache-php:php7.4
 
     steps:
-            
-      - run: |
-          ls -la
-          pwd
 
       - name: Cached workspace
         id: cache-localgov-drupal
@@ -58,6 +76,11 @@ jobs:
           pwd
           ls -la html
 
+      - name: Run coding standards checks
+        run: |
+          cd html
+          ./bin/phpcs
+
   phpstan:
     name: Deprecated code checks
     needs: build
@@ -66,10 +89,6 @@ jobs:
       image: localgovdrupal/apache-php:php7.4
 
     steps:
-            
-      - run: |
-          ls -la
-          pwd
 
       - name: Cached workspace
         id: cache-localgov-drupal
@@ -84,23 +103,26 @@ jobs:
           ls -la
           pwd
           ls -la html
-          
+
+      - name: Run deprecated code checks
+        run: |
+          cd html
+          ./bin/phpstan analyse -c ./phpstan.neon ./web/profiles/contrib/localgov/ ./web/modules/contrib/localgov_*
+
   phpunit:
     name: PHPUnit tests
     needs: build
     runs-on: ubuntu-latest
+    container:
+      image: localgovdrupal/apache-php:php7.4
 
     steps:
-
-      - run: |
-          ls -la
-          pwd
 
       - name: Cached workspace
         id: cache-localgov-drupal
         uses: actions/cache@v2
         with:
-          path: ./html
+          path: ${{ github.workspace }}
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
@@ -109,3 +131,14 @@ jobs:
           ls -la
           pwd
           ls -la html
+
+      - name: Start Docker environment
+        run: docker-compose up
+
+      - name: Run PHPUnit tests
+        run: |
+          cd html
+          mkdir -p web/sites/simpletest
+          chmod 777 web/sites/simpletest
+          sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" phpunit.xml.dist
+          ./bin/paratest --processes=4 --verbose=1
