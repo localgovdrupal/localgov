@@ -11,18 +11,19 @@ jobs:
   build:
     name: Install LocalGov Drupal
     runs-on: ubuntu-latest
-    container:
-      image: localgovdrupal/apache-php:php7.4
       
     steps:
 
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: |
-            ./html
-            ./docker-compose.yml
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
 
       - name: Clone drupal_container
         uses: actions/checkout@v2
@@ -53,20 +54,21 @@ jobs:
     name: Coding standards checks
     needs: build
     runs-on: ubuntu-latest
-    container:
-      image: localgovdrupal/apache-php:php7.4
       
     steps:
 
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: |
-            ./html
-            ./docker-compose.yml
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
 
       - name: Run coding standards checks
         run: |
@@ -77,20 +79,21 @@ jobs:
     name: Deprecated code checks
     needs: build
     runs-on: ubuntu-latest
-    container:
-      image: localgovdrupal/apache-php:php7.4
 
     steps:
 
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: |
-            ./html
-            ./docker-compose.yml
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
 
       - name: Run deprecated code checks
         run: |
@@ -101,26 +104,13 @@ jobs:
     name: PHPUnit tests
     needs: build
     runs-on: ubuntu-latest
-    container:
-      image: localgovdrupal/apache-php:php7.4
     
-#     services:
-#         chromedriver:
-#           image: drupalci/webdriver-chromedriver:production
-#           ports:
-#             - 4444:4444
-#             - 9515:9515
-#           #options: >-
-#           #  --entrypoint 'chromedriver --log-path=/tmp/chromedriver.log --verbose --whitelisted-ips='
-
     steps:
 
       - name: Cached workspace
         uses: actions/cache@v2
         with:
-          path: |
-            ./html
-            ./docker-compose.yml
+          path: ./html
           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-localgov-build-
@@ -129,18 +119,11 @@ jobs:
         run: docker-compose up
 
       - name: Run PHPUnit tests
-        env:
-          MINK_DRIVER_ARGS_WEBDRIVER: '["chromedriver", {"browserName":"chrome","chromeOptions":{"args":["--disable-gpu","--headless", "--no-sandbox", "--disable-dev-shm-usage"]}}, "http://chromedriver:9515"]'
-          SYMFONY_DEPRECATIONS_HELPER: weak
         run: |
-          sed -i "s#/var/www/html/web#$GITHUB_WORKSPACE/html/web#" /etc/apache2/sites-available/vhost.conf
-          sed -i "s#www-data#docker#" /etc/apache2/envvars
-          service apache2 start
           chown -R docker:docker html
           cd html
           mkdir -p web/sites/simpletest
           chmod 777 web/sites/simpletest
           sed -i "s#http://localgov.lndo.site#http://localhost#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" phpunit.xml.dist
-          apt-get update && apt-get install sudo --yes
           sudo -E -u docker ./bin/phpunit --testdox
           #./bin/paratest --processes=4 --verbose=1
