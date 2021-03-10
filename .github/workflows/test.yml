@@ -50,9 +50,6 @@ jobs:
       - name: Grab test target
         run: composer --working-dir=html require ${{ github.repository }}:"dev-${GIT_BRANCH} as 1.0.x-dev"
 
-      - name: Cache docker-compose.yml
-        run: cp docker-compose.yml html/
-
   phpcs:
     name: Coding standards checks
     needs: build
@@ -110,6 +107,12 @@ jobs:
     
     steps:
 
+      - name: Clone drupal_container
+        uses: actions/checkout@v2
+        with:
+          repository: localgovdrupal/drupal-container
+          ref: master
+
       - name: Cached workspace
         uses: actions/cache@v2
         with:
@@ -119,11 +122,13 @@ jobs:
             ${{ runner.os }}-localgov-build-
 
       - name: Start Docker environment
-        run: docker-compose -f html/docker-compose.yml up
+        run: docker-compose -f docker-compose.yml up -d
 
       - name: Run PHPUnit tests
         run: |
-          docker exec -t drupal bash -c "mkdir -p /var/www/html/web/sites/simpletest && chmod 777 /var/www/html/web/sites/simpletest"
+          docker exec -t drupal bash -c 'chown docker:docker -R /var/www/html'
+          docker exec -t drupal bash -c 'mkdir -p /var/www/html/web/sites/simpletest && chmod 777 /var/www/html/web/sites/simpletest'
           docker exec -u docker -t drupal bash -c 'sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" /var/www/html/phpunit.xml.dist'
+          docker exec -t drupal bash -c 'ps aux'
           docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/phpunit --testdox"
           # docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/paratest --processes=4 --verbose=1"
