@@ -26,7 +26,7 @@
         "localgovdrupal/localgov_paragraphs": "dev-feature/16-duplicate-height-key as dev-master",
         "localgovdrupal/localgov_services": "dev-feature/97-drupal-9 as dev-master",
         "localgovdrupal/localgov_step_by_step": "^1.0@alpha",
-        "localgovdrupal/localgov_subsites": "dev-master",
+        "localgovdrupal/localgov_subsites": "feature/20-drupal-9 as dev-master",
         "localgovdrupal/localgov_theme": "^1.0@alpha"
     },
     "require-dev": {
