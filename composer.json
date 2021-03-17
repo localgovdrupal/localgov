@@ -13,7 +13,7 @@
     "require": {
         "drupal/admin_toolbar": "^2.2",
         "drupal/core": "^8.9",
-        "drupal/devel": "^2.1",
+        "drupal/devel": "^4.1",
         "drupal/simple_sitemap": "^3.7",
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "^1.0@alpha",
