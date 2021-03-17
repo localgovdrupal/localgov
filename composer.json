@@ -24,7 +24,7 @@
         "localgovdrupal/localgov_guides": "^1.0@alpha",
         "localgovdrupal/localgov_menu_link_group": "^1.0@alpha",
         "localgovdrupal/localgov_paragraphs": "dev-master",
-        "localgovdrupal/localgov_services": "^1.0@alpha",
+        "localgovdrupal/localgov_services": "dev-feature/97-drupal-9 as dev-master",
         "localgovdrupal/localgov_step_by_step": "^1.0@alpha",
         "localgovdrupal/localgov_subsites": "dev-master",
         "localgovdrupal/localgov_theme": "^1.0@alpha"
