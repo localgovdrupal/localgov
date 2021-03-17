@@ -23,7 +23,7 @@
         "localgovdrupal/localgov_events": "dev-feature/24-drupal-9",
         "localgovdrupal/localgov_guides": "^1.0@alpha",
         "localgovdrupal/localgov_menu_link_group": "^1.0@alpha",
-        "localgovdrupal/localgov_paragraphs": "^1.0@alpha",
+        "localgovdrupal/localgov_paragraphs": "dev-feature/16-duplicate-height-key as 1.0@alpha",
         "localgovdrupal/localgov_services": "^1.0@alpha",
         "localgovdrupal/localgov_step_by_step": "^1.0@alpha",
         "localgovdrupal/localgov_theme": "^1.0@alpha"
