@@ -21,7 +21,7 @@
         "localgovdrupal/localgov_campaigns": "^1.0@alpha",
         "localgovdrupal/localgov_demo": "^1.0@alpha",
         "localgovdrupal/localgov_directories": "^1.0@alpha",
-        "localgovdrupal/localgov_events": "^1.0@alpha",
+        "localgovdrupal/localgov_events": "dev-feature/24-drupal-9",
         "localgovdrupal/localgov_guides": "^1.0@alpha",
         "localgovdrupal/localgov_menu_link_group": "^1.0@alpha",
         "localgovdrupal/localgov_paragraphs": "^1.0@alpha",
