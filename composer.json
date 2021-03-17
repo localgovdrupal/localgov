@@ -12,7 +12,7 @@
     ],
     "require": {
         "drupal/admin_toolbar": "^2.2",
-        "drupal/core": "^8.9",
+        "drupal/core": "^9.1",
         "drupal/devel": "^4.1",
         "drupal/simple_sitemap": "^3.7",
         "drush/drush": ">=10",
@@ -30,7 +30,7 @@
         "localgovdrupal/localgov_theme": "^1.0@alpha"
     },
     "require-dev": {
-        "drupal/core-dev": "^8.9"
+        "drupal/core-dev": "^9.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -45,7 +45,7 @@
       },
       "patches": {
         "drupal/core": {
-          "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-05-28/3092181-87-89x.patch"
+          "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-12-08/3092181-142-9X_0.patch"
         }
       }
     }
