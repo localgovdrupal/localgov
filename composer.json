@@ -18,7 +18,6 @@
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "^1.0@alpha",
         "localgovdrupal/localgov_core": "^1.0@alpha",
-        "localgovdrupal/localgov_campaigns": "^1.0@alpha",
         "localgovdrupal/localgov_demo": "^1.0@alpha",
         "localgovdrupal/localgov_directories": "^1.0@alpha",
         "localgovdrupal/localgov_events": "dev-feature/24-drupal-9",
