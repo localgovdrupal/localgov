@@ -23,9 +23,8 @@
         "localgovdrupal/localgov_events": "^1.0@alpha",
         "localgovdrupal/localgov_guides": "^1.0@alpha",
         "localgovdrupal/localgov_menu_link_group": "^1.0@alpha",
-	"localgovdrupal/localgov_page_components": "dev-fix/8-field-rename",
         "localgovdrupal/localgov_paragraphs": "^1.0@alpha",
-        "localgovdrupal/localgov_services": "dev-fix/75-rename-fields",
+        "localgovdrupal/localgov_services": "dev-fix/75a-rename-fields",
         "localgovdrupal/localgov_step_by_step": "^1.0@alpha",
         "localgovdrupal/localgov_subsites": "^1.0@alpha",
         "localgovdrupal/localgov_theme": "dev-fix/152-renamed-fields"
