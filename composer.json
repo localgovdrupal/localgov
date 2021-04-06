@@ -17,7 +17,7 @@
         "drupal/simple_sitemap": "^3.7",
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "^1.0@alpha",
-        "localgovdrupal/localgov_core": "dev-fix/35-rename-fields as 1.0.0-alpha3",
+        "localgovdrupal/localgov_core": "dev-fix/35-rename-fields as 1.0.0-alpha2",
         "localgovdrupal/localgov_demo": "^1.0@alpha",
         "localgovdrupal/localgov_directories": "^1.0@alpha",
         "localgovdrupal/localgov_events": "^1.0@alpha",
