@@ -28,16 +28,16 @@ class LocalGovProfileTest extends BrowserTestBase {
       $this->fail('Uninstalled localgov_core module.');
     }
     catch (ModuleUninstallValidatorException $e) {
-      $this->assertContains('module is required', $e->getMessage());
+      $this->assertStringContainsString('module is required', $e->getMessage());
     }
 
     // Test front page loads after site install.
     $this->drupalGet('<front>');
-    $this->assertResponse(Response::HTTP_OK);
+    $this->assertSession()->statusCodeEquals(Response::HTTP_OK);
 
     // Admin pages are not accessible to anonymous users.
     $this->drupalGet('admin');
-    $this->assertResponse(Response::HTTP_FORBIDDEN);
+    $this->assertSession()->statusCodeEquals(Response::HTTP_FORBIDDEN);
 
     // Admin pages are accessible to administrators.
     $adminUser = $this->createUser([
@@ -45,7 +45,7 @@ class LocalGovProfileTest extends BrowserTestBase {
     ]);
     $this->drupalLogin($adminUser);
     $this->drupalGet('admin');
-    $this->assertResponse(Response::HTTP_OK);
+    $this->assertSession()->statusCodeEquals(Response::HTTP_OK);
   }
 
 }
