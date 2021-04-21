@@ -132,3 +132,4 @@ jobs:
           docker exec -t drupal bash -c 'ps aux'
           docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/phpunit --testdox"
           # docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/paratest --processes=4 --verbose=1"
+
