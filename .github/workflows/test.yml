@@ -126,6 +126,8 @@ jobs:
 
       - name: Run PHPUnit tests
         run: |
+          ls -al
+          ls -al ./html
           docker exec -t drupal bash -c 'mkdir -p ./html/web/sites/simpletest && chmod 777 ./html/web/sites/simpletest'
           docker exec -t drupal bash -c 'chown docker:docker -R ./html'
           docker exec -u docker -t drupal bash -c 'sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" ./html/phpunit.xml.dist'
