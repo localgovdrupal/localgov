@@ -126,9 +126,8 @@ jobs:
 
       - name: Run PHPUnit tests
         run: |
+          mkdir -p ./html/web/sites/simpletest && chmod 777 ./html/web/sites/simpletest
+          sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost/dev/shm/test.sqlite#" ./html/phpunit.xml.dist
           docker exec -t drupal bash -c 'chown docker:docker -R /var/www/html'
-          docker exec -t drupal bash -c 'mkdir -p /var/www/html/web/sites/simpletest && chmod 777 /var/www/html/web/sites/simpletest'
-          docker exec -u docker -t drupal bash -c 'sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" /var/www/html/phpunit.xml.dist'
-          docker exec -t drupal bash -c 'ps aux'
-          docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/phpunit --testdox"
-          # docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/paratest --processes=4 --verbose=1"
+          # docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/phpunit --testdox"
+          docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/paratest --processes=4"
