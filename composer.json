@@ -12,8 +12,8 @@
     ],
     "require": {
         "drupal/admin_toolbar": "^2.2",
-        "drupal/core": "^8.9",
-        "drupal/devel": "^2.1",
+        "drupal/core": "^8.9||^9.1",
+        "drupal/devel": "^4.1",
         "drupal/simple_sitemap": "^3.7",
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "^1.0@alpha",
@@ -30,7 +30,7 @@
         "localgovdrupal/localgov_theme": "^1.0@alpha"
     },
     "require-dev": {
-        "drupal/core-dev": "^8.9"
+        "drupal/core-dev": "^8.9||^9.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -45,7 +45,6 @@
       },
       "patches": {
         "drupal/core": {
-          "Fix to system.module to avoid breaking tests in PHP 7.4 - see https://www.drupal.org/project/drupal/issues/3191012": "https://www.drupal.org/files/issues/2021-01-05/fix-php74-tests-3191012-2.patch",
           "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-05-28/3092181-87-89x.patch"
         }
       }
