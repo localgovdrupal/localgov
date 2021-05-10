@@ -17,11 +17,11 @@ class LocalGovProfileTest extends BrowserTestBase {
   protected $profile = 'localgov';
 
   /**
-   * Test core modules enabled and uninstallable.
+   * Test localgov profile was installed and basic site functions.
    */
   public function testLocalGovDrupalProfile() {
 
-    // Test core modules enabled and uninstallable.
+    // Test localgov_core module is enabled and is not uninstallable.
     $this->assertTrue($this->container->get('module_handler')->moduleExists('localgov_core'));
     try {
       $this->container->get('module_installer')->uninstall(['localgov_core']);
@@ -30,6 +30,9 @@ class LocalGovProfileTest extends BrowserTestBase {
     catch (ModuleUninstallValidatorException $e) {
       $this->assertContains('module is required', $e->getMessage());
     }
+
+    // Test localgov_core:localgov_roles submodule is enabled.
+    $this->assertTrue($this->container->get('module_handler')->moduleExists('localgov_roles'));
 
     // Test front page loads after site install.
     $this->drupalGet('<front>');
