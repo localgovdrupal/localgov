@@ -32,7 +32,7 @@ jobs:
           ref: master
 
       - name: Create LocalGov Drupal project
-        run: composer create-project --stability dev localgovdrupal/localgov-project ./html
+        run: composer create-project --stability dev localgovdrupal/localgov-project ./html "2.x"
 
       - name: Save git branch and git repo names to env if this is not a pull request
         if: github.event_name != 'pull_request'
