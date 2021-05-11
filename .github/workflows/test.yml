@@ -13,17 +13,14 @@ jobs:
   build:
     name: Install LocalGov Drupal
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - php-version: "7.4"
+            drupal-version: "~9.1"
+            localgov-version: "2.x"
 
     steps:
-
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-          echo ${{ github.event.pull_request.title }}
-          echo "$GITHUB_BASE_REF"
-          echo "$GITHUB_HEAD_REF"
           
       - name: Save git branch and git repo names to env if this is not a pull request
         if: github.event_name != 'pull_request'
@@ -39,5 +36,121 @@ jobs:
           echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
           echo "GIT_REPO=${{ github.event.pull_request.head.repo.full_name }}" >> $GITHUB_ENV
           
-      - run: |
-          echo "$GITHUB_ENV"
+      - name: Cached workspace
+        uses: actions/cache@v2
+        with:
+          path: ./html
+          key: localgov-build-${{ matrix.php-version }}-${{ matrix.drupal-version }}-${{ matrix.localgov-version }}-${{ github.run_id }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - name: Clone drupal_container
+        uses: actions/checkout@v2
+        with:
+          repository: localgovdrupal/drupal-container
+          ref: master
+
+      - name: Create LocalGov Drupal project
+        run: |
+          composer create-project --stability dev --no-install localgovdrupal/localgov-project ./html "${{ matrix.localgov-version }}"
+          composer require --no-install drupal/core-recommended:${{ matrix.drupal-version }} drupal/core-composer-scaffold:${{ matrix.drupal-version }} drupal/core-project-message:${{ matrix.drupal-version }} drupal/core-dev:${{ matrix.drupal-version }}
+          composer install
+      
+      - name: Setup package source and authentication for the test target
+        run: |
+          composer --working-dir=html config repositories.1 vcs git@github.com:${GIT_REPO}.git
+          composer global config github-oauth.github.com ${{ github.token }}
+
+      - name: Obtain the test target from the repo that triggered this workflow
+        run: composer --working-dir=html require --with-all-dependencies localgovdrupal/${{ github.event.repository.name }}:"dev-${GIT_BRANCH} as ${GIT_BASE}-dev"
+
+  phpcs:
+    name: Coding standards checks
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - php-version: "7.4"
+            drupal-version: "~9.1"
+            localgov-version: "2.x"
+
+    steps:
+
+      - name: Cached workspace
+        uses: actions/cache@v2
+        with:
+          path: ./html
+          key: localgov-build-${{ matrix.php-version }}-${{ matrix.drupal-version }}-${{ matrix.localgov-version }}-${{ github.run_id }}
+          restore-keys: |
+            localgov-build-${{ matrix.php-version }}-${{ matrix.drupal-version }}-${{ matrix.localgov-version }}-
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - name: Run coding standards checks
+        run: |
+          cd html
+          ./bin/phpcs -p
+
+#   phpstan:
+#     name: Deprecated code checks
+#     needs: build
+#     runs-on: ubuntu-latest
+
+#     steps:
+
+#       - name: Cached workspace
+#         uses: actions/cache@v2
+#         with:
+#           path: ./html
+#           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
+#           restore-keys: |
+#             ${{ runner.os }}-localgov-build-
+
+#       - name: Setup PHP
+#         uses: shivammathur/setup-php@v2
+#         with:
+#           php-version: '7.4'
+
+#       - name: Run deprecated code checks
+#         run: |
+#           cd html
+#           ./bin/phpstan analyse -c ./phpstan.neon ./web/profiles/contrib/localgov/ ./web/modules/contrib/localgov_*
+
+#   phpunit:
+#     name: PHPUnit tests
+#     needs: build
+#     runs-on: ubuntu-latest
+
+#     steps:
+
+#       - name: Clone drupal_container
+#         uses: actions/checkout@v2
+#         with:
+#           repository: localgovdrupal/drupal-container
+#           ref: master
+
+#       - name: Cached workspace
+#         uses: actions/cache@v2
+#         with:
+#           path: ./html
+#           key: ${{ runner.os }}-localgov-build-${{ github.run_id }}
+#           restore-keys: |
+#             ${{ runner.os }}-localgov-build-
+
+#       - name: Start Docker environment
+#         run: docker-compose -f docker-compose.yml up -d
+
+#       - name: Run PHPUnit tests
+#         run: |
+#           mkdir -p ./html/web/sites/simpletest && chmod 777 ./html/web/sites/simpletest
+#           sed -i "s#http://localgov.lndo.site#http://drupal#; s#mysql://database:database@database/database#sqlite://localhost//dev/shm/test.sqlite#" ./html/phpunit.xml.dist
+#           docker exec -t drupal bash -c 'chown docker:docker -R /var/www/html'
+#           # docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/phpunit --testdox"
+#           docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/paratest --processes=4"
