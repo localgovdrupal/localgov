@@ -27,15 +27,14 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     $this->runUpdates();
     $this->rebuildContainer();
 
-    // Test content is okay after update.
     // Test Service landing page: Adult health and social care.
     $this->drupalGet('/adult-health-and-social-care');
     $this->assertSession()->elementTextContains('css', 'header h1', 'Adult health and social care');
     $this->assertSession()->elementTextContains('css', 'header p', 'Advice and support for adult health and social care');
     $this->assertSession()->elementTextContains('css', '.block-localgov-service-cta-block nav', 'Find out about meals on wheels');
     $this->assertSession()->elementTextContains('css', '.block-localgov-service-cta-block nav', 'Request help for an adult');
-    $this->assertSession()->elementTextContains('css', 'main .servicehub--more h3', 'Travel passes and support');
-    $this->assertSession()->elementTextContains('css', 'main .servicehub--more p', 'Blue Badges, Freedom Passes for older or disabled people, London Taxicards and other travel support.');
+    $this->assertSession()->elementTextContains('css', 'main .servicehub--more h3', 'Support in your home');
+    $this->assertSession()->elementTextContains('css', 'main .servicehub--more p', 'Support and equipment to help you live independently and safely.');
     $this->assertSession()->elementTextContains('css', 'main .servicehub--status h3', 'Service updates');
     $this->assertSession()->elementTextContains('css', 'main .servicehub--update_inner', 'Adult social care service is working normally');
     $this->assertSession()->elementTextContains('css', 'main .contact-container h2', 'Contact this service');
@@ -53,7 +52,6 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     $this->assertSession()->elementTextContains('css', 'header h1', 'Another service landing page');
     $this->assertSession()->elementTextContains('css', 'header p', 'Morbi porta tortor ac felis placerat, nec sodales justo tincidunt.');
     $this->assertSession()->elementTextContains('css', 'main article h2', 'Child pages');
-    $this->assertSession()->elementTextContains('css', 'main article h3', 'Service page');
     $this->assertSession()->elementTextContains('css', 'main article', 'Example external link');
 
     // Test Service page: Occupational Therapy and equipment.
@@ -82,16 +80,13 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     $this->assertSession()->elementTextContains('css', 'header h1', 'Blue Badges');
     $this->assertSession()->elementTextContains('css', '.block-localgov-guides nav', 'About Blue Badges');
     $this->assertSession()->elementTextContains('css', '.block-localgov-guides nav', 'Blue Badges for organisations');
-    $this->assertSession()->elementTextContains('css', '.block-localgov-guides nav', 'Apply for a Blue Badge');
-    $this->assertSession()->elementTextContains('css', '.block-localgov-guides nav', 'Blue Badge fraud');
-    $this->assertSession()->elementTextContains('css', '.block-localgov-guides nav', 'Report changes, lost or stolen badges');
-    $this->assertSession()->elementTextContains('css', '.block-localgov-guides nav', 'Who is eligible for a Blue Badge');
     $this->assertSession()->elementTextContains('css', 'main article h2', 'Overview');
     $this->assertSession()->elementTextContains('css', 'main article p', 'Blue Badges give disabled people who rely on car travel, but face challenges in getting from the car to their destination, the ability to park close-by.');
     $this->assertSession()->elementTextContains('css', '.localgov_guides--navigation a', 'Next');
 
-    // Test Guide page: Apply for a blue badge.
-    $this->drupalGet('/travel-passes-and-support/blue-badges/apply-blue-badge');
+    // // Test Guide page: Apply for a blue badge.
+    // $this->drupalGet('/adult-health-and-social-care/travel-passes-and-support/blue-badges/apply-blue-badge');
+    $this->clicklink('Apply for a Blue Badge');
     $this->assertSession()->elementTextContains('css', 'header h1', 'Blue Badges');
     $this->assertSession()->elementTextContains('css', '.block-localgov-guides nav', 'About Blue Badges');
     $this->assertSession()->elementTextContains('css', '.block-localgov-guides nav', 'Blue Badges for organisations');
@@ -122,6 +117,47 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     $this->assertSession()->elementTextContains('css', 'aside .step-list', 'Contact the support team');
     $this->assertSession()->elementTextContains('css', 'aside .step-list', 'Apply for financial support');
     $this->assertSession()->elementTextContains('css', 'aside .step-list', 'Choosing how to manage your care');
+
+    // Test Event page: LocalGovDrupal Product Group meetup.
+    $this->drupalGet('/events/localgovdrupal-product-group-meetup');
+    $this->assertSession()->elementTextContains('css', 'header h1', 'LocalGovDrupal Product Group meetup');
+    $this->assertSession()->elementTextContains('css', 'main', 'Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.');
+
+    // Test Subsite overview: A test subsite to demo all the components.
+    $this->drupalGet('/test-subsite-demo-all-components');
+    $this->assertSession()->elementTextContains('css', 'main article .paragraph--type--localgov-media-with-text h2', 'Test');
+    $this->assertSession()->elementTextContains('css', 'main article .paragraph--type--localgov-media-with-text', 'Nulla porttitor accumsan tincidunt.');
+    $this->assertSession()->elementTextContains('css', 'main article .paragraph--type--localgov-text', 'Donec sollicitudin molestie malesuada.');
+    $this->assertSession()->elementTextContains('css', 'main article', 'This is the test service IA block');
+
+    // Test Subsite page: Example page with a table.
+    $this->drupalGet('/test-subsite-demo-all-components/example-page-table');
+    $this->assertSession()->elementTextContains('css', 'main article h2', 'Example page with a table');
+    $this->assertSession()->elementTextContains('css', 'main article .paragraph--type--localgov-table', 'This is a minimal table');
+    $this->assertSession()->elementTextContains('css', 'main article .layout__region--first', 'Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh. Proin eget tortor risus.');
+    $this->assertSession()->elementTextContains('css', 'main article .layout__region--second', 'Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh. Proin eget tortor risus.');
+    $this->assertSession()->elementTextContains('css', 'main article .layout__region--bottom', 'This is some example tabs');
+
+    // Test Subsite page: Example page with a video.
+    $this->drupalGet('/test-subsite-demo-all-components/video-page-key-contact');
+    $this->assertSession()->elementTextContains('css', 'main article h2', 'A video page, with a key contact');
+
+    // Test Directory venue: LocalGov Drupal Collaborators.
+    $this->drupalGet('/localgov-drupal-collaborators');
+    $this->assertSession()->elementTextContains('css', 'header h1', 'LocalGov Drupal Collaborators');
+    $this->assertSession()->elementTextContains('css', 'main', 'Explore the contributors and adopters in this directory.');
+
+    // Test Directory venue: Agile Collective.
+    $this->drupalGet('/localgov-drupal-collaborators/agile-collective');
+    $this->assertSession()->elementTextContains('css', 'header h1', 'Agile Collective');
+    $this->assertSession()->elementTextContains('css', 'main article', 'Agile Collective is a worker-owned agency that designs, builds and supports websites for purpose-driven organisations.');
+    $this->assertSession()->elementTextContains('css', 'main article', 'Oxford');
+
+    // Test Directory page: Citizens Advice.
+    $this->drupalGet('adult-health-and-social-care/money-employment-and-training-directory/citizens-advice');
+    $this->assertSession()->elementTextContains('css', 'header h1', 'Citizens Advice');
+    $this->assertSession()->elementTextContains('css', 'main article', 'Help and advice on a range of issues, including:');
+    $this->assertSession()->elementTextContains('css', 'main article', '555 111 222 333');
   }
 
 }
