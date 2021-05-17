@@ -19,7 +19,7 @@ jobs:
         include:
           - localgov-version: "2.x"
             drupal-version: "~9.1"
-            php-version: "8.0"
+            php-version: "7.4"
 
     steps:
 
@@ -55,7 +55,7 @@ jobs:
 
       - name: Create LocalGov Drupal project
         run: |
-          composer create-project --stability dev --no-install localgovdrupal/localgov-project ./html "feature/38-drupal-9"
+          composer create-project --stability dev --no-install localgovdrupal/localgov-project ./html "dev-feature/38-drupal-9"
           composer require --no-install drupal/core-recommended:${{ matrix.drupal-version }} drupal/core-composer-scaffold:${{ matrix.drupal-version }} drupal/core-project-message:${{ matrix.drupal-version }} drupal/core-dev:${{ matrix.drupal-version }}
           composer install
 
@@ -76,7 +76,7 @@ jobs:
         include:
           - localgov-version: "2.x"
             drupal-version: "~9.1"
-            php-version: "8.0"
+            php-version: "7.4"
 
     steps:
 
@@ -107,7 +107,7 @@ jobs:
         include:
           - localgov-version: "2.x"
             drupal-version: "~9.1"
-            php-version: "8.0"
+            php-version: "7.4"
 
     steps:
 
@@ -139,7 +139,7 @@ jobs:
         include:
           - localgov-version: "2.x"
             drupal-version: "~9.1"
-            php-version: "8.0"
+            php-version: "7.4"
 
     steps:
 
