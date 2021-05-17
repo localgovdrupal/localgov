@@ -19,7 +19,7 @@ jobs:
         include:
           - localgov-version: "2.x"
             drupal-version: "~9.1"
-            php-version: "7.4"
+            php-version: "8.0"
 
     steps:
 
@@ -76,7 +76,7 @@ jobs:
         include:
           - localgov-version: "2.x"
             drupal-version: "~9.1"
-            php-version: "7.4"
+            php-version: "8.0"
 
     steps:
 
@@ -107,7 +107,7 @@ jobs:
         include:
           - localgov-version: "2.x"
             drupal-version: "~9.1"
-            php-version: "7.4"
+            php-version: "8.0"
 
     steps:
 
@@ -139,7 +139,7 @@ jobs:
         include:
           - localgov-version: "2.x"
             drupal-version: "~9.1"
-            php-version: "7.4"
+            php-version: "8.0"
 
     steps:
 
