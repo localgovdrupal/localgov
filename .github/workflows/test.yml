@@ -53,7 +53,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: localgovdrupal/drupal-container
-          ref: master
+          ref: php${{ matrix.php-version }}
 
       - name: Create LocalGov Drupal project
         run: |
