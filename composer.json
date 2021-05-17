@@ -44,9 +44,7 @@
         "drupal/core": "-p2"
       },
       "patches": {
-        "drupal/core": {
-          "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-05-28/3092181-87-89x.patch"
-        }
+          "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-12-08/3092181-142-9X_0.patch"
       }
     }
 }
