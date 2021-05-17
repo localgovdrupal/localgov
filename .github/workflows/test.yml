@@ -29,6 +29,7 @@ jobs:
           echo "GIT_BASE=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
           echo "GIT_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
           echo "GIT_REPO=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
+          
       - name: Save git branch and git repo names to env if this is a pull request
         if: github.event_name == 'pull_request'
         run: |
@@ -55,14 +56,13 @@ jobs:
 
       - name: Create LocalGov Drupal project
         run: |
-          composer create-project --stability dev --no-install localgovdrupal/localgov-project ./html "dev-feature/38-drupal-9"
-          composer require --no-install drupal/core-recommended:${{ matrix.drupal-version }} drupal/core-composer-scaffold:${{ matrix.drupal-version }} drupal/core-project-message:${{ matrix.drupal-version }} drupal/core-dev:${{ matrix.drupal-version }}
-          composer install
+          composer create-project --stability dev localgovdrupal/localgov-project ./html "dev-feature/38-drupal-9"
 
       - name: Setup package source and authentication for the test target
         run: |
           composer --working-dir=html config repositories.1 vcs git@github.com:${GIT_REPO}.git
           composer global config github-oauth.github.com ${{ github.token }}
+          
       - name: Obtain the test target from the repo that triggered this workflow
         run: composer --working-dir=html require --with-all-dependencies localgovdrupal/${{ github.event.repository.name }}:"dev-${GIT_BRANCH} as ${GIT_BASE%'.x'}"
 
@@ -87,6 +87,7 @@ jobs:
           key: localgov-build-${{ matrix.localgov-version }}-${{ matrix.drupal-version }}-${{ matrix.php-version }}-${{ github.run_id }}
           restore-keys: |
             localgov-build-${{ matrix.localgov-version }}-${{ matrix.drupal-version }}-${{ matrix.php-version }}-
+            
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
