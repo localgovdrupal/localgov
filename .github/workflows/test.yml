@@ -37,6 +37,14 @@ jobs:
           echo "GIT_BASE=${GITHUB_BASE_REF}" >> $GITHUB_ENV
           echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
           echo "GIT_REPO=${{ github.event.pull_request.head.repo.full_name }}" >> $GITHUB_ENV
+          
+      - name: Set composer branch reference for version branches
+        if: endsWith(github.ref, '.x')
+        run: echo "COMPOSER_REF=${GIT_BRANCH}-dev" >> $GITHUB_ENV
+
+      - name: Set composer branch reference for non-version branches
+        if: endsWith(github.ref, '.x') == false
+        run: echo "COMPOSER_REF=dev-${GIT_BRANCH}" >> $GITHUB_ENV
 
       - name: Cached workspace
         uses: actions/cache@v2
@@ -67,7 +75,7 @@ jobs:
           composer global config github-oauth.github.com ${{ github.token }}
 
       - name: Obtain the test target from the repo that triggered this workflow
-        run: composer --working-dir=html require --with-all-dependencies localgovdrupal/${{ github.event.repository.name }}:"dev-${GIT_BRANCH} as ${GIT_BASE%'.x'}"
+        run: composer --working-dir=html require --with-all-dependencies localgovdrupal/${{ github.event.repository.name }}:"${COMPOSER_REF} as ${GIT_BASE%'.x'}"
 
   phpcs:
     name: Coding standards checks
