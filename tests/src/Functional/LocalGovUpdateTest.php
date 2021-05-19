@@ -118,11 +118,6 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     $this->assertSession()->elementTextContains('css', 'aside .step-list', 'Apply for financial support');
     $this->assertSession()->elementTextContains('css', 'aside .step-list', 'Choosing how to manage your care');
 
-    // Test Event page: LocalGovDrupal Product Group meetup.
-    $this->drupalGet('/events/localgovdrupal-product-group-meetup');
-    $this->assertSession()->elementTextContains('css', 'header h1', 'LocalGovDrupal Product Group meetup');
-    $this->assertSession()->elementTextContains('css', 'main', 'Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.');
-
     // Test Subsite overview: A test subsite to demo all the components.
     $this->drupalGet('/test-subsite-demo-all-components');
     $this->assertSession()->elementTextContains('css', 'main article .paragraph--type--localgov-media-with-text h2', 'Test');
@@ -141,23 +136,6 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     // Test Subsite page: Example page with a video.
     $this->drupalGet('/test-subsite-demo-all-components/video-page-key-contact');
     $this->assertSession()->elementTextContains('css', 'main article h2', 'A video page, with a key contact');
-
-    // Test Directory venue: LocalGov Drupal Collaborators.
-    $this->drupalGet('/localgov-drupal-collaborators');
-    $this->assertSession()->elementTextContains('css', 'header h1', 'LocalGov Drupal Collaborators');
-    $this->assertSession()->elementTextContains('css', 'main', 'Explore the contributors and adopters in this directory.');
-
-    // Test Directory venue: Agile Collective.
-    $this->drupalGet('/localgov-drupal-collaborators/agile-collective');
-    $this->assertSession()->elementTextContains('css', 'header h1', 'Agile Collective');
-    $this->assertSession()->elementTextContains('css', 'main article', 'Agile Collective is a worker-owned agency that designs, builds and supports websites for purpose-driven organisations.');
-    $this->assertSession()->elementTextContains('css', 'main article', 'Oxford');
-
-    // Test Directory page: Citizens Advice.
-    $this->drupalGet('adult-health-and-social-care/money-employment-and-training-directory/citizens-advice');
-    $this->assertSession()->elementTextContains('css', 'header h1', 'Citizens Advice');
-    $this->assertSession()->elementTextContains('css', 'main article', 'Help and advice on a range of issues, including:');
-    $this->assertSession()->elementTextContains('css', 'main article', '555 111 222 333');
   }
 
 }
