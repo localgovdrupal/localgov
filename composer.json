@@ -44,9 +44,10 @@
         "drupal/core": "-p2"
       },
       "patches": {
-        "drupal/core": {
-          "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-05-28/3092181-87-89x.patch"
-        }
+          "drupal/core": {
+              "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-12-08/3092181-142-9X_0.patch",
+	      "Fix for narrow forms on node/add screens, which is included in 9.2. See https://www.drupal.org/project/drupal/issues/3184667": "https://www.drupal.org/files/issues/2021-04-16/3184667.26.patch"
+          }
       }
     }
 }
