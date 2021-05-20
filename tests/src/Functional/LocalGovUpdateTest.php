@@ -120,9 +120,9 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
 
     // Test Subsite overview: A test subsite to demo all the components.
     $this->drupalGet('/test-subsite-demo-all-components');
-    $this->assertSession()->elementTextContains('css', 'main article .paragraph--type--localgov-media-with-text h2', 'Test');
-    $this->assertSession()->elementTextContains('css', 'main article .paragraph--type--localgov-media-with-text', 'Nulla porttitor accumsan tincidunt.');
-    $this->assertSession()->elementTextContains('css', 'main article .paragraph--type--localgov-text', 'Donec sollicitudin molestie malesuada.');
+    $this->assertSession()->elementTextContains('css', 'main article h2', 'Test');
+    $this->assertSession()->elementTextContains('css', 'main article', 'Nulla porttitor accumsan tincidunt.');
+    $this->assertSession()->elementTextContains('css', 'main article', 'Donec sollicitudin molestie malesuada.');
     $this->assertSession()->elementTextContains('css', 'main article', 'This is the test service IA block');
 
     // Test Subsite page: Example page with a table.
