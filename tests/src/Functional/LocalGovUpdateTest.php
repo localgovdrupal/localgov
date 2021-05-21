@@ -117,25 +117,6 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     $this->assertSession()->elementTextContains('css', 'aside .step-list', 'Contact the support team');
     $this->assertSession()->elementTextContains('css', 'aside .step-list', 'Apply for financial support');
     $this->assertSession()->elementTextContains('css', 'aside .step-list', 'Choosing how to manage your care');
-
-    // Test Subsite overview: A test subsite to demo all the components.
-    $this->drupalGet('/test-subsite-demo-all-components');
-    $this->assertSession()->elementTextContains('css', 'main article h2', 'Test');
-    $this->assertSession()->elementTextContains('css', 'main article', 'Nulla porttitor accumsan tincidunt.');
-    $this->assertSession()->elementTextContains('css', 'main article', 'Donec sollicitudin molestie malesuada.');
-    $this->assertSession()->elementTextContains('css', 'main article', 'This is the test service IA block');
-
-    // Test Subsite page: Example page with a table.
-    $this->drupalGet('/test-subsite-demo-all-components/example-page-table');
-    $this->assertSession()->elementTextContains('css', 'main article h2', 'Example page with a table');
-    $this->assertSession()->elementTextContains('css', 'main article .paragraph--type--localgov-table', 'This is a minimal table');
-    $this->assertSession()->elementTextContains('css', 'main article .layout__region--first', 'Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh. Proin eget tortor risus.');
-    $this->assertSession()->elementTextContains('css', 'main article .layout__region--second', 'Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh. Proin eget tortor risus.');
-    $this->assertSession()->elementTextContains('css', 'main article .layout__region--bottom', 'This is some example tabs');
-
-    // Test Subsite page: Example page with a video.
-    $this->drupalGet('/test-subsite-demo-all-components/video-page-key-contact');
-    $this->assertSession()->elementTextContains('css', 'main article h2', 'A video page, with a key contact');
   }
 
 }
