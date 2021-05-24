@@ -14,6 +14,9 @@
         "drupal/admin_toolbar": "^2.2",
         "drupal/core": "^8.9",
         "drupal/devel": "^2.1",
+        "drupal/gin": "3.0.0-alpha34",
+        "drupal/gin_login": "^1.0@RC",
+        "drupal/gin_toolbar": "^1.0@beta",
         "drupal/simple_sitemap": "^3.7",
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "~1.0.0",
@@ -47,7 +50,10 @@
         "drupal/core": {
           "Fix to system.module to avoid breaking tests in PHP 7.4 - see https://www.drupal.org/project/drupal/issues/3191012": "https://www.drupal.org/files/issues/2021-01-05/fix-php74-tests-3191012-2.patch",
           "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-05-28/3092181-87-89x.patch"
-        }
+        },
+        "drupal/gin_login": {
+	        "Fix schema for gin_login, see https://www.drupal.org/project/gin_login/issues/3192526": "https://www.drupal.org/files/issues/2021-01-13/gin_login-config_schema-3192526-8.patch"
+	      }
       }
     }
 }
