@@ -14,6 +14,9 @@
         "drupal/admin_toolbar": "^2.2",
         "drupal/core": "^9.1",
         "drupal/devel": "^4.1",
+        "drupal/gin": "3.0.0-alpha34",
+        "drupal/gin_login": "^1.0@RC",
+        "drupal/gin_toolbar": "^1.0@beta",
         "drupal/simple_sitemap": "^3.7",
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "~1.0.0",
@@ -44,10 +47,13 @@
         "drupal/core": "-p2"
       },
       "patches": {
-          "drupal/core": {
-              "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-12-08/3092181-142-9X_0.patch",
-	      "Fix for narrow forms on node/add screens, which is included in 9.2. See https://www.drupal.org/project/drupal/issues/3184667": "https://www.drupal.org/files/issues/2021-04-16/3184667.26.patch"
-          }
+        "drupal/core": {
+          "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-12-08/3092181-142-9X_0.patch",
+	        "Fix for narrow forms on node/add screens, which is included in 9.2. See https://www.drupal.org/project/drupal/issues/3184667": "https://www.drupal.org/files/issues/2021-04-16/3184667.26.patch"
+        },
+        "drupal/gin_login": {
+	        "Fix schema for gin_toolbar, see https://www.drupal.org/project/gin_login/issues/3192526": "https://www.drupal.org/files/issues/2021-01-13/gin_login-config_schema-3192526-8.patch"
+	      }
       }
     }
 }
