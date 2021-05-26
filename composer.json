@@ -41,19 +41,20 @@
         "sort-packages": true
     },
     "extra": {
-      "enable-patching": true,
-      "composer-exit-on-patch-failure": true,
-      "patchLevel": {
-        "drupal/core": "-p2"
-      },
-      "patches": {
-        "drupal/core": {
-          "Fix to system.module to avoid breaking tests in PHP 7.4 - see https://www.drupal.org/project/drupal/issues/3191012": "https://www.drupal.org/files/issues/2021-01-05/fix-php74-tests-3191012-2.patch",
-          "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-05-28/3092181-87-89x.patch"
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
         },
-        "drupal/gin_login": {
-	        "Fix schema for gin_login, see https://www.drupal.org/project/gin_login/issues/3192526": "https://www.drupal.org/files/issues/2021-01-13/gin_login-config_schema-3192526-8.patch"
-	      }
-      }
+        "patches": {
+            "drupal/core": {
+                "Fix to system.module to avoid breaking tests in PHP 7.4 - see https://www.drupal.org/project/drupal/issues/3191012": "https://www.drupal.org/files/issues/2021-01-05/fix-php74-tests-3191012-2.patch",
+                "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-05-28/3092181-87-89x.patch",
+                "Fix tests running with paratest. See https://www.drupal.org/project/drupal/issues/3192365": "https://www.drupal.org/files/issues/2021-01-12/3192365-3.patch"
+            },
+            "drupal/gin_login": {
+                "Fix schema for gin_login, see https://www.drupal.org/project/gin_login/issues/3192526": "https://www.drupal.org/files/issues/2021-01-13/gin_login-config_schema-3192526-8.patch"
+            }
+        }
     }
 }
