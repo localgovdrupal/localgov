@@ -27,6 +27,7 @@
         "localgovdrupal/localgov_guides": "~2.0.0",
         "localgovdrupal/localgov_menu_link_group": "~1.0.0",
         "localgovdrupal/localgov_paragraphs": "~2.0.0",
+        "localgovdrupal/localgov_search": "~1.0.0",
         "localgovdrupal/localgov_services": "~2.0.0",
         "localgovdrupal/localgov_step_by_step": "~2.0.0",
         "localgovdrupal/localgov_subsites": "~2.0.0",
