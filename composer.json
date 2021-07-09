@@ -28,6 +28,7 @@
         "localgovdrupal/localgov_guides": "~2.0.0",
         "localgovdrupal/localgov_menu_link_group": "~1.0.0",
         "localgovdrupal/localgov_paragraphs": "~2.0.0",
+        "localgovdrupal/localgov_search": "~1.0.0",
         "localgovdrupal/localgov_services": "~2.0.0",
         "localgovdrupal/localgov_step_by_step": "~2.0.0",
         "localgovdrupal/localgov_subsites": "~2.0.0",
@@ -49,7 +50,6 @@
       },
       "patches": {
         "drupal/core": {
-            "Fix for Nested Paragraphs create multiple drag handles https://www.drupal.org/project/drupal/issues/3092181": "https://www.drupal.org/files/issues/2020-12-08/3092181-142-9X_0.patch",
 	    "Fix for narrow forms on node/add screens, which is included in 9.2. See https://www.drupal.org/project/drupal/issues/3184667": "https://www.drupal.org/files/issues/2021-04-16/3184667.26.patch",
             "Fix tests running with paratest. See https://www.drupal.org/project/drupal/issues/3192365": "https://www.drupal.org/files/issues/2021-01-12/3192365-3.patch"
         },
