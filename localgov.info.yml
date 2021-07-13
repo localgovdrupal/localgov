@@ -1,6 +1,6 @@
-name: LocalGovDrupal
+name: LocalGov Drupal
 type: profile
-description: 'Install a LocalGovDrupal site.'
+description: 'Install a LocalGov Drupal site.'
 core_version_requirement: ^8.8 || ^9
 
 install:
@@ -55,4 +55,5 @@ dependencies:
 
 themes:
   - claro
+  - gin
   - localgov_theme
