@@ -21,7 +21,7 @@
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "~1.1.0",
         "localgovdrupal/localgov_base": "^1.0@beta",
-        "localgovdrupal/localgov_core": "~2.0.0",
+        "localgovdrupal/localgov_core": "dev-feature/111-remove-workflows",
         "localgovdrupal/localgov_demo": "~1.0.0",
         "localgovdrupal/localgov_directories": "~2.0.0",
         "localgovdrupal/localgov_events": "~2.0.0",
@@ -32,7 +32,8 @@
         "localgovdrupal/localgov_services": "~2.0.0",
         "localgovdrupal/localgov_step_by_step": "~2.0.0",
         "localgovdrupal/localgov_subsites": "~2.0.0",
-        "localgovdrupal/localgov_theme": "~1.0.0"
+        "localgovdrupal/localgov_theme": "~1.0.0",
+        "localgovdrupal/localgov_workflows": "1.x-dev"
     },
     "require-dev": {
         "drupal/core-dev": "^9.1"
