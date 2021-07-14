@@ -21,7 +21,7 @@
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "~1.1.0",
         "localgovdrupal/localgov_base": "^1.0@beta",
-        "localgovdrupal/localgov_core": "dev-feature/111-remove-workflows",
+        "localgovdrupal/localgov_core": "dev-feature/111-remove-workflows as 2",
         "localgovdrupal/localgov_demo": "~1.0.0",
         "localgovdrupal/localgov_directories": "~2.0.0",
         "localgovdrupal/localgov_events": "~2.0.0",
