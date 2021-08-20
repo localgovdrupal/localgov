@@ -56,4 +56,4 @@ dependencies:
 themes:
   - claro
   - gin
-  - localgov_theme
+  - localgov_base
