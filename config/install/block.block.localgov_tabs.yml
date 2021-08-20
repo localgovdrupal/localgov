@@ -5,7 +5,7 @@ dependencies:
     - localgov_base
 id: localgov_tabs
 theme: localgov_base
-region: content_top
+region: tabs
 weight: 0
 provider: null
 plugin: local_tasks_block
