@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - localgov_theme
+    - localgov_base
 id: localgov_tabs
-theme: localgov_theme
+theme: localgov_base
 region: content_top
 weight: 0
 provider: null
