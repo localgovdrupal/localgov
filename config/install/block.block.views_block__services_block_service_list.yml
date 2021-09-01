@@ -8,9 +8,9 @@ dependencies:
     - views
     - localgov_core
   theme:
-    - localgov_theme
+    - localgov_base
 id: views_block__services_block_service_list
-theme: localgov_theme
+theme: localgov_base
 region: content_top
 weight: 5
 provider: null

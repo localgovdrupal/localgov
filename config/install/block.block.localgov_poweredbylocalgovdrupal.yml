@@ -4,9 +4,9 @@ dependencies:
   module:
     - localgov_core
   theme:
-    - localgov_theme
+    - localgov_base
 id: localgov_poweredbylocalgovdrupal
-theme: localgov_theme
+theme: localgov_base
 region: footer_second
 weight: 0
 provider: null

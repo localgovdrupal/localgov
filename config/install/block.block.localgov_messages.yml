@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - localgov_theme
+    - localgov_base
 id: localgov_messages
-theme: localgov_theme
+theme: localgov_base
 region: messages
 weight: 0
 provider: null
