@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - localgov_theme
+    - localgov_base
 id: localgov_breadcrumbs
-theme: localgov_theme
+theme: localgov_base
 region: breadcrumb
 weight: 0
 provider: null

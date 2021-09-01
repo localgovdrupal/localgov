@@ -2,10 +2,10 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - localgov_theme
+    - localgov_base
 id: localgov_tabs
-theme: localgov_theme
-region: content_top
+theme: localgov_base
+region: tabs
 weight: 0
 provider: null
 plugin: local_tasks_block

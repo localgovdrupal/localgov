@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - localgov_theme
+    - localgov_base
 id: localgov_mainnavigation
-theme: localgov_theme
+theme: localgov_base
 region: primary_menu
 weight: -1
 provider: null

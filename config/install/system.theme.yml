@@ -1,2 +1,2 @@
 admin: gin
-default: localgov_theme
+default: localgov_base
