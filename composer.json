@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "drupal/admin_toolbar": "^2.2",
+        "drupal/admin_toolbar": "^3.0",
         "drupal/core": "^9.1",
         "drupal/devel": "^4.1",
         "drupal/gin": "3.0.0-alpha34",
