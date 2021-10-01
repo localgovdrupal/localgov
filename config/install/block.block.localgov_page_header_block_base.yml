@@ -5,15 +5,15 @@ dependencies:
     - localgov_core
   theme:
     - localgov_base
-id: localgov_poweredbylocalgovdrupal
+id: localgov_page_header_block_base
 theme: localgov_base
-region: footer_second
-weight: 0
+region: content_top
+weight: -10
 provider: null
-plugin: localgov_powered_by_block
+plugin: localgov_page_header_block
 settings:
-  id: localgov_powered_by_block
-  label: 'Powered by LocalGovDrupal'
+  id: localgov_page_header_block
+  label: 'Page header block'
   provider: localgov_core
   label_display: '0'
 visibility: {  }

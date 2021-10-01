@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  theme:
+    - localgov_scarfolk
+id: localgov_home_welcome_block_scarfolk
+theme: localgov_scarfolk
+region: content_top
+weight: 0
+provider: null
+plugin: localgov_home_welcome_block
+settings:
+  id: localgov_home_welcome_block
+  label: 'Home welcome block'
+  provider: null
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
