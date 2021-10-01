@@ -34,9 +34,11 @@ class UnpublishedParentOrChildTest extends KernelTestBase {
     'options',
     'user',
     'node',
+    'views',
     'localgov_roles',
     'localgov_core',
     'localgov_guides',
+    'localgov_step_by_step',
   ];
 
   /**
@@ -78,9 +80,14 @@ class UnpublishedParentOrChildTest extends KernelTestBase {
    *   its parent.
    * - A Guide overview page should be able to use an unpublished Guide page as
    *   its child.
+   * - A Step by Step page should be able to use an unpublished
+   *   Step by Step overview page as its parent.
+   * - A Step by Step overview page should be able to use an unpublished
+   *   Step by Step page as its child.
    */
   public function testUnpublishedParentAndChildSelection() :void {
 
+    // Guide.
     $guide_overview = $this->createNode([
       'title'  => 'An unpublished Guide overview page',
       'type'   => 'localgov_guides_overview',
@@ -99,6 +106,26 @@ class UnpublishedParentOrChildTest extends KernelTestBase {
 
     $updated_guide_overview = $this->container->get('entity_type.manager')->getStorage('node')->load($guide_overview->id());
     $this->assertCount(0, $updated_guide_overview->validate(), 'Guide overview page fails validation after referencing an unpublished Guide page as a child page.');
+
+    // Step by Step.
+    $step_by_step_overview = $this->createNode([
+      'title'  => 'An unpublished Step by Step overview page',
+      'type'   => 'localgov_step_by_step_overview',
+      'status' => 0,
+    ]);
+    $this->assertCount(0, $step_by_step_overview->validate(), 'Step by Step overview page fails validation.');
+
+    $step_by_step_page = $this->createNode([
+      'title'  => 'An unpublished Step by Step page',
+      'type'   => 'localgov_step_by_step_page',
+      'status' => 0,
+      'localgov_step_section_title' => 'An unpublished Step by Step page',
+      'localgov_step_parent' => ['target_id' => $step_by_step_overview->id()],
+    ]);
+    $this->assertCount(0, $step_by_step_page->validate(), 'Step by Step page fails validation after referencing an unpublished Step by Step overview page as a parent page.');
+
+    $updated_guide_overview = $this->container->get('entity_type.manager')->getStorage('node')->load($step_by_step_overview->id());
+    $this->assertCount(0, $updated_guide_overview->validate(), 'Step by Step overview page fails validation after referencing an unpublished Step by Step page as a child page.');
   }
 
 }
