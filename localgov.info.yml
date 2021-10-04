@@ -37,6 +37,8 @@ install:
   - admin_toolbar:admin_toolbar
   - admin_toolbar:admin_toolbar_tools
   - entity_browser:entity_browser
+  - gin_login:gin_login
+  - gin_toolbar:gin_toolbar
   - simple_sitemap:simple_sitemap
   # LocalGov Drupal
   - localgov_core:localgov_core
@@ -56,4 +58,5 @@ dependencies:
 
 themes:
   - claro
+  - gin
   - localgov_theme
