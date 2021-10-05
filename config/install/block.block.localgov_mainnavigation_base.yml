@@ -7,7 +7,7 @@ dependencies:
     - system
   theme:
     - localgov_base
-id: localgov_mainnavigation
+id: localgov_mainnavigation_base
 theme: localgov_base
 region: primary_menu
 weight: -1
