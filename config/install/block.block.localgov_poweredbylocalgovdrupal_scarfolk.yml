@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_core
+  theme:
+    - localgov_scarfolk
+id: localgov_poweredbylocalgovdrupal_scarfolk
+theme: localgov_scarfolk
+region: footer_second
+weight: 0
+provider: null
+plugin: localgov_powered_by_block
+settings:
+  id: localgov_powered_by_block
+  label: 'Powered by LocalGovDrupal'
+  provider: localgov_core
+  label_display: '0'
+visibility: {  }
