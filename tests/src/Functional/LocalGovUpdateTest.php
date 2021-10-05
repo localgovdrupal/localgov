@@ -99,7 +99,7 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     // Test Step by step overview page: Request support for an adult.
     $this->drupalGet('/adult-health-and-social-care/step-by-step/request-support-adult-step-step');
     $this->assertSession()->elementTextContains('css', 'header h1', 'Request support for an adult: step by step');
-    $this->assertSession()->elementTextContains('css', 'main article .alert-info', 'Appointments with adult social care staff are now happening on the telephone.');
+    $this->assertSession()->elementTextContains('css', 'main article .alert-info', 'Important update');
     $this->assertSession()->elementTextContains('css', 'main article .callout-danger', 'For urgent help');
     $this->assertSession()->elementTextContains('css', '.step-list', 'Find out what support we offer');
     $this->assertSession()->elementTextContains('css', '.step-list', 'Contact the support team');
