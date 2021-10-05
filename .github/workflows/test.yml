@@ -163,11 +163,11 @@ jobs:
 
     steps:
 
-      - name: Clone drupal_container
+      - name: Clone Drupal container
         uses: actions/checkout@v2
         with:
           repository: localgovdrupal/drupal-container
-          ref: master
+          ref: ${{ matrix.php-version }}
 
       - name: Cached workspace
         uses: actions/cache@v2
