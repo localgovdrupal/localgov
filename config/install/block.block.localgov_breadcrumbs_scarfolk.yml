@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - localgov_base
-id: localgov_breadcrumbs
-theme: localgov_base
+    - localgov_scarfolk
+id: localgov_breadcrumbs_scarfolk
+theme: localgov_scarfolk
 region: breadcrumb
 weight: 0
 provider: null
