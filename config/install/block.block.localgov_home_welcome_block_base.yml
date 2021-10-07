@@ -3,7 +3,7 @@ status: true
 dependencies:
   theme:
     - localgov_base
-id: localgov_home_welcome_block
+id: localgov_home_welcome_block_base
 theme: localgov_base
 region: content_top
 weight: 0
