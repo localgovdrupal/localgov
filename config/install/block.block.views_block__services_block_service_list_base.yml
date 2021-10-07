@@ -9,7 +9,7 @@ dependencies:
     - localgov_core
   theme:
     - localgov_base
-id: views_block__services_block_service_list
+id: views_block__services_block_service_list_base
 theme: localgov_base
 region: content_top
 weight: 5

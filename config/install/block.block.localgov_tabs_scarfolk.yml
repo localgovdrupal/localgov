@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - localgov_base
-id: localgov_tabs
-theme: localgov_base
+    - localgov_scarfolk
+id: localgov_tabs_scarfolk
+theme: localgov_scarfolk
 region: tabs
 weight: 0
 provider: null
