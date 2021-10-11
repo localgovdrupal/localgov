@@ -3,14 +3,24 @@
 Drupal distribution and install profile to help UK councils collaborate and
 share Drupal code for publishing website content.
 
+This project is the Drupal installation profile that is best installed using
+composer to require a project template, localgov_project, to scaffold and build
+the codebase which includes this profile.
+
+## Documentation
+
+Further documentation for developers, content designers and other audiences can
+be found at [https://docs.localgovdrupal.org/](https://docs.localgovdrupal.org/).
+
 ## Requirements for installing LocalGov Drupal locally
 
-to install locally, you will need Composer and Lando. 
+To install locally, you will need Composer and we recommend Lando.
 
 https://getcomposer.org/
 https://lando.dev/
 
-Also see the Lando requirements section for details of Docker requirements.
+Please also see the Lando requirements section for details of Docker
+requirements for different operating systems.
 
 https://docs.lando.dev/basics/installation.html#system-requirements
 
@@ -22,7 +32,7 @@ To install LocalGov Drupal locally for testing or development, use the
 Change `MY_PROJECT` to whatever you'd like your project directory to be called.
 
 ```bash
-composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
+composer create-project localgovdrupal/localgov-project MY_PROJECT
 ```
 
 Change directory into the MY_PROJECT directory and run lando start.
