@@ -23,11 +23,12 @@
         "localgovdrupal/localgov_base": "^1.0.0",
         "localgovdrupal/localgov_core": "^2.1.0",
         "localgovdrupal/localgov_demo": "^2.1.0",
-        "localgovdrupal/localgov_directories": "^2.0.0",
+        "localgovdrupal/localgov_directories": "^2.1.0",
         "localgovdrupal/localgov_events": "^2.0.0",
         "localgovdrupal/localgov_guides": "^2.0.0",
         "localgovdrupal/localgov_menu_link_group": "^1.0.0",
         "localgovdrupal/localgov_news": "^2.0.0",
+        "localgovdrupal/localgov_openreferral": "^1.0.0",
         "localgovdrupal/localgov_paragraphs": "^2.0.0",
         "localgovdrupal/localgov_search": "^1.0.0",
         "localgovdrupal/localgov_services": "^2.0.0",
@@ -59,6 +60,9 @@
             },
             "drupal/gin_login": {
                 "Fix schema for gin_toolbar, see https://www.drupal.org/project/gin_login/issues/3192526": "https://www.drupal.org/files/issues/2021-01-13/gin_login-config_schema-3192526-8.patch"
+            },
+            "drupal/search_api": {
+                "Fix exported schema for search_api views, see https://www.drupal.org/project/search_api/issues/3196990": "https://www.drupal.org/files/issues/2021-05-10/3196990-10--views_wrong_query_type.patch"
             }
         }
     }
