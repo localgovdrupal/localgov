@@ -18,6 +18,7 @@
         "drupal/gin_login": "^1.0@RC",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/simple_sitemap": "^3.7",
+        "drupal/search_api": "1.20",
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "^1.2.0",
         "localgovdrupal/localgov_base": "^1.0.0",
