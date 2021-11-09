@@ -17,6 +17,11 @@ class LocalGovProfileTest extends BrowserTestBase {
   protected $profile = 'localgov';
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stable';
+
+  /**
    * Test localgov profile was installed and basic site functions.
    */
   public function testLocalGovDrupalProfile() {
