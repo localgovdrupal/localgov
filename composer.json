@@ -18,7 +18,7 @@
         "drupal/gin_login": "^1.0@RC",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/simple_sitemap": "^3.7",
-        "drupal/search_api": "1.20",
+        "drupal/search_api": "^1.21",
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "^1.2.0",
         "localgovdrupal/localgov_base": "^1.0.0",
@@ -63,7 +63,7 @@
                 "Fix schema for gin_toolbar, see https://www.drupal.org/project/gin_login/issues/3192526": "https://www.drupal.org/files/issues/2021-01-13/gin_login-config_schema-3192526-8.patch"
             },
             "drupal/search_api": {
-                "Fix exported schema for search_api views, see https://www.drupal.org/project/search_api/issues/3196990": "https://www.drupal.org/files/issues/2021-05-10/3196990-10--views_wrong_query_type.patch"
+                "Fix schema for search_api views, see https://www.drupal.org/project/search_api/issues/3196990": "https://www.drupal.org/files/issues/2021-11-13/3196990-15-wrong_query_type.patch"
             }
         }
     }
