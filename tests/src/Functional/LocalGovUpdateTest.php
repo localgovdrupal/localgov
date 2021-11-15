@@ -19,6 +19,11 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stable';
+
+  /**
    * Tests LocalGov updates from 1.0.0 to current.
    */
   public function testUpdate() {
