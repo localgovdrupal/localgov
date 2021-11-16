@@ -6,6 +6,7 @@
  */
 
 use Drupal\user\Entity\User;
+use Drupal\search_api\Entity\TaskStorageSchema;
 
 /**
  * Implements hook_install().
@@ -20,4 +21,19 @@ function localgov_install() {
   $user = User::load(1);
   $user->roles[] = 'administrator';
   $user->save();
+}
+
+/**
+ * Run the potentially skipped search_api_update_8107() safely.
+ */
+function localgov_update_8201() {
+  $module_handler = \Drupal::moduleHandler();
+  if ($module_handler->moduleExists('search_api')) {
+    $manager = \Drupal::entityDefinitionUpdateManager();
+    $entity_type = $manager->getEntityType('search_api_task');
+    if ($entity_type->getHandlerClass('storage_schema') != TaskStorageSchema::class) {
+      $entity_type->setHandlerClass('storage_schema', TaskStorageSchema::class);
+      $manager->updateEntityType($entity_type);
+    }
+  }
 }
