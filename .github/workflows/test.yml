@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - localgov-version: "2.x"
+          - localgov-version: "dev-do-not-merge/2.x/facets-2.x"
             drupal-version: "~9.1"
             php-version: "7.4"
 
