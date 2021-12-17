@@ -8,6 +8,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+             "type": "vcs",
+             "url": "https://git.drupalcode.org/issue/entity_reference_facet_link-3254358.git"
         }
     ],
     "require": {
