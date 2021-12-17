@@ -14,6 +14,7 @@
         "drupal/admin_toolbar": "^3.0",
         "drupal/core": "^9.1",
         "drupal/devel": "^4.1",
+        "drupal/entity_reference_facet_link": "^1.0@beta",
         "drupal/gin": "^3.0@alpha",
         "drupal/gin_login": "^1.0@RC",
         "drupal/gin_toolbar": "^1.0@beta",
