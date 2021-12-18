@@ -72,7 +72,7 @@ jobs:
       - name: Create LocalGov Drupal project
         run: |
           composer create-project --stability dev --no-install localgovdrupal/localgov-project ./html "${{ matrix.localgov-version }}"
-          composer --working-dir=./html require --no-install localgovdrupal/localgov:${{ matrix.localgov-version }}
+          composer --working-dir=./html require --no-install localgovdrupal/localgov:${{ matrix.localgov-version }}-dev
           composer --working-dir=./html require --no-install drupal/core-recommended:${{ matrix.drupal-version }} drupal/core-composer-scaffold:${{ matrix.drupal-version }} drupal/core-project-message:${{ matrix.drupal-version }} drupal/core-dev:${{ matrix.drupal-version }}
           composer --working-dir=./html install
 
@@ -91,7 +91,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - localgov-version: "dev-do-not-merge/2.x/facets-2.x"
+          - localgov-version: "2.x"
             drupal-version: "~9.1"
             php-version: "7.4"
 
@@ -124,7 +124,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - localgov-version: "dev-do-not-merge/2.x/facets-2.x"
+          - localgov-version: "2.x"
             drupal-version: "~9.1"
             php-version: "7.4"
 
@@ -157,7 +157,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - localgov-version: "do-not-merge/2.x/facets-2.x"
+          - localgov-version: "2.x"
             drupal-version: "~9.1"
             php-version: "7.4"
 
