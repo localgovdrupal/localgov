@@ -6,7 +6,6 @@
  */
 
 use Drupal\user\Entity\User;
-use Drupal\search_api\Entity\TaskStorageSchema;
 
 /**
  * Implements hook_install().
