@@ -31,8 +31,8 @@ function localgov_update_8201() {
   if ($module_handler->moduleExists('search_api')) {
     $manager = \Drupal::entityDefinitionUpdateManager();
     $entity_type = $manager->getEntityType('search_api_task');
-    if ($entity_type->getHandlerClass('storage_schema') != TaskStorageSchema::class) {
-      $entity_type->setHandlerClass('storage_schema', TaskStorageSchema::class);
+    if ($entity_type->getHandlerClass('storage_schema') != 'TaskStorageSchema') {
+      $entity_type->setHandlerClass('storage_schema', 'TaskStorageSchema');
       $manager->updateEntityType($entity_type);
     }
   }
