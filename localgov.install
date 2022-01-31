@@ -6,7 +6,6 @@
  */
 
 use Drupal\user\Entity\User;
-use Drupal\search_api\Entity\TaskStorageSchema;
 
 /**
  * Implements hook_install().
@@ -27,13 +26,9 @@ function localgov_install() {
  * Run the potentially skipped search_api_update_8107() safely.
  */
 function localgov_update_8201() {
-  $module_handler = \Drupal::moduleHandler();
-  if ($module_handler->moduleExists('search_api')) {
-    $manager = \Drupal::entityDefinitionUpdateManager();
-    $entity_type = $manager->getEntityType('search_api_task');
-    if ($entity_type->getHandlerClass('storage_schema') != TaskStorageSchema::class) {
-      $entity_type->setHandlerClass('storage_schema', TaskStorageSchema::class);
-      $manager->updateEntityType($entity_type);
-    }
-  }
+  // Superseded by search_api_update_8110().
+  //
+  // Sites that have run this update, will get updated by 8110.
+  // Sites that have not run this update will also get 8110 and shouldn't risk
+  // running this version after search_api_update_8110.
 }
