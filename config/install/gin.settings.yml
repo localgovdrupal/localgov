@@ -10,11 +10,9 @@ third_party_settings:
     module_link: true
 preset_accent_color: blue
 preset_focus_color: gin
-enable_darkmode: false
+enable_darkmode: '0'
 classic_toolbar: horizontal
-icon_default: true
 high_contrast_mode: false
 accent_color: ''
 focus_color: ''
-icon_upload: ''
 show_user_theme_settings: false
