@@ -1,21 +1,18 @@
-preset_accent_color: blue
-preset_focus_color: gin
-enable_darkmode: false
-classic_toolbar: horizontal
-icon_default: true
-icon_path: ''
-high_contrast_mode: false
-show_user_theme_settings: false
-third_party_settings:
-  shortcut:
-    module_link: true
+favicon:
+  use_default: true
 features:
-  node_user_picture: true
   comment_user_picture: true
   comment_user_verification: true
   favicon: true
-favicon:
-  use_default: true
+  node_user_picture: true
+third_party_settings:
+  shortcut:
+    module_link: true
+preset_accent_color: blue
+preset_focus_color: gin
+enable_darkmode: '0'
+classic_toolbar: horizontal
+high_contrast_mode: false
 accent_color: ''
 focus_color: ''
-icon_upload: ''
+show_user_theme_settings: false
