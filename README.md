@@ -7,6 +7,14 @@ This project is the Drupal installation profile that is best installed using
 composer to require a project template, localgov_project, to scaffold and build
 the codebase which includes this profile.
 
+## Supported branches
+
+We are actively supporting and developing the 2.x branch.
+
+The 1.x branch is no longer actively supported and not recommended for new sites.
+
+If you are still using the 1.x branch on your site, please [create an issue on Github](https://github.com/localgovdrupal/localgov/issues) to let us know.
+
 ## Documentation
 
 Further documentation for developers, content designers and other audiences can
