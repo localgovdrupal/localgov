@@ -28,6 +28,8 @@ jobs:
       - run: echo "PROJECT_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
         shell: bash
 
+      - run: echo ${PROJECT_NAME}
+
       - name: Save git branch and git repo names to env if this is not a pull request
         if: github.event_name != 'pull_request'
         run: |
