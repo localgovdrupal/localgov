@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - '2.x'
+  schedule:
+    - cron:  '30 * * * *'
 
 jobs:
 
@@ -17,12 +19,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - localgov-version: "2.x"
-            drupal-version: "~9.1"
-            php-version: "7.4"
+        localgov-version: ['2.x']
+        drupal-version: ['~9.1']
+        php-version: ['7.4','8.1']
 
     steps:
+
+      - run: echo "PROJECT_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
+        shell: bash
 
       - name: Save git branch and git repo names to env if this is not a pull request
         if: github.event_name != 'pull_request'
@@ -90,10 +94,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - localgov-version: "2.x"
-            drupal-version: "~9.1"
-            php-version: "7.4"
+        localgov-version: ['2.x']
+        drupal-version: ['~9.1']
+        php-version: ['7.4','8.1']
 
     steps:
 
@@ -108,7 +111,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: ${{ matrix.php-version }}
 
       - name: Run coding standards checks
         run: |
@@ -123,10 +126,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - localgov-version: "2.x"
-            drupal-version: "~9.1"
-            php-version: "7.4"
+        localgov-version: ['2.x']
+        drupal-version: ['~9.1']
+        php-version: ['7.4','8.1']
 
     steps:
 
@@ -141,7 +143,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: ${{ matrix.php-version }}
 
       - name: Run deprecated code checks
         run: |
@@ -156,10 +158,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - localgov-version: "2.x"
-            drupal-version: "~9.1"
-            php-version: "7.4"
+        localgov-version: ['2.x']
+        drupal-version: ['~9.1']
+        php-version: ['7.4','8.1']
 
     steps:
 
