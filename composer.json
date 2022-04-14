@@ -12,7 +12,7 @@
     ],
     "require": {
         "drupal/admin_toolbar": "^3.0",
-        "drupal/core": "^9.1",
+        "drupal/core": "^10.0.0-alpha3",
         "drupal/devel": "^4.1",
         "drupal/gin": "^3.0@alpha",
         "drupal/gin_login": "^1.0@RC",
