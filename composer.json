@@ -16,7 +16,6 @@
         "drupal/gin": "^3.0@alpha",
         "drupal/gin_login": "^1.0@RC",
         "drupal/gin_toolbar": "^1.0@beta",
-        "drupal/simple_sitemap": "^4.1",
         "drush/drush": ">=10"
     },
     "require-dev": {
