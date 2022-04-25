@@ -86,7 +86,7 @@ jobs:
         run: |
           composer --working-dir=html config repositories.1 vcs git@github.com:${GIT_REPO}.git
           composer global config github-oauth.github.com ${{ github.token }}
-          composer --working-dir=./html require --with-all-dependencies localgovdrupal/${{ github.event.repository.name }}:"${COMPOSER_REF} as ${LATEST_RELEASE}"
+          composer --working-dir=./html require --with-all-dependencies localgovdrupal/${PROJECT_NAME}:"${COMPOSER_REF} as ${LATEST_RELEASE}"
 
   phpcs:
     name: Coding standards checks
