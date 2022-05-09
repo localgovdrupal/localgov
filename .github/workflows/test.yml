@@ -46,7 +46,8 @@ jobs:
         run: |
           echo "GIT_BASE=${GITHUB_BASE_REF}" >> $GITHUB_ENV
           echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
-          echo "HEAD_USER=${${{ github.event.pull_request.head.label }}%%:*}" >> $GITHUB_ENV
+          export HEAD="${{ github.event.pull_request.head.label }}"
+          echo "HEAD_USER=${HEAD%%:*}" >> $GITHUB_ENV
 
       - name: Set composer branch reference for version branches
         if: endsWith(github.ref, '.x')
