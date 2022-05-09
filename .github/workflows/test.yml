@@ -84,11 +84,18 @@ jobs:
           composer --working-dir=./html require --no-install drupal/core-recommended:${{ matrix.drupal-version }} drupal/core-composer-scaffold:${{ matrix.drupal-version }} drupal/core-project-message:${{ matrix.drupal-version }} drupal/core-dev:${{ matrix.drupal-version }}
           composer --working-dir=./html install
 
-      - name: Obtain the test target from the repo that triggered this workflow
+      - name: Obtain the test target using Composer
+        if: env.HEAD_USER == 'localgovdrupal'
         run: |
           composer --working-dir=html config repositories.1 vcs git@github.com:${LOCALGOV_DRUPAL_PROJECT}.git
           composer global config github-oauth.github.com ${{ github.token }}
           composer --working-dir=./html require --with-all-dependencies ${LOCALGOV_DRUPAL_PROJECT}:"${COMPOSER_REF} as ${LATEST_RELEASE}"
+
+      - name: Obtain the test target using Git
+        if: env.HEAD_USER != 'localgovdrupal'
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.LOCALGOV_DRUPAL_PROJECT_PATH }}
 
   phpcs:
     name: Coding standards checks
