@@ -39,12 +39,14 @@ jobs:
         run: |
           echo "GIT_BASE=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
           echo "GIT_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+          echo "HEAD_USER=localgovdrupal >> $GITHUB_ENV
 
       - name: Save git branch and git repo names to env if this is a pull request
         if: github.event_name == 'pull_request'
         run: |
           echo "GIT_BASE=${GITHUB_BASE_REF}" >> $GITHUB_ENV
           echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
+          echo "HEAD_USER=${${{ github.event.pull_request.head.label }}%%:*}" >> $GITHUB_ENV
 
       - name: Set composer branch reference for version branches
         if: endsWith(github.ref, '.x')
