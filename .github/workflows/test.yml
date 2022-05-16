@@ -39,12 +39,15 @@ jobs:
         run: |
           echo "GIT_BASE=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
           echo "GIT_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+          echo "HEAD_USER=localgovdrupal >> $GITHUB_ENV
 
       - name: Save git branch and git repo names to env if this is a pull request
         if: github.event_name == 'pull_request'
         run: |
           echo "GIT_BASE=${GITHUB_BASE_REF}" >> $GITHUB_ENV
           echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
+          export HEAD="${{ github.event.pull_request.head.label }}"
+          echo "HEAD_USER=${HEAD%%:*}" >> $GITHUB_ENV
 
       - name: Set composer branch reference for version branches
         if: endsWith(github.ref, '.x')
@@ -84,11 +87,18 @@ jobs:
           composer --working-dir=./html require --no-install drupal/core-recommended:${{ matrix.drupal-version }} drupal/core-composer-scaffold:${{ matrix.drupal-version }} drupal/core-project-message:${{ matrix.drupal-version }} drupal/core-dev:${{ matrix.drupal-version }}
           composer --working-dir=./html install
 
-      - name: Obtain the test target from the repo that triggered this workflow
+      - name: Obtain the test target using Composer
+        if: env.HEAD_USER == 'localgovdrupal'
         run: |
           composer --working-dir=html config repositories.1 vcs git@github.com:${LOCALGOV_DRUPAL_PROJECT}.git
           composer global config github-oauth.github.com ${{ github.token }}
           composer --working-dir=./html require --with-all-dependencies ${LOCALGOV_DRUPAL_PROJECT}:"${COMPOSER_REF} as ${LATEST_RELEASE}"
+
+      - name: Obtain the test target using Git
+        if: env.HEAD_USER != 'localgovdrupal'
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.LOCALGOV_DRUPAL_PROJECT_PATH }}
 
   phpcs:
     name: Coding standards checks
