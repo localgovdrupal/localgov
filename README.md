@@ -7,24 +7,57 @@ This project is the Drupal installation profile that is best installed using
 composer to require a project template, localgov_project, to scaffold and build
 the codebase which includes this profile.
 
+## Supported branches
+
+We are actively supporting and developing the 2.x branch for Drupal 9.
+
+The 1.x branch is no longer actively supported and not recommended for new sites.
+
+If you are still using the 1.x branch on your site, please [create an issue on Github](https://github.com/localgovdrupal/localgov/issues) to let us know.
+
 ## Documentation
 
 Further documentation for developers, content designers and other audiences can
 be found at [https://docs.localgovdrupal.org/](https://docs.localgovdrupal.org/).
 
-## Requirements for installing LocalGov Drupal locally
+## Requirements for installing LocalGov Drupal locally for testing and development
 
-To install locally, you will need Composer and we recommend Lando.
+To install LocalGov Drupal locally you will need an appropriate versions of:
 
-https://getcomposer.org/
-https://lando.dev/
+ - PHP (see https://www.drupal.org/docs/system-requirements/php-requirements)
+ - A database server like MySQL (see https://www.drupal.org/docs/system-requirements/database-server-requirements)
+ - A web server like APache2 (see https://www.drupal.org/docs/system-requirements/web-server-requirements) 
+
+Many of us use the Lando file included to run a local docker environmnent for testing and development, but seom people prefer to run the web servers natively on their host machine.
+
+### PHP requirements
+
+We folllow Drupal's PHP recomendations: https://www.drupal.org/docs/system-requirements/php-requirements#versions
+
+We currently recomend PHP 8.1 or 8.0 but also aim to support PHP 7.4.
+
+You will also need to have certain PHP extensions enabled (see https://www.drupal.org/docs/system-requirements/php-requirements#extensions) including: 
+
+ - PHP mbstring
+ - PHP cURL
+ - GD library
+ - XML 
+
+If you see errors when running composer require, double check your PHP extensions.
+
+## Composer and Lando
+
+To install locally, you will need Composer and we recommend using Lando for a consistent developer environment.
+
+ - https://getcomposer.org/
+ - https://lando.dev/
 
 Please also see the Lando requirements section for details of Docker
 requirements for different operating systems.
 
 https://docs.lando.dev/basics/installation.html#system-requirements
 
-## Installing LocalGov Drupal locally
+## Installing LocalGov Drupal locally with composer
 
 To install LocalGov Drupal locally for testing or development, use the
 [Composer-based project template](https://github.com/localgovdrupal/localgov_project).
@@ -32,7 +65,7 @@ To install LocalGov Drupal locally for testing or development, use the
 Change `MY_PROJECT` to whatever you'd like your project directory to be called.
 
 ```bash
-composer create-project localgovdrupal/localgov-project MY_PROJECT
+composer create-project localgovdrupal/localgov-project MY_PROJECT --no-install 
 ```
 
 Change directory into the MY_PROJECT directory and run lando start.
@@ -42,25 +75,31 @@ cd MY_PROJECT
 lando start
 ```
 
-Once lando has finished building, run the site installer.
+Once lando has finished building, use lando to run composer install and the site installer.
 
 ```bash
+lando composer install
 lando drush si localgov -y
 ```
+
+Note: As you might be running a different version of PHP on your host machine from the 
+version that Lando runs, it is advisable to run composer install from within Lando. 
+This ensures dependencies reflect the PHP version that the webserver is actually running. 
+
 ## Composer notes
 
 If developing locally and you want to force composer to clone again
 from source rather than use composer cache, you can add the `--no-cache` flag.
 
 ```bash
-composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache
+lando composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache  --no-install 
 ```
 
 If you just want to pull in the latest changes to LocalGov Drupal run composer
 update with the `--no-cache` flag.
 
 ```bash
-composer update --no-cache
+lando composer update --no-cache
 ```
 
 If you want to be sure you are getting the latest commits when developing,
