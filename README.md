@@ -18,7 +18,7 @@ To get set up with a LocalGov Drupal development environment, please follow the 
 ## 🫶 Contributing
 If you have found a bug in LocalGov Drupal, please file it here under the Issues tab. Please use the templates to help structure the issues you create!
 
-Guidance on how to get more involved in the project can be found in the [Contributing](https://docs.localgovdrupal.org/contributing/ section of the docs.
+Guidance on how to get more involved in the project can be found in the [Contributing](https://docs.localgovdrupal.org/contributing/) section of the docs.
 
 ## 🧙 Stewards
 
