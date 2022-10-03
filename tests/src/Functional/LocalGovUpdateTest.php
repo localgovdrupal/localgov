@@ -10,6 +10,17 @@ use Drupal\FunctionalTests\Update\UpdatePathTestBase;
 class LocalGovUpdateTest extends UpdatePathTestBase {
 
   /**
+   * Skip schema check for config defining leaflet_formatter_default settings.
+   *
+   * @var string[]
+   */
+  protected static $configSchemaCheckerExclusions = [
+    'core.entity_view_display.localgov_geo.address.default',
+    'core.entity_view_display.localgov_geo.address.embed',
+    'core.entity_view_display.localgov_geo.address.full',
+  ];
+
+  /**
    * {@inheritdoc}
    */
   public function setDatabaseDumpFiles() {
