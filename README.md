@@ -28,7 +28,7 @@ To install LocalGov Drupal locally you will need an appropriate versions of:
  - A database server like MySQL (see https://www.drupal.org/docs/system-requirements/database-server-requirements)
  - A web server like APache2 (see https://www.drupal.org/docs/system-requirements/web-server-requirements) 
 
-Many of us use the Lando file included to run a local docker environmnent for testing and development, but seom people prefer to run the web servers natively on their host machine.
+Many of us use the Lando file included to run a local docker environment for testing and development, but some people prefer to run the web servers natively on their host machine. Other users have also successfully used [DDEV](https://ddev.readthedocs.io/en/stable/) to run a local environment.
 
 ### PHP requirements
 
@@ -122,6 +122,39 @@ For example, to install the project run:
 ```bash
 COMPOSER_MEMORY_LIMIT=-1 composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
 ```
+
+## Using DDEV
+
+If you prefer to use [DDEV](https://ddev.readthedocs.io/en/stable/), first ensure you have composer installed (as above) and that [DDEV is](https://ddev.readthedocs.io/en/stable/users/install/) installed correctly.
+
+Usse the following commands to install the project:
+
+```bash
+composer create-project localgovdrupal/localgov-project localgov --no-install
+cd localgov
+mkdir web
+ddev config
+```
+
+This will start an interactive process:
+
+```bash
+Project name (localgov): # (hit return to choose the default, or enter a new name)
+Docroot Location (current directory): # you must type **web** and hit return
+Project Type [backdrop, ... , wordpress] (php): # you must type **drupal9** and hit return
+```
+You are now ready to spin up the environment and install the site:
+
+```bash
+ddev start # the various images will be downloaded and the environment will be built
+ddev composer install # runs composer install inside the web container
+ddev drush si localgov --site-name="Winchcombeshire County Council" -y # c
+```
+Installation is complete. You will see something like:
+
+`[success] Installation complete.  User name: admin  User password: zYMVUVY7eN`
+
+Go to `https://<project name>/user/login` and use the credentials displayed in your terminal (not the ones above!).
 
 ## Contributing
 
