@@ -120,7 +120,7 @@ when running Composer commands, prefix the commands with `COMPOSER_MEMORY_LIMIT=
 For example, to install the project run:
 
 ```bash
-COMPOSER_MEMORY_LIMIT=-1 composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
+COMPOSER_MEMORY_LIMIT=-1 composer create-project localgovdrupal/localgov-project MY_PROJECT
 ```
 
 ## Contributing
