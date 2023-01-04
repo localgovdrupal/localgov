@@ -197,3 +197,13 @@ lando phpunit --filter=myTestName
 * [Drupal 8 PHPUnit documentation](https://www.drupal.org/docs/8/testing/phpunit-in-drupal-8)
 * [Drupal 8 testing documentation](https://www.drupal.org/docs/8/testing)
 * [Workshop: Automated Testing and Test Driven Development in Drupal 8](https://github.com/opdavies/workshop-drupal-automated-testing)
+
+## Security policy 
+
+It is important to have a way to report security issues safely and securely. Luckily this is something Drupal has done very well for many years, via the security team. We publish our distributions on drupal.org and opt in to the [security advisory policy](https://www.drupal.org/security-advisory-policy).. 
+
+See https://www.drupal.org/drupal-security-team/general-information 
+
+### How to report a security issue
+
+If you discover or learn about a potential error, weakness, or threat that can compromise the security of Drupal, LocalGov Drupal or LocalGov Drupal Microsites, we ask you to keep it confidential and [submit your concern to the Drupal security team](http://drupal.org/node/101494).
