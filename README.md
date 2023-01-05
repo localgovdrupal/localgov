@@ -65,7 +65,7 @@ To install LocalGov Drupal locally for testing or development, use the
 Change `MY_PROJECT` to whatever you'd like your project directory to be called.
 
 ```bash
-composer create-project localgovdrupal/localgov-project MY_PROJECT
+composer create-project localgovdrupal/localgov-project MY_PROJECT --no-install 
 ```
 
 Change directory into the MY_PROJECT directory and run lando start.
@@ -75,25 +75,31 @@ cd MY_PROJECT
 lando start
 ```
 
-Once lando has finished building, run the site installer.
+Once lando has finished building, use lando to run composer install and the site installer.
 
 ```bash
+lando composer install
 lando drush si localgov -y
 ```
+
+Note: As you might be running a different version of PHP on your host machine from the 
+version that Lando runs, it is advisable to run composer install from within Lando. 
+This ensures dependencies reflect the PHP version that the webserver is actually running. 
+
 ## Composer notes
 
 If developing locally and you want to force composer to clone again
 from source rather than use composer cache, you can add the `--no-cache` flag.
 
 ```bash
-composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache
+lando composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache  --no-install 
 ```
 
 If you just want to pull in the latest changes to LocalGov Drupal run composer
 update with the `--no-cache` flag.
 
 ```bash
-composer update --no-cache
+lando composer update --no-cache
 ```
 
 If you want to be sure you are getting the latest commits when developing,
@@ -114,7 +120,7 @@ when running Composer commands, prefix the commands with `COMPOSER_MEMORY_LIMIT=
 For example, to install the project run:
 
 ```bash
-COMPOSER_MEMORY_LIMIT=-1 composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
+COMPOSER_MEMORY_LIMIT=-1 composer create-project localgovdrupal/localgov-project MY_PROJECT
 ```
 
 ## Contributing
