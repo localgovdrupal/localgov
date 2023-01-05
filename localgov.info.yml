@@ -9,7 +9,7 @@ install:
   - drupal:breakpoint
   - drupal:block
   - drupal:block_content
-  - drupal:ckeditor
+  - drupal:ckeditor5
   - drupal:config
   - drupal:contextual
   - drupal:datetime
@@ -27,7 +27,6 @@ install:
   - drupal:options
   - drupal:page_cache
   - drupal:path
-  - drupal:quickedit
   - drupal:taxonomy
   - drupal:toolbar
   - drupal:views
