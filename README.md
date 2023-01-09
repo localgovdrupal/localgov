@@ -207,3 +207,14 @@ See https://www.drupal.org/drupal-security-team/general-information
 ### How to report a security issue
 
 If you discover or learn about a potential error, weakness, or threat that can compromise the security of Drupal, LocalGov Drupal or LocalGov Drupal Microsites, we ask you to keep it confidential and [submit your concern to the Drupal security team](http://drupal.org/node/101494).
+
+## Maintainers
+
+This project is currently maintained by: 
+
+ - Andy Broomfield: https://www.drupal.org/u/andybroomfield
+ - Ekes: https://www.drupal.org/u/ekes
+ - Finn Lewis: https://www.drupal.org/u/finn-lewis
+ - Maria Young: https://www.drupal.org/u/mariay-0
+ - Mark Conroy: https://www.drupal.org/u/markconroy
+ - Stephen Cox: https://www.drupal.org/u/stephen-cox 
