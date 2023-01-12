@@ -26,9 +26,9 @@ To install LocalGov Drupal locally you will need an appropriate versions of:
 
  - PHP (see https://www.drupal.org/docs/system-requirements/php-requirements)
  - A database server like MySQL (see https://www.drupal.org/docs/system-requirements/database-server-requirements)
- - A web server like APache2 (see https://www.drupal.org/docs/system-requirements/web-server-requirements) 
+ - A web server like Apache2 (see https://www.drupal.org/docs/system-requirements/web-server-requirements) 
 
-Many of us use the Lando file included to run a local docker environmnent for testing and development, but seom people prefer to run the web servers natively on their host machine.
+Many of us use the Lando file included to run a local docker environmnent for testing and development, but some people prefer to run the web servers natively on their host machine.
 
 ### PHP requirements
 
