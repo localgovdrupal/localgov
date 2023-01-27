@@ -35,7 +35,6 @@
         "localgovdrupal/localgov_step_by_step": "dev-feature/drupal-10 as 2.1.0",
         "localgovdrupal/localgov_subsites": "dev-feature/drupal-10 as 2.3.0",
         "localgovdrupal/localgov_scarfolk": "dev-feature/drupal-10 as 1.2.0",
-        "localgovdrupal/localgov_theme": "dev-feature/drupal-10 as 1.1.0",
         "localgovdrupal/localgov_workflows": "dev-feature/drupal-10 as 1.2.0"
     },
     "require-dev": {
