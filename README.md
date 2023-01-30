@@ -26,9 +26,9 @@ To install LocalGov Drupal locally you will need an appropriate versions of:
 
  - PHP (see https://www.drupal.org/docs/system-requirements/php-requirements)
  - A database server like MySQL (see https://www.drupal.org/docs/system-requirements/database-server-requirements)
- - A web server like APache2 (see https://www.drupal.org/docs/system-requirements/web-server-requirements) 
+ - A web server like Apache2 (see https://www.drupal.org/docs/system-requirements/web-server-requirements) 
 
-Many of us use the Lando file included to run a local docker environmnent for testing and development, but seom people prefer to run the web servers natively on their host machine.
+Many of us use the Lando file included to run a local docker environmnent for testing and development, but some people prefer to run the web servers natively on their host machine.
 
 ### PHP requirements
 
@@ -120,7 +120,7 @@ when running Composer commands, prefix the commands with `COMPOSER_MEMORY_LIMIT=
 For example, to install the project run:
 
 ```bash
-COMPOSER_MEMORY_LIMIT=-1 composer create-project --stability dev localgovdrupal/localgov-project MY_PROJECT
+COMPOSER_MEMORY_LIMIT=-1 composer create-project localgovdrupal/localgov-project MY_PROJECT
 ```
 
 ## Contributing
@@ -197,3 +197,24 @@ lando phpunit --filter=myTestName
 * [Drupal 8 PHPUnit documentation](https://www.drupal.org/docs/8/testing/phpunit-in-drupal-8)
 * [Drupal 8 testing documentation](https://www.drupal.org/docs/8/testing)
 * [Workshop: Automated Testing and Test Driven Development in Drupal 8](https://github.com/opdavies/workshop-drupal-automated-testing)
+
+## Security policy 
+
+It is important to have a way to report security issues safely and securely. Luckily this is something Drupal has done very well for many years, via the security team. We publish our distributions on drupal.org and opt in to the [security advisory policy](https://www.drupal.org/security-advisory-policy).. 
+
+See https://www.drupal.org/drupal-security-team/general-information 
+
+### How to report a security issue
+
+If you discover or learn about a potential error, weakness, or threat that can compromise the security of Drupal, LocalGov Drupal or LocalGov Drupal Microsites, we ask you to keep it confidential and [submit your concern to the Drupal security team](http://drupal.org/node/101494).
+
+## Maintainers
+
+This project is currently maintained by: 
+
+ - Andy Broomfield: https://www.drupal.org/u/andybroomfield
+ - Ekes: https://www.drupal.org/u/ekes
+ - Finn Lewis: https://www.drupal.org/u/finn-lewis
+ - Maria Young: https://www.drupal.org/u/mariay-0
+ - Mark Conroy: https://www.drupal.org/u/markconroy
+ - Stephen Cox: https://www.drupal.org/u/stephen-cox 

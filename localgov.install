@@ -32,3 +32,13 @@ function localgov_update_8201() {
   // Sites that have not run this update will also get 8110 and shouldn't risk
   // running this version after search_api_update_8110.
 }
+
+/**
+ * Enable stable9 theme if localgov_base theme is enabled.
+ */
+function localgov_update_9501() {
+
+  if (\Drupal::service('theme_handler')->themeExists('localgov_base')) {
+    \Drupal::service('theme_installer')->install(['stable9']);
+  }
+}
