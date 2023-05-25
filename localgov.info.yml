@@ -35,6 +35,8 @@ install:
   # Contrib
   - admin_toolbar:admin_toolbar
   - admin_toolbar:admin_toolbar_tools
+  - autosave_form:autosave_form
+  - content_lock:content_lock
   - entity_browser:entity_browser
   - gin_login:gin_login
   - gin_toolbar:gin_toolbar
@@ -52,6 +54,8 @@ install:
   - localgov_services:localgov_services_navigation
   - localgov_services:localgov_services_page
   - localgov_services:localgov_services_sublanding
+  # Custom
+  - content_ownership:content_ownership
 
 dependencies:
   - localgov_core:localgov_core

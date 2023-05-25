@@ -12,6 +12,8 @@
     ],
     "require": {
         "drupal/admin_toolbar": "^3.0",
+        "drupal/autosave_form": "^1.4",
+        "drupal/content_lock": "^2.3",
         "drupal/core": "^9.1",
         "drupal/devel": "^4.1",
         "drupal/gin": "^3.0@alpha",
