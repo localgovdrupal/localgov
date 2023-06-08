@@ -40,6 +40,7 @@ install:
   - gin_toolbar:gin_toolbar
   - simple_sitemap:simple_sitemap
   # LocalGov Drupal
+  - localgov:localgov_login_redirect
   - localgov_core:localgov_core
   - localgov_core:localgov_media
   - localgov_core:localgov_roles
