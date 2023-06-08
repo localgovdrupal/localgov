@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Hooks for LocalGov Login Page module.
+ */
+
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_user_login().
+ */
+function localgov_login_redirect_user_login(AccountInterface $account) {
+
+  // Redirect user at login.
+  $config = \Drupal::configFactory()->get('localgov_login_redirect.settings');
+  $request = \Drupal::request();
+  if ($config->get('enabled') === TRUE && is_null($request->query->get('destination'))) {
+    $route = $config->get('redirect_route') ?? 'view.content.page_1';
+    $url = Url::fromRoute($route);
+    if ($url->access($account)) {
+      $request->query->set('destination', $url->toString());
+    }
+  }
+}
