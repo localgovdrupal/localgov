@@ -13,14 +13,28 @@ use Drupal\Core\Url;
  */
 function localgov_login_redirect_user_login(AccountInterface $account) {
 
-  // Redirect user at login.
+  // Check login redirect is enabled.
   $config = \Drupal::configFactory()->get('localgov_login_redirect.settings');
+  if ($config->get('enabled') !== TRUE) {
+    return;
+  }
+
+  // Check user is using a login link.
+  $current_route = Drupal::routeMatch()->getRouteName();
+  if (in_array($current_route, ['user.reset', 'user.reset.login'])) {
+    return;
+  }
+
+  // Check for a destination parameter.
   $request = \Drupal::request();
-  if ($config->get('enabled') === TRUE && is_null($request->query->get('destination'))) {
-    $route = $config->get('redirect_route') ?? 'view.content.page_1';
-    $url = Url::fromRoute($route);
-    if ($url->access($account)) {
-      $request->query->set('destination', $url->toString());
-    }
+  if (!is_null($request->query->get('destination', NULL))) {
+    return;
+  }
+
+  // Set destination parameter to redirect user with access permissions.
+  $route = $config->get('redirect_route') ?? 'view.content.page_1';
+  $url = Url::fromRoute($route);
+  if ($url->access($account)) {
+    $request->query->set('destination', $url->toString());
   }
 }
