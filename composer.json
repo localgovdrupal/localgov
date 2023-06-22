@@ -30,7 +30,7 @@
         "localgovdrupal/localgov_news": "dev-feature/drupal-10 as 2.3.0",
         "localgovdrupal/localgov_openreferral": "dev-feature/drupal-10 as 1.1.0",
         "localgovdrupal/localgov_paragraphs": "^2.3.0",
-        "localgovdrupal/localgov_search": "dev-feature/drupal-10 as 1.2.0",
+        "localgovdrupal/localgov_search": "^1.2.0",
         "localgovdrupal/localgov_services": "^2.2.0",
         "localgovdrupal/localgov_step_by_step": "dev-feature/drupal-10 as 2.1.0",
         "localgovdrupal/localgov_subsites": "dev-feature/drupal-10 as 2.3.0",
