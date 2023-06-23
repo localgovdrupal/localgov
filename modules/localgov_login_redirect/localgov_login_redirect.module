@@ -6,7 +6,6 @@
  */
 
 use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\Url;
 
 /**
  * Implements hook_user_login().
@@ -32,9 +31,8 @@ function localgov_login_redirect_user_login(AccountInterface $account) {
   }
 
   // Set destination parameter to redirect user with access permissions.
-  $route = $config->get('redirect_route') ?? 'view.content.page_1';
-  $url = Url::fromRoute($route);
-  if ($url->access($account)) {
+  $path = $config->get('redirect_path') ?? '/admin/content';
+  if ($url = \Drupal::service('path.validator')->getUrlIfValid($path)) {
     $request->query->set('destination', $url->toString());
   }
 }

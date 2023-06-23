@@ -5,9 +5,8 @@ namespace Drupal\localgov_login_redirect\Form;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Routing\RouteProvider;
+use Drupal\Core\Path\PathValidator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 /**
  * Login redirect settings for class.
@@ -15,23 +14,23 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 class LoginRedirectSettingsForm extends ConfigFormBase {
 
   /**
-   * The route provider.
+   * The path validator.
    *
-   * @var \Drupal\Core\Routing\RouteProvider
+   * @var \Drupal\Core\Path\PathValidator
    */
-  protected RouteProvider $routeProvider;
+  protected PathValidator $pathValidator;
 
   /**
    * Constructs a new UserRedirectSettingsForm.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The factory for configuration objects.
-   * @param \Drupal\Core\Routing\RouteProvider $route_provider
+   * @param \Drupal\Core\Path\PathValidator $path_validator
    *   The route provider.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, RouteProvider $route_provider) {
+  public function __construct(ConfigFactoryInterface $config_factory, PathValidator $path_validator) {
     parent::__construct($config_factory);
-    $this->routeProvider = $route_provider;
+    $this->pathValidator = $path_validator;
   }
 
   /**
@@ -40,7 +39,7 @@ class LoginRedirectSettingsForm extends ConfigFormBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('config.factory'),
-      $container->get('router.route_provider')
+      $container->get('path.validator')
     );
   }
 
@@ -72,11 +71,11 @@ class LoginRedirectSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Redirect users to the content overview page at login.'),
       '#default_value' => $config->get('enabled'),
     ];
-    $form['redirect_route'] = [
+    $form['redirect_path'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('User redirect route'),
-      '#description' => $this->t('The Drupal route name to redirect users to once logged in. This is <strong>not</strong> the path to a page.'),
-      '#default_value' => $config->get('redirect_route'),
+      '#title' => $this->t('User redirect path'),
+      '#description' => $this->t('The Drupal path name to redirect users to once logged in.'),
+      '#default_value' => $config->get('redirect_path'),
     ];
 
     return $form;
@@ -88,14 +87,9 @@ class LoginRedirectSettingsForm extends ConfigFormBase {
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
 
-    $redirect_route = $form_state->getValue('redirect_route');
-    if (!empty($redirect_route)) {
-      try {
-        $this->routeProvider->getRouteByName($redirect_route);
-      }
-      catch (RouteNotFoundException $exception) {
-        $form_state->setErrorByName('redirect_route', 'Redirect route is invalid.');
-      }
+    $redirect_path = $form_state->getValue('redirect_path');
+    if (!empty($redirect_path) and !$this->pathValidator->isValid($redirect_path)) {
+      $form_state->setErrorByName('redirect_path', 'Redirect path is invalid.');
     }
   }
 
@@ -106,7 +100,7 @@ class LoginRedirectSettingsForm extends ConfigFormBase {
 
     $config = $this->config('localgov_login_redirect.settings');
     $config->set('enabled', $form_state->getValue('enabled') === 1);
-    $config->set('redirect_route', $form_state->getValue('redirect_route'));
+    $config->set('redirect_path', $form_state->getValue('redirect_path'));
     $config->save();
 
     parent::submitForm($form, $form_state);
