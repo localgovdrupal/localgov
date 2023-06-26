@@ -1,0 +1,7 @@
+localgov_login_redirect.settings:
+  path: '/admin/config/system/localgov_login_redirect'
+  defaults:
+    _form: '\Drupal\localgov_login_redirect\Form\LoginRedirectSettingsForm'
+    _title: 'Localgov login redirect settings'
+  requirements:
+    _permission: 'administer site configuration'
