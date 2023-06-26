@@ -1,0 +1,5 @@
+localgov_login_redirect.settings:
+  title: 'Localgov login redirect settings'
+  description: 'Configure settings for the Localgov Login Redirect module.'
+  route_name: localgov_login_redirect.settings
+  parent: 'system.admin_config_system'

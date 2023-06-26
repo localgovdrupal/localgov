@@ -41,6 +41,7 @@ install:
   - preview_link:preview_link
   - simple_sitemap:simple_sitemap
   # LocalGov Drupal
+  - localgov:localgov_login_redirect
   - localgov_core:localgov_core
   - localgov_core:localgov_media
   - localgov_core:localgov_roles
