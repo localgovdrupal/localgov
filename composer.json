@@ -28,7 +28,7 @@
         "localgovdrupal/localgov_guides": "^2.1.0",
         "localgovdrupal/localgov_menu_link_group": "^1.1.0",
         "localgovdrupal/localgov_news": "^2.3.0",
-        "localgovdrupal/localgov_openreferral": "2-dev",
+        "localgovdrupal/localgov_openreferral": "2.x-dev",
         "localgovdrupal/localgov_paragraphs": "^2.3.0",
         "localgovdrupal/localgov_search": "^1.2.0",
         "localgovdrupal/localgov_services": "^2.2.0",
