@@ -5,6 +5,6 @@ localgov_login_redirect.settings:
     enabled:
       type: boolean
       label: 'Enabled'
-    redirect_route:
+    redirect_path:
       type: string
-      label: 'Redirection route'
+      label: 'Redirection path'

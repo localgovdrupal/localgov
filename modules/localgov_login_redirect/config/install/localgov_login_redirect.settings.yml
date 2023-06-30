@@ -1,2 +1,2 @@
 enabled: true
-redirect_route: 'view.content.page_1'
+redirect_path: '/admin/content'

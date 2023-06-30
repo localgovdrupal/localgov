@@ -53,6 +53,13 @@ class LoginRedirectTest extends BrowserTestBase {
     $edit = ['name' => $user3->getAccountName(), 'pass' => $user3->passRaw];
     $this->submitForm($edit, 'Log in');
     $this->assertSession()->addressEquals('foo');
+    $this->drupalLogout();
+
+    // Ensure password reset links are not redirected.
+    $user4 = $this->drupalCreateUser(['access content overview']);
+    $reset_link = user_pass_reset_url($user4);
+    $this->drupalGet($reset_link);
+    $this->assertSession()->addressEquals('user/reset/' . $user4->id());
   }
 
 }
