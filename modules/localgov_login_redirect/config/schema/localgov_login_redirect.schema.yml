@@ -1,0 +1,10 @@
+localgov_login_redirect.settings:
+  type: config_object
+  label: 'LocalGov Login Redirect settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enabled'
+    redirect_path:
+      type: string
+      label: 'Redirection path'

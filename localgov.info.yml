@@ -37,8 +37,10 @@ install:
   - entity_browser:entity_browser
   - gin_login:gin_login
   - gin_toolbar:gin_toolbar
+  - preview_link:preview_link
   - simple_sitemap:simple_sitemap
   # LocalGov Drupal
+  - localgov:localgov_login_redirect
   - localgov_core:localgov_core
   - localgov_core:localgov_media
   - localgov_core:localgov_roles
