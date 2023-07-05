@@ -32,7 +32,7 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * Tests LocalGov updates from 1.0.0 to current.

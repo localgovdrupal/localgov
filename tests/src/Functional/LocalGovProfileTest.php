@@ -19,7 +19,7 @@ class LocalGovProfileTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * Test localgov profile was installed and basic site functions.
