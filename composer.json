@@ -24,7 +24,7 @@
         "localgovdrupal/localgov_base": "^1.3.1",
         "localgovdrupal/localgov_core": "^2.12.0",
         "localgovdrupal/localgov_demo": "3.x-dev",
-        "localgovdrupal/localgov_directories": "dev-feature/3.x/geo_entity as 3.0.0-alpha2",
+        "localgovdrupal/localgov_directories": "dev-feature/3.x/geo_entity as 3.x-dev",
         "localgovdrupal/localgov_events": "dev-feature/3.x/geo_entity as 2.1.0",
         "localgovdrupal/localgov_guides": "^2.1.0",
         "localgovdrupal/localgov_menu_link_group": "^1.1.0",
