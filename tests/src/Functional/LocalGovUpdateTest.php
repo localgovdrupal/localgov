@@ -96,7 +96,7 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     $this->assertSession()->elementTextContains('css', 'header h1', 'Blue Badges');
     $this->assertSession()->elementTextContains('css', '.block-localgov-guides nav', 'About Blue Badges');
     $this->assertSession()->elementTextContains('css', '.block-localgov-guides nav', 'Blue Badges for organisations');
-    $this->assertSession()->elementTextContains('css', 'main article h2', 'Overview');
+    $this->assertSession()->elementTextContains('css', 'main article h2', 'About Blue Badges');
     $this->assertSession()->elementTextContains('css', 'main article p', 'Blue Badges give disabled people who rely on car travel, but face challenges in getting from the car to their destination, the ability to park close-by.');
     $this->assertSession()->elementTextContains('css', '.localgov_guides--navigation a', 'Next');
 
