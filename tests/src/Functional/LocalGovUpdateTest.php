@@ -19,12 +19,12 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     'core.entity_view_display.localgov_geo.address.embed',
     'core.entity_view_display.localgov_geo.address.full',
     // Missing schema:
-    // - 'content.location.settings.reset_map.position'
-    // - 'content.location.settings.weight'
+    // - 'content.location.settings.reset_map.position'.
+    // - 'content.location.settings.weight'.
     'core.entity_view_display.localgov_geo.area.default',
     'core.entity_view_display.localgov_geo.area.embed',
     'core.entity_view_display.localgov_geo.area.full',
-    // Missing schema 'processor_configs.weight_property_order.settings.sort'
+    // Missing schema 'processor_configs.weight_property_order.settings.sort'.
     'facets.facet.localgov_directories_facets_proximity_search',
   ];
 
