@@ -29,7 +29,6 @@
         "localgovdrupal/localgov_guides": "^2.1.0",
         "localgovdrupal/localgov_menu_link_group": "^1.1.0",
         "localgovdrupal/localgov_news": "^2.3.0",
-        "localgovdrupal/localgov_openreferral": "dev-dev-do-not-merge/3.x/geo_entity",
         "localgovdrupal/localgov_paragraphs": "^2.3.0",
         "localgovdrupal/localgov_search": "^1.2.0",
         "localgovdrupal/localgov_services": "^2.1.0",
