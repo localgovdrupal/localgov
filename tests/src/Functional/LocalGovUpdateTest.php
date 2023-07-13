@@ -24,8 +24,39 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     'core.entity_view_display.localgov_geo.area.default',
     'core.entity_view_display.localgov_geo.area.embed',
     'core.entity_view_display.localgov_geo.area.full',
+    'core.entity_view_display.geo_entity.area.default',
+    'core.entity_view_display.geo_entity.area.embed',
+    'core.entity_view_display.geo_entity.area.full',
     // Missing schema 'processor_configs.weight_property_order.settings.sort'.
     'facets.facet.localgov_directories_facets_proximity_search',
+    // Missing schema:
+    // - content.location.settings.geometry_validation.
+    // - content.location.settings.multiple_map.
+    // - content.location.settings.leaflet_map.
+    // - content.location.settings.height.
+    // - content.location.settings.height_unit.
+    // - content.location.settings.hide_empty_map.
+    // - content.location.settings.disable_wheel.
+    // - content.location.settings.gesture_handling.
+    // - content.location.settings.popup.
+    // - content.location.settings.popup_content.
+    // - content.location.settings.leaflet_popup.
+    // - content.location.settings.leaflet_tooltip.
+    // - content.location.settings.map_position.
+    // - content.location.settings.weight.
+    // - content.location.settings.icon.
+    // - content.location.settings.leaflet_markercluster.
+    // - content.location.settings.feature_properties.
+    'core.entity_form_display.geo_entity.address.default',
+    'core.entity_form_display.geo_entity.address.inline',
+    // Missing schema:
+    // - content.postal_address.settings.providers.
+    // - content.postal_address.settings.geocode_geofield
+    'core.entity_form_display.localgov_geo.address.default',
+    'core.entity_form_display.localgov_geo.address.inline',
+    // No schema:
+    'localgov_geo.localgov_geo_type.address',
+    'localgov_geo.localgov_geo_type.area',
   ];
 
   /**
