@@ -6,10 +6,10 @@ name: Test localgovdrupal/localgov drupal-profile
 on:
   push:
     branches:
-      - '2.x'
+      - '3.x'
   pull_request:
     branches:
-      - '2.x'
+      - '3.x'
 
 env:
   LOCALGOV_DRUPAL_PROJECT: localgovdrupal/localgov
@@ -25,11 +25,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '2.x'
+          - '3.x'
         drupal-version:
-          - '~9.3'
+          - '~10.0'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
@@ -109,11 +108,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '2.x'
+          - '3.x'
         drupal-version:
-          - '~9.3'
+          - '~10.0'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
@@ -145,11 +143,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '2.x'
+          - '3.x'
         drupal-version:
-          - '~9.3'
+          - '~10.0'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:
@@ -180,11 +177,10 @@ jobs:
       fail-fast: false
       matrix:
         localgov-version:
-          - '2.x'
+          - '3.x'
         drupal-version:
-          - '~9.3'
+          - '~10.0'
         php-version:
-          - '7.4'
           - '8.1'
 
     steps:

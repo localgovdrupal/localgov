@@ -92,7 +92,7 @@ If developing locally and you want to force composer to clone again
 from source rather than use composer cache, you can add the `--no-cache` flag.
 
 ```bash
-lando composer create-project localgovdrupal/localgov-project MY_PROJECT --stability dev --no-cache  --no-install 
+composer create-project localgovdrupal/localgov-project MY_PROJECT --no-cache  --no-install 
 ```
 
 If you just want to pull in the latest changes to LocalGov Drupal run composer
