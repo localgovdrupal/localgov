@@ -4,7 +4,6 @@
  * Enables modules and site configuration for a Localgov site installation.
  */
 
-
 /**
  * Implements hook_page_attachments().
  */
