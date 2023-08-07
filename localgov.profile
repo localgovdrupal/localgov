@@ -15,7 +15,7 @@ function localgov_page_attachments(array &$attachments): void {
 
     if ($name == 'system_meta_generator') {
       $tag = &$html_head[0];
-      $tag['#attributes']['content'] = 'Drupal ' . $core_version[0] . ' (LocalGov Drupal | https://localgovdrupal.org)';
+      $tag['#attributes']['content'] = 'Drupal ' . $parts[0] . ' (LocalGov Drupal | https://localgovdrupal.org)';
     }
   }
 }
