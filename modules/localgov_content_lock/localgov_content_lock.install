@@ -8,7 +8,11 @@
 /**
  * Implements hook_install().
  */
-function localgov_content_lock_install() {
+function localgov_content_lock_install($is_syncing) {
+
+  if ($is_syncing) {
+    return;
+  }
 
   // Enable content locking on all content types.
   $config_factory = \Drupal::configFactory();
