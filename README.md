@@ -1,5 +1,7 @@
 # LocalGov Drupal
 
+![Tests](https://github.com/localgovdrupal/localgov_project/actions/workflows/test.yml/badge.svg)
+
 Drupal distribution and install profile to help UK councils collaborate and
 share Drupal code for publishing website content.
 

@@ -14,7 +14,6 @@
         "drupal/admin_toolbar": "^3.0",
         "drupal/content_lock": "^2.3",
         "drupal/core": "^9.1",
-        "drupal/devel": "^4.1",
         "drupal/gin": "^3.0@alpha",
         "drupal/gin_login": "^1.0@RC",
         "drupal/gin_toolbar": "^1.0@beta",
@@ -42,7 +41,8 @@
         "localgovdrupal/localgov_workflows": "^1.0.0"
     },
     "require-dev": {
-        "drupal/core-dev": "^9.1"
+        "drupal/core-dev": "^9.1",
+        "drupal/devel": "^4.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
