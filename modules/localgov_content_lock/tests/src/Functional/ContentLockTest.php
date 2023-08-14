@@ -54,4 +54,5 @@ class ContentLockTest extends BrowserTestBase {
     $this->drupalGet('/admin/content/locked-content');
     $this->assertSession()->pageTextContains($title);
   }
+
 }

@@ -4,5 +4,5 @@ description: Customises the Content Lock module for use with LocalGov Drupal
 package: LocalGov Drupal
 core_version_requirement: ^9 || ^10
 dependencies:
-  - content_lock
-  - content_lock_timeout
+  - content_lock:content_lock
+  - content_lock:content_lock_timeout
