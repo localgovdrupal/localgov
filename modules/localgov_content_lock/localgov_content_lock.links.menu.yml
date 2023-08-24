@@ -1,0 +1,4 @@
+localgov_content_lock.locked_content:
+  title: 'Locked content'
+  parent: system.admin_content
+  route_name: view.locked_content.page_1
