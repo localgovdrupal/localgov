@@ -26,6 +26,13 @@ function localgov_install() {
   $frontpage_view = View::load('frontpage');
   $frontpage_view->setStatus(FALSE)->save();
 
+  // Set front page to /user.
+  // This is so there is a default accessible front page on first install.
+  \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->set('page.front', '/user')
+    ->save();
+
 }
 
 /**
