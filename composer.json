@@ -12,6 +12,7 @@
     ],
     "require": {
         "drupal/admin_toolbar": "^3.0",
+        "drupal/content_lock": "^2.3",
         "drupal/core": "^10.0",
         "drupal/gin": "^3.0@alpha",
         "drupal/gin_login": "^1.0@RC",
