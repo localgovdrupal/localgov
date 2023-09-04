@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the LocalGov Content Lock module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function localgov_content_lock_install($is_syncing) {
+
+  if ($is_syncing) {
+    return;
+  }
+
+  // Enable content locking on all content types.
+  $config_factory = \Drupal::configFactory();
+  $content_lock_config = $config_factory->getEditable('content_lock.settings');
+  $content_lock_config->set('types.node', ['*' => '*']);
+  $content_lock_config->save();
+}

@@ -1,0 +1,5 @@
+localgov_content_lock.locked_content:
+  title: 'Locked'
+  parent_id: system.admin_content
+  route_name: view.locked_content.page_1
+  weight: 100
