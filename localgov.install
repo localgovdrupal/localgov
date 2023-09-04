@@ -6,6 +6,7 @@
  */
 
 use Drupal\user\Entity\User;
+use Drupal\views\Entity\View;
 
 /**
  * Implements hook_install().
@@ -20,6 +21,18 @@ function localgov_install() {
   $user = User::load(1);
   $user->roles[] = 'administrator';
   $user->save();
+
+  // Disable the frontpage view.
+  $frontpage_view = View::load('frontpage');
+  $frontpage_view->setStatus(FALSE)->save();
+
+  // Set front page to /user.
+  // This is so there is a default accessible front page on first install.
+  \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->set('page.front', '/user')
+    ->save();
+
 }
 
 /**
