@@ -54,6 +54,10 @@ class LocalGovProfileTest extends BrowserTestBase {
     $this->drupalLogin($adminUser);
     $this->drupalGet('admin');
     $this->assertSession()->statusCodeEquals(Response::HTTP_OK);
+
+    // Test that the /node view is disabled.
+    $this->drupalGet('/node');
+    $this->assertSession()->statusCodeEquals(Response::HTTP_NOT_FOUND);
   }
 
 }
