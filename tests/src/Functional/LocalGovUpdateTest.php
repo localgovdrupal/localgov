@@ -73,7 +73,7 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
   /**
    * Tests LocalGov updates from 2.3.18 to current.
    */
-  public function testUpdate() {
+  public function testUpdate(): void {
 
     // Test Drupal update to latest version.
     $this->runUpdates();
