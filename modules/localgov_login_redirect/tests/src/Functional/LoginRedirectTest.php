@@ -22,7 +22,7 @@ class LoginRedirectTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'localgov_login_redirect',
   ];
 
