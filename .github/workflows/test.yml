@@ -30,6 +30,7 @@ jobs:
           - '~10.0'
         php-version:
           - '8.1'
+          - '8.2'
 
     steps:
 
@@ -99,6 +100,9 @@ jobs:
         with:
           path: ${{ env.LOCALGOV_DRUPAL_PROJECT_PATH }}
 
+      - name: Obtain dev dependencies
+        run: jq --raw-output '.["require-dev"] | values | to_entries[] | @sh "\(.key):\(.value)"' ./html/web/profiles/contrib/localgov/composer.json | xargs composer --working-dir=./html require
+
   phpcs:
     name: Coding standards checks
     needs: build
@@ -113,6 +117,7 @@ jobs:
           - '~10.0'
         php-version:
           - '8.1'
+          - '8.2'
 
     steps:
 
@@ -148,6 +153,7 @@ jobs:
           - '~10.0'
         php-version:
           - '8.1'
+          - '8.2'
 
     steps:
 
@@ -182,6 +188,7 @@ jobs:
           - '~10.0'
         php-version:
           - '8.1'
+          - '8.2'
 
     steps:
 
