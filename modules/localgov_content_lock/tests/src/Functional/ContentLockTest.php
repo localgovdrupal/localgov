@@ -22,7 +22,7 @@ class ContentLockTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'localgov_content_lock',
   ];
 

@@ -9,8 +9,9 @@ the codebase which includes this profile.
 
 ## Supported branches
 
-We are actively supporting and developing the 2.x branch for Drupal 9.
+We are actively supporting and developing the 3.x branch for Drupal 10.
 
+The 2.x branch is still supported for Drupal 9 support, until such time as Drupal 9 is unsupported.
 The 1.x branch is no longer actively supported and not recommended for new sites.
 
 If you are still using the 1.x branch on your site, please [create an issue on Github](https://github.com/localgovdrupal/localgov/issues) to let us know.
@@ -28,13 +29,15 @@ To install LocalGov Drupal locally you will need an appropriate versions of:
  - A database server like MySQL (see https://www.drupal.org/docs/system-requirements/database-server-requirements)
  - A web server like Apache2 (see https://www.drupal.org/docs/system-requirements/web-server-requirements) 
 
-Many of us use the Lando file included to run a local docker environmnent for testing and development, but some people prefer to run the web servers natively on their host machine.
+Many of us use the Lando file included to run a local docker environmnent for testing and development, but some people prefer to run the web servers natively on their host machine. 
+
+We also include default DDEV configuration for developers that prefer DDEV.
 
 ### PHP requirements
 
 We folllow Drupal's PHP recomendations: https://www.drupal.org/docs/system-requirements/php-requirements#versions
 
-We currently recomend PHP 8.1 or 8.0 but also aim to support PHP 7.4.
+We currently recomend PHP 8.1 also aim to support PHP PHP 8.2 in line with Drupal 10's PHP support.
 
 You will also need to have certain PHP extensions enabled (see https://www.drupal.org/docs/system-requirements/php-requirements#extensions) including: 
 
@@ -65,7 +68,7 @@ To install LocalGov Drupal locally for testing or development, use the
 Change `MY_PROJECT` to whatever you'd like your project directory to be called.
 
 ```bash
-composer create-project localgovdrupal/localgov-project MY_PROJECT --no-install 
+composer create-project localgovdrupal/localgov-project:3.x@beta MY_PROJECT --no-install 
 ```
 
 Change directory into the MY_PROJECT directory and run lando start.
@@ -92,7 +95,7 @@ If developing locally and you want to force composer to clone again
 from source rather than use composer cache, you can add the `--no-cache` flag.
 
 ```bash
-composer create-project localgovdrupal/localgov-project MY_PROJECT --no-cache  --no-install 
+composer create-project localgovdrupal/localgov-project:3.x@beta MY_PROJECT --no-cache  --no-install 
 ```
 
 If you just want to pull in the latest changes to LocalGov Drupal run composer
