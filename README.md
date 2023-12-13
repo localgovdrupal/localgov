@@ -1,20 +1,22 @@
 # LocalGov Drupal
 
-Drupal distribution and install profile to help UK councils collaborate and
-share Drupal code for publishing website content.
+A Drupal distribution and installation profile designed to help UK and Irish councils collaborate and
+share Drupal code and build a culture of publishing excellent website content for everyone.
 
 This project is the Drupal installation profile that is best installed using
-composer to require a project template, localgov_project, to scaffold and build
-the codebase which includes this profile.
+composer to require a project template, [localgov_project]([url](https://github.com/localgovdrupal/localgov_project/)), to scaffold and build
+the codebase, which includes this installation profile.
 
 ## Supported branches
 
-We are actively supporting and developing the 3.x branch for Drupal 10.
+We are actively developing and supporting the 3.x branch for Drupal 10.
 
-The 2.x branch is still supported for Drupal 9 support, until such time as Drupal 9 is unsupported.
+The 2.x branch is no longer officially supported, as Drupal 9 is unsupported since 1st November 2023. 
+We will continue to help our councils that have not yet upgraded to Drupal 10, on a best efforts basis.
+
 The 1.x branch is no longer actively supported and not recommended for new sites.
 
-If you are still using the 1.x branch on your site, please [create an issue on Github](https://github.com/localgovdrupal/localgov/issues) to let us know.
+**Important:** If you are still using the 1.x or 2.x branches on your site, please [create an issue on Github](https://github.com/localgovdrupal/localgov/issues) to let us know.
 
 ## Documentation
 
@@ -68,7 +70,7 @@ To install LocalGov Drupal locally for testing or development, use the
 Change `MY_PROJECT` to whatever you'd like your project directory to be called.
 
 ```bash
-composer create-project localgovdrupal/localgov-project:3.x@beta MY_PROJECT --no-install 
+composer create-project localgovdrupal/localgov-project:^3.0 MY_PROJECT --no-install 
 ```
 
 Change directory into the MY_PROJECT directory and run lando start.
@@ -95,7 +97,7 @@ If developing locally and you want to force composer to clone again
 from source rather than use composer cache, you can add the `--no-cache` flag.
 
 ```bash
-composer create-project localgovdrupal/localgov-project:3.x@beta MY_PROJECT --no-cache  --no-install 
+composer create-project localgovdrupal/localgov-project:^3.0 MY_PROJECT --no-cache  --no-install 
 ```
 
 If you just want to pull in the latest changes to LocalGov Drupal run composer
@@ -123,7 +125,7 @@ when running Composer commands, prefix the commands with `COMPOSER_MEMORY_LIMIT=
 For example, to install the project run:
 
 ```bash
-COMPOSER_MEMORY_LIMIT=-1 composer create-project localgovdrupal/localgov-project MY_PROJECT
+COMPOSER_MEMORY_LIMIT=-1 composer create-project localgovdrupal/localgov-project:^3.0 MY_PROJECT
 ```
 
 ## Contributing
