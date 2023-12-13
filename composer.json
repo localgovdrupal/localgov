@@ -62,9 +62,6 @@
             },
             "drupal/core": {
                 "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2022-06-17/2845144-67.patch"
-            },
-            "drupal/entity_browser": {
-              "Fix PHP 8.2 deprecation issue with WidgetSelectorBase-class, https://www.drupal.org/project/entity_browser/issues/3350169": "https://www.drupal.org/files/issues/2023-06-15/3350169-8_0.patch"
             }
         }
     }
