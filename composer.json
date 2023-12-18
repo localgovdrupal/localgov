@@ -62,6 +62,10 @@
             },
             "drupal/core": {
                 "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2022-06-17/2845144-67.patch"
+            },
+	    "drupal/facets": {
+              "Don't render facet block if backend isn't available: https://www.drupal.org/project/facets/issues/3311856": "https://git.drupalcode.org/issue/facets-3311856/-/commit/765d5ef4228906c7f201e116763f3018a7867c96.patch",
+              "PHP 8.2 compatibility for the 2.0.x branch: https://www.drupal.org/project/facets/issues/3336646": "https://www.drupal.org/files/issues/2023-08-16/3336646-function-is-deprecated.patch"
             }
         }
     }
