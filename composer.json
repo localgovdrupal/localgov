@@ -61,7 +61,7 @@
                 "Fix PHP 8.2 deprecation notices": "https://www.drupal.org/files/issues/2023-05-22/3343964-5.patch"
             },
             "drupal/core": {
-                "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2022-06-17/2845144-67.patch"
+                "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2024-01-07/2845144-78.patch"
             }
         }
     }
