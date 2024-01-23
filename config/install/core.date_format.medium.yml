@@ -4,4 +4,4 @@ dependencies: {  }
 id: medium
 label: 'Default medium date'
 locked: false
-pattern: 'D, d/m/Y - g:ia'
+pattern: 'D d/m/Y g:ia'

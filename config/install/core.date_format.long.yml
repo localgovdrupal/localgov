@@ -4,4 +4,4 @@ dependencies: {  }
 id: long
 label: 'Default long date'
 locked: false
-pattern: 'l j F Y - g:ia'
+pattern: 'l j F Y \a\t g:ia'
