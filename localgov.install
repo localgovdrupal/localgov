@@ -55,3 +55,25 @@ function localgov_update_9501() {
     \Drupal::service('theme_installer')->install(['stable9']);
   }
 }
+
+/**
+ * Update default date formats to GDS if they haven't been changed.
+ */
+function localgov_update_9502() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('core.date_format.long');
+  if ($config->get('pattern') == 'l j F Y - g:ia') {
+    $config->set('pattern', 'l j F Y \a\t g:ia');
+    $config->save(TRUE);
+  }
+  $config = $config_factory->getEditable('core.date_format.medium');
+  if ($config->get('pattern') == 'D, d/m/Y - g:ia') {
+    $config->set('pattern', 'D d/m/Y g:ia');
+    $config->save(TRUE);
+  }
+  $config = $config_factory->getEditable('core.date_format.short');
+  if ($config->get('pattern') == 'd/m/Y - g:ia') {
+    $config->set('pattern', 'd/m/Y g:ia');
+    $config->save(TRUE);
+  }
+}
