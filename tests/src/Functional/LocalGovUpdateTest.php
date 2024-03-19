@@ -54,6 +54,9 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     // No schema exist:
     'localgov_geo.localgov_geo_type.address',
     'localgov_geo.localgov_geo_type.area',
+    // Incorrect schema:
+    // - scheduled_transitions.settings:retain_processed.duration.
+    'scheduled_transitions.settings',
   ];
 
   /**
