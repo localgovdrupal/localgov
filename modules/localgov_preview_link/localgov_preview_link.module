@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for localgov_preview_link module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for preview_link_entity_form.
+ */
+function localgov_preview_link_form_preview_link_entity_form_alter(&$form, FormStateInterface $form_state, $form_id): void {
+
+  /** @var \Drupal\localgov_preview_link\AutofillPreviewLinksInterface $autofill_service */
+  $autofill_service = \Drupal::service('localgov_preview_link.autofill');
+
+  if (!$autofill_service->isSupported()) {
+    return;
+  }
+
+  $form['autofill'] = [
+    '#type' => 'submit',
+    '#value' => t('Add all of the pages for this ' . $autofill_service->getLabel()),
+    '#submit' => ['localgov_preview_link_form_preview_link_entity_form_alter_submit'],
+    '#weight' => -10,
+  ];
+}
+
+/**
+ * Submit handler to autofill the preview link entities.
+ */
+function localgov_preview_link_form_preview_link_entity_form_alter_submit($form, FormStateInterface $form_state): void {
+
+  $autofill_service = \Drupal::service('localgov_preview_link.autofill');
+  $autofill_service->autofillPreviewLinks($form, $form_state);
+}

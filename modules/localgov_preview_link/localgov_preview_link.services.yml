@@ -1,0 +1,4 @@
+services:
+  localgov_preview_link.autofill:
+    class: Drupal\localgov_preview_link\AutofillPreviewLinks
+    arguments: ['@current_route_match']
