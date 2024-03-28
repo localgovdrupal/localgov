@@ -1,0 +1,7 @@
+name: 'LocalGov Drupal Preview Link'
+type: module
+description: 'LocalGov Drupal enhancements for the Preview Link module.'
+package: LocalGov Drupal
+core_version_requirement: ^10 || ^11
+dependencies:
+  - preview_link:preview_link
