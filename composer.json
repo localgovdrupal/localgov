@@ -18,7 +18,7 @@
         "drupal/gin_login": "^2.0.3",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/entity_browser": "^2.9",
-        "drupal/preview_link": "^2.1@alpha",
+        "drupal/preview_link": "dev-2.1.x#9c6d111d as 2.1-alpha3",
         "drupal/simple_sitemap": "^4.1",
         "drupal/search_api": "^1.21",
         "drush/drush": ">=10",
