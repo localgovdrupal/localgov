@@ -20,7 +20,7 @@ function localgov_login_redirect_user_login(AccountInterface $account) {
 
   // Check user is using a login link.
   $current_route = Drupal::routeMatch()->getRouteName();
-  if (in_array($current_route, ['user.reset', 'user.reset.login'])) {
+  if (in_array($current_route, ['user.reset', 'user.reset.login'], TRUE)) {
     return;
   }
 
