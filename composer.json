@@ -61,7 +61,7 @@
                 "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2024-02-13/2845144-87.patch"
             },
             "drupal/preview_link": {
-                "Automatically populating multiple preview link entities #3439968": "https://git.drupalcode.org/project/preview_link/-/merge_requests/28.diff"
+                "Automatically populating multiple preview link entities #3439968": "https://www.drupal.org/files/issues/2024-05-22/3439968-4.diff"
             }
         }
     }
