@@ -17,6 +17,8 @@ use Drupal\views\Entity\View;
  */
 function localgov_install() {
 
+  $config_factory = \Drupal::configFactory();
+
   // Assign user 1 the "administrator" role.
   $user = User::load(1);
   $user->roles[] = 'administrator';
@@ -28,11 +30,17 @@ function localgov_install() {
 
   // Set front page to /user.
   // This is so there is a default accessible front page on first install.
-  \Drupal::configFactory()
-    ->getEditable('system.site')
-    ->set('page.front', '/user')
-    ->save();
+  $system_site_config = $config_factory->getEditable('system.site');
+  $system_site_config->set('page.front', '/user')->save();
 
+  // Enable entity_usage for media by default.
+  $entity_usage_config = $config_factory->getEditable('entity_usage.settings');
+  $local_task_enabled_entity_types = $entity_usage_config->get('local_task_enabled_entity_types');
+  if (!in_array('media', $local_task_enabled_entity_types)) {
+    $local_task_enabled_entity_types[] = 'media';
+    $entity_usage_config->set('local_task_enabled_entity_types', $local_task_enabled_entity_types);
+    $entity_usage_config->save(TRUE);
+  }
 }
 
 /**
@@ -75,5 +83,21 @@ function localgov_update_9502() {
   if ($config->get('pattern') == 'd/m/Y - g:ia') {
     $config->set('pattern', 'd/m/Y g:ia');
     $config->save(TRUE);
+  }
+}
+
+/**
+ * Update existing sites to use entity_usage for media.
+ */
+function localgov_update_9503() {
+  if (\Drupal::service('module_handler')->moduleExists('entity_usage')) {
+    $config_factory = \Drupal::configFactory();
+    $entity_usage_config = $config_factory->getEditable('entity_usage.settings');
+    $local_task_enabled_entity_types = $entity_usage_config->get('local_task_enabled_entity_types');
+    if (!in_array('media', $local_task_enabled_entity_types)) {
+      $local_task_enabled_entity_types[] = 'media';
+      $entity_usage_config->set('local_task_enabled_entity_types', $local_task_enabled_entity_types);
+      $entity_usage_config->save(TRUE);
+    }
   }
 }
