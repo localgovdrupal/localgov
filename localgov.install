@@ -32,7 +32,6 @@ function localgov_install() {
     ->getEditable('system.site')
     ->set('page.front', '/user')
     ->save();
-
 }
 
 /**
@@ -75,5 +74,14 @@ function localgov_update_9502() {
   if ($config->get('pattern') == 'd/m/Y - g:ia') {
     $config->set('pattern', 'd/m/Y g:ia');
     $config->save(TRUE);
+  }
+}
+
+/**
+ * Enable msqrole module.
+ */
+function localgov_update_9503() {
+  if (!\Drupal::service('module_handler')->moduleExists('msqrole')) {
+    \Drupal::service('module_installer')->install(['msqrole']);
   }
 }

@@ -37,6 +37,7 @@ install:
   - entity_browser:entity_browser
   - gin_login:gin_login
   - gin_toolbar:gin_toolbar
+  - msqrole:msqrole
   - preview_link:preview_link
   - simple_sitemap:simple_sitemap
   # LocalGov Drupal
