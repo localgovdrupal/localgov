@@ -61,7 +61,7 @@
                 "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2024-02-13/2845144-87.patch"
             },
             "drupal/preview_link": {
-                "Add a 'copy to clipboard' feature for preview_link": "https://git.drupalcode.org/project/preview_link/-/merge_requests/29/diffs.diff"
+                "Add a 'copy to clipboard' feature for preview_link": "https://www.drupal.org/files/issues/2024-05-27/3449121-7.patch"
             }
         }
     }
