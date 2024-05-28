@@ -38,6 +38,8 @@ install:
   - gin_login:gin_login
   - gin_toolbar:gin_toolbar
   - preview_link:preview_link
+  - redirect:redirect
+  - redirect:redirect_404
   - simple_sitemap:simple_sitemap
   # LocalGov Drupal
   - localgov:localgov_login_redirect
