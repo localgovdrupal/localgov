@@ -4,8 +4,8 @@ dependencies:
   module:
     - node
     - user
-id: localgov_revision_log
-label: 'Revision Log'
+id: localgov_change_log
+label: 'Change Log'
 module: views
 description: 'Creates a listing of revisions so we can have a log of them on our sites.'
 tag: ''
@@ -307,7 +307,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      block_description: 'Revisions Log'
+      block_description: 'Change Log'
     cache_metadata:
       max-age: -1
       contexts:
