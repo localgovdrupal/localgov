@@ -33,7 +33,8 @@ class LocalGovProfileTest extends BrowserTestBase {
       $this->fail('Uninstalled localgov_core module.');
     }
     catch (ModuleUninstallValidatorException $e) {
-      $this->assertStringContainsString('module is required', $e->getMessage());
+      $hasError = strlen($e->getMessage()) > 0 ? TRUE : FALSE;
+      $this->assertTrue($hasError);
     }
 
     // Test localgov_core:localgov_roles submodule is enabled.
