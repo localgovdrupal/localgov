@@ -55,6 +55,7 @@ install:
   - localgov_services:localgov_services_navigation
   - localgov_services:localgov_services_page
   - localgov_services:localgov_services_sublanding
+  - localgov_base:localgov_base_helper
 
 dependencies:
   - localgov_core:localgov_core
