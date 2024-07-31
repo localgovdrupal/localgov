@@ -21,7 +21,6 @@ function localgov_page_attachments(array &$attachments): void {
   }
 }
 
-
 /**
  * Implements hook_install_tasks().
  */
