@@ -67,11 +67,11 @@
                 "Add a 'copy to clipboard' feature for preview_link": "https://www.drupal.org/files/issues/2024-05-28/3449121-9.patch"
             },
             "drupal/pathauto": {
-                "Allow path generation inside of a workspace - and importantly don't regenerate when publishing space": "https://www.drupal.org/files/issues/2024-04-08/3283769-10.patch"
+                "Allow path generation inside of a workspace - and importantly don't regenerate when publishing space https://www.drupal.org/project/pathauto/issues/3283769": "https://www.drupal.org/files/issues/2024-04-08/3283769-10.patch"
             },
             "drupal/redirect": {
                 "Validation issue on adding url redirect: https://www.drupal.org/project/redirect/issues/3057250": "https://www.drupal.org/files/issues/2022-09-01/3057250-53.patch",
-                "Create redirect from path alias change and workspaces": "https://www.drupal.org/files/issues/2024-03-18/3431260.patch"
+                "Create redirect from path alias change and workspaces https://www.drupal.org/project/redirect/issues/3431260": "https://www.drupal.org/files/issues/2024-03-18/3431260.patch"
             }
         }
     }
