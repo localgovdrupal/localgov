@@ -4,25 +4,40 @@
     "type": "drupal-profile",
     "license": "GPL-2.0-or-later",
     "homepage": "https://github.com/localgovdrupal/localgov",
-    "repositories": [
-        {
+    "repositories": {
+        "dropzone": {
+            "type": "package",
+            "package": {
+                "name": "enyo/dropzone",
+                "version": "6.0.0-beta.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/dropzone/dropzone/releases/download/v6.0.0-beta.2/dist.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
-    ],
+    },
     "require": {
         "drupal/admin_toolbar": "^3.0",
         "drupal/content_lock": "^2.4",
         "drupal/core": "^10.0",
+        "drupal/dropzonejs": "^2.10",
         "drupal/gin": "^3.0@alpha",
         "drupal/gin_login": "^2.0.3",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/entity_browser": "^2.9",
         "drupal/preview_link": "^2.1@alpha",
         "drupal/redirect": "^1.6",
+        "drupal/simple_media_bulk_upload": "^1.0",
         "drupal/simple_sitemap": "^4.1",
         "drupal/search_api": "^1.21",
         "drush/drush": ">=10",
+        "enyo/dropzone": "^6.0.0-beta.2",
         "localgovdrupal/localgov_alert_banner": "^1.2.0",
         "localgovdrupal/localgov_base": "^1.3.1",
         "localgovdrupal/localgov_core": "^2.12.0",
