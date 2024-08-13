@@ -19,7 +19,7 @@
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/entity_browser": "^2.9",
         "drupal/preview_link": "^2.1@alpha",
-        "drupal/redirect": "^1.6",
+        "drupal/redirect": "^1.10",
         "drupal/simple_sitemap": "^4.1",
         "drupal/search_api": "^1.21",
         "drush/drush": ">=10",
@@ -70,8 +70,8 @@
                 "Allow path generation inside of a workspace - and importantly don't regenerate when publishing space https://www.drupal.org/project/pathauto/issues/3283769": "https://www.drupal.org/files/issues/2024-04-08/3283769-10.patch"
             },
             "drupal/redirect": {
-                "Validation issue on adding url redirect: https://www.drupal.org/project/redirect/issues/3057250": "https://www.drupal.org/files/issues/2022-09-01/3057250-53.patch",
                 "Create redirect from path alias change and workspaces https://www.drupal.org/project/redirect/issues/3431260": "https://www.drupal.org/files/issues/2024-03-18/3431260.patch"
+                "Validation issue on adding url redirect: https://www.drupal.org/project/redirect/issues/3057250": "https://www.drupal.org/files/issues/2024-08-11/redirect--2024-08-11--3057250-79.patch"
             }
         }
     }
