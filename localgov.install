@@ -36,7 +36,7 @@ function localgov_install() {
   // Enable entity_usage for media by default.
   $entity_usage_config = $config_factory->getEditable('entity_usage.settings');
   $local_task_enabled_entity_types = $entity_usage_config->get('local_task_enabled_entity_types');
-  if (!in_array('media', $local_task_enabled_entity_types)) {
+  if (!in_array('media', $local_task_enabled_entity_types, TRUE)) {
     $local_task_enabled_entity_types[] = 'media';
     $entity_usage_config->set('local_task_enabled_entity_types', $local_task_enabled_entity_types);
     $entity_usage_config->save(TRUE);
@@ -94,7 +94,7 @@ function localgov_update_9503() {
     $config_factory = \Drupal::configFactory();
     $entity_usage_config = $config_factory->getEditable('entity_usage.settings');
     $local_task_enabled_entity_types = $entity_usage_config->get('local_task_enabled_entity_types');
-    if (!in_array('media', $local_task_enabled_entity_types)) {
+    if (!in_array('media', $local_task_enabled_entity_types, TRUE)) {
       $local_task_enabled_entity_types[] = 'media';
       $entity_usage_config->set('local_task_enabled_entity_types', $local_task_enabled_entity_types);
       $entity_usage_config->save(TRUE);
