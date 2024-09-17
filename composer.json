@@ -19,7 +19,7 @@
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/entity_browser": "^2.9",
         "drupal/preview_link": "^2.1@alpha",
-        "drupal/redirect": "^1.6",
+        "drupal/redirect": "^1.10",
         "drupal/simple_sitemap": "^4.1",
         "drupal/search_api": "^1.21",
         "drush/drush": ">=10",
@@ -59,14 +59,19 @@
         },
         "patches": {
             "drupal/core": {
-                "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2024-02-13/2845144-87.patch"
+                "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2024-02-13/2845144-87.patch",
+                "Content moderation and Workspaces https://www.drupal.org/project/drupal/issues/3179199#comment-15711680": "https://www.drupal.org/files/issues/2024-08-11/3179199-3132022-content-moderation-workspaces-query.patch"
             },
             "drupal/preview_link": {
                 "Automatically populating multiple preview link entities #3439968": "https://www.drupal.org/files/issues/2024-05-22/3439968-4.diff",
-                "Add a 'copy to clipboard' feature for preview_link": "https://www.drupal.org/files/issues/2024-05-28/3449121-9.patch"
+                "Add a 'copy to clipboard' feature for preview_link": "https://www.drupal.org/files/issues/2024-08-15/3449121-10.patch"
+            },
+            "drupal/pathauto": {
+                "Allow path generation inside of a workspace - and importantly don't regenerate when publishing space https://www.drupal.org/project/pathauto/issues/3283769": "https://www.drupal.org/files/issues/2024-04-08/3283769-10.patch"
             },
             "drupal/redirect": {
-                "Validation issue on adding url redirect: https://www.drupal.org/project/redirect/issues/3057250": "https://www.drupal.org/files/issues/2022-09-01/3057250-53.patch"
+                "Create redirect from path alias change and workspaces https://www.drupal.org/project/redirect/issues/3431260": "https://www.drupal.org/files/issues/2024-03-18/3431260.patch",
+                "Validation issue on adding url redirect: https://www.drupal.org/project/redirect/issues/3057250": "https://www.drupal.org/files/issues/2024-08-11/redirect--2024-08-11--3057250-79.patch"
             }
         }
     }

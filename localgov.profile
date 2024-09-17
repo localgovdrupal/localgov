@@ -20,3 +20,28 @@ function localgov_page_attachments(array &$attachments): void {
     }
   }
 }
+
+/**
+ * Implements hook_install_tasks().
+ */
+function localgov_install_tasks(array &$install_state): array {
+  return [
+    'localgov_post_install_task' => [
+      'display_name' => t('Localgov post install'),
+      'display' => TRUE,
+    ],
+  ];
+}
+
+/**
+ * This is an install step, added by localgov_install_tasks().
+ *
+ * We use this step to call a hook to allow other localgov modules to set things
+ * up as part of the site installation process that they can't do in their
+ * install hooks.
+ */
+function localgov_post_install_task(): void {
+  \Drupal::moduleHandler()->invokeAllWith('localgov_post_install', function (callable $hook, string $module) {
+    $hook();
+  });
+}
