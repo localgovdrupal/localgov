@@ -63,5 +63,5 @@ dependencies:
 themes:
   - claro
   - gin
-  - localgov_base (>=1.7.0)
+  - localgov_base
   - localgov_scarfolk
