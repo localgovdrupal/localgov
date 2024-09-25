@@ -101,3 +101,18 @@ function localgov_update_9503() {
     }
   }
 }
+
+/**
+ * Update existing sites to enable the theme dependency module for base.
+ */
+function localgov_update_9504() {
+  // The theme dependency should have caused the module to exist, but lets not
+  // fail if it's not there, as this is just a helper. The theme will continue
+  // to work when updated later, but report the requirement.
+  if (\Drupal::service('theme_handler')->themeExists('localgov_base')) {
+    if (\Drupal::service('module_installer')->install(['localgov_base_helper'])) {
+      return t('Base theme helper module enabled.');
+    }
+    return t('LocalGov Base theme will require the LocalGov Base Helper module. Enable it manually when upgrading to version 1.7.0 or higher.');
+  }
+}
