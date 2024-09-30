@@ -18,6 +18,7 @@
         "drupal/gin_login": "^2.0.3",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/entity_browser": "^2.9",
+        "drupal/masquerade": "^2.0",
         "drupal/preview_link": "^2.1@alpha",
         "drupal/redirect": "^1.10",
         "drupal/simple_sitemap": "^4.1",
