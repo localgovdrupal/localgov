@@ -45,12 +45,3 @@ function localgov_post_install_task(): void {
     $hook();
   });
 }
-
-/**
- * Enable masquerade module.
- */
-function localgov_update_10001() {
-  if (!\Drupal::service('module_handler')->moduleExists('masquerade')) {
-    \Drupal::service('module_installer')->install(['masquerade']);
-  }
-}
