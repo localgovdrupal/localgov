@@ -33,7 +33,7 @@ To install LocalGov Drupal locally you will need an appropriate versions of:
 
 Many of us use the Lando file included to run a local docker environmnent for testing and development, but some people prefer to run the web servers natively on their host machine. 
 
-We also include default DDEV configuration for developers that prefer DDEV.
+We also include default DDEV configuration for developers that prefer DDEV. [Visit our DDEV docs page](https://docs.localgovdrupal.org/devs/getting-started/working-with-ddev.html#working-with-ddev) to see how to get set up. 
 
 ### PHP requirements
 
