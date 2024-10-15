@@ -37,6 +37,7 @@ install:
   - entity_browser:entity_browser
   - gin_login:gin_login
   - gin_toolbar:gin_toolbar
+  - masquerade:masquerade
   - preview_link:preview_link
   - redirect:redirect
   - redirect:redirect_404
@@ -45,6 +46,7 @@ install:
   - localgov:localgov_login_redirect
   - localgov_core:localgov_core
   - localgov_core:localgov_media
+  - localgov_core:localgov_admin_role
   - localgov_core:localgov_roles
   - localgov_core:localgov_admin_theme_improvements
   - localgov_menu_link_group:localgov_menu_link_group

@@ -18,6 +18,7 @@
         "drupal/gin_login": "^2.0.3",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/entity_browser": "^2.9",
+        "drupal/masquerade": "^2.0",
         "drupal/preview_link": "^2.1@alpha",
         "drupal/redirect": "^1.10",
         "drupal/simple_sitemap": "^4.1",
@@ -59,8 +60,7 @@
         },
         "patches": {
             "drupal/core": {
-                "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2024-02-13/2845144-87.patch",
-                "Content moderation and Workspaces https://www.drupal.org/project/drupal/issues/3179199#comment-15711680": "https://www.drupal.org/files/issues/2024-08-11/3179199-3132022-content-moderation-workspaces-query.patch"
+                "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2024-02-13/2845144-87.patch"
             },
             "drupal/preview_link": {
                 "Automatically populating multiple preview link entities #3439968": "https://www.drupal.org/files/issues/2024-05-22/3439968-4.diff",
