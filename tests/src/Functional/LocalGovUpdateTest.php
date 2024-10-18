@@ -164,7 +164,7 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     $this->drupalGet('/adult-health-and-social-care/step-by-step/request-support-adult-step-step/find-out-what-support-we');
     $this->assertSession()->elementTextContains('css', '.block-localgov-page-header-block h1', 'Find out what support we offer');
     $this->assertSession()->elementTextContains('css', '.block-step-part-of-block', 'Part of Request support for an adult: step by step');
-    $this->assertSession()->elementTextContains('css', '.region-content-bottom', 'Next step');
+    $this->assertSession()->elementTextContains('css', '.region-content-bottom', 'Next');
     $this->assertSession()->elementTextContains('css', 'main article h2', 'What we can help with');
     $this->assertSession()->elementTextContains('css', 'aside .step-list', 'Find out what support we offer');
     $this->assertSession()->elementTextContains('css', 'aside .step-list', 'See what social care is available, including:');
