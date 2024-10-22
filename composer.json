@@ -64,7 +64,8 @@
             },
             "drupal/preview_link": {
                 "Automatically populating multiple preview link entities #3439968": "https://www.drupal.org/files/issues/2024-05-22/3439968-4.diff",
-                "Add a 'copy to clipboard' feature for preview_link": "https://www.drupal.org/files/issues/2024-08-15/3449121-10.patch"
+                "Add a 'copy to clipboard' feature for preview_link": "https://www.drupal.org/files/issues/2024-08-15/3449121-10.patch",
+                "References to other entities being previewed don't display #3481523": "https://www.drupal.org/files/issues/2024-10-18/3481523-4.patch"
             },
             "drupal/pathauto": {
                 "Allow path generation inside of a workspace - and importantly don't regenerate when publishing space https://www.drupal.org/project/pathauto/issues/3283769": "https://www.drupal.org/files/issues/2024-04-08/3283769-10.patch"
