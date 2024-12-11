@@ -5,7 +5,6 @@
  * Install functions for the LocalGovInstall installation profile.
  */
 
-use Drupal\user\Entity\User;
 use Drupal\views\Entity\View;
 
 /**
