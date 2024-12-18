@@ -5,6 +5,8 @@
  * Enables modules and site configuration for a Localgov site installation.
  */
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_page_attachments().
  */
@@ -44,4 +46,11 @@ function localgov_post_install_task(): void {
   \Drupal::moduleHandler()->invokeAllWith('localgov_post_install', function (callable $hook, string $module) {
     $hook();
   });
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function localgov_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['#attributes']['novalidate'] = 'novalidate';
 }
