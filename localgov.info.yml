@@ -1,7 +1,7 @@
 name: LocalGov Drupal
 type: profile
 description: 'Install a LocalGov Drupal site.'
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10 || ^11
 
 install:
   # Core
