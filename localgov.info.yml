@@ -43,12 +43,12 @@ install:
   - redirect:redirect_404
   - simple_sitemap:simple_sitemap
   # LocalGov Drupal
-  - localgov:localgov_login_redirect
+  - localgov_core:localgov_admin_role
+  - localgov_core:localgov_admin_theme_improvements
   - localgov_core:localgov_core
   - localgov_core:localgov_media
-  - localgov_core:localgov_admin_role
   - localgov_core:localgov_roles
-  - localgov_core:localgov_admin_theme_improvements
+  - localgov_login_redirect:localgov_login_redirect
   - localgov_menu_link_group:localgov_menu_link_group
   - localgov_page_components:localgov_page_components
   - localgov_paragraphs:localgov_paragraphs
