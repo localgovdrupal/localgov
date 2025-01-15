@@ -51,6 +51,6 @@ function localgov_post_install_task(): void {
 /**
  * Implements hook_form_alter().
  */
-function localgov_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function localgov_form_alter(&$form, FormStateInterface $form_state, $form_id): void {
   $form['#attributes']['novalidate'] = 'novalidate';
 }
