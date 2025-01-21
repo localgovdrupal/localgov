@@ -27,6 +27,22 @@ class ContentLockTest extends BrowserTestBase {
   ];
 
   /**
+   * Set up tests.
+   */
+  protected function setUp(): void {
+    parent::setUp();
+
+    // Use Claro for testing as there are problems with the Gin theme.
+    // See https://github.com/localgovdrupal/localgov/issues/731
+    $this->assertTrue(\Drupal::service('theme_installer')->install(['claro']));
+    $this->container->get('config.factory')
+      ->getEditable('system.theme')
+      ->set('default', 'claro')
+      ->set('admin', 'claro')
+      ->save();
+  }
+
+  /**
    * Test content lock configuration.
    */
   public function testContentLockConfiguration() {
