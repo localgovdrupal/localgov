@@ -38,17 +38,19 @@ install:
   - dropzonejs:dropzonejs
   - gin_login:gin_login
   - gin_toolbar:gin_toolbar
+  - masquerade:masquerade
   - preview_link:preview_link
   - redirect:redirect
   - redirect:redirect_404
   - simple_media_bulk_upload:simple_media_bulk_upload
   - simple_sitemap:simple_sitemap
   # LocalGov Drupal
-  - localgov:localgov_login_redirect
+  - localgov_core:localgov_admin_role
+  - localgov_core:localgov_admin_theme_improvements
   - localgov_core:localgov_core
   - localgov_core:localgov_media
   - localgov_core:localgov_roles
-  - localgov_core:localgov_admin_theme_improvements
+  - localgov_login_redirect:localgov_login_redirect
   - localgov_menu_link_group:localgov_menu_link_group
   - localgov_page_components:localgov_page_components
   - localgov_paragraphs:localgov_paragraphs
