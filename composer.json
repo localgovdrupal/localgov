@@ -20,7 +20,6 @@
         "drupal/masquerade": "^2.0",
         "drupal/preview_link": "^2.1@alpha",
         "drupal/redirect": "^1.10",
-        "drupal/search_api": "^1.21",
         "drupal/simple_sitemap": "^4.1",
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "^1.2.0",
