@@ -28,7 +28,7 @@
         "localgovdrupal/localgov_core": "^2.12.0",
         "localgovdrupal/localgov_demo": "^3.0@alpha",
         "localgovdrupal/localgov_directories": "^3.0",
-        "localgovdrupal/localgov_events": "^3.0",
+        "localgovdrupal/localgov_events": "^4.x-dev",
         "localgovdrupal/localgov_guides": "^2.1.0",
         "localgovdrupal/localgov_login_redirect": "^1.0.0",
         "localgovdrupal/localgov_menu_link_group": "^1.1.0",
