@@ -17,6 +17,7 @@
         "drupal/gin_login": "^2.0.3",
         "drupal/gin_toolbar": "^1.0 || ^2.0",
         "drupal/entity_browser": "^2.9",
+        "drupal/disable_html5_validation": "^2.0",
         "drupal/masquerade": "^2.0",
         "drupal/preview_link": "^2.1@alpha",
         "drupal/redirect": "^1.10",
