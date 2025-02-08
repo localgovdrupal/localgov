@@ -29,7 +29,7 @@ class LocalGovProfileTest extends BrowserTestBase {
     // Test localgov_core module is enabled and is not uninstallable.
     $this->assertTrue(\Drupal::service('module_handler')->moduleExists('localgov_core'));
     try {
-      \Drupal::service('module_handler')->uninstall(['localgov_core']);
+      \Drupal::service('module_installer')->uninstall(['localgov_core']);
       $this->fail('Uninstalled localgov_core module.');
     }
     catch (ModuleUninstallValidatorException $e) {
