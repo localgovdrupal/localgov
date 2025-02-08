@@ -5,7 +5,6 @@
  * Install functions for the LocalGovInstall installation profile.
  */
 
-use Drupal\user\Entity\User;
 use Drupal\views\Entity\View;
 
 /**
@@ -18,11 +17,6 @@ use Drupal\views\Entity\View;
 function localgov_install() {
 
   $config_factory = \Drupal::configFactory();
-
-  // Assign user 1 the "administrator" role.
-  $user = User::load(1);
-  $user->roles[] = 'administrator';
-  $user->save();
 
   // Disable the frontpage view.
   $frontpage_view = View::load('frontpage');
