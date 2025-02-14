@@ -35,7 +35,6 @@
         "drupal/simple_media_bulk_upload": "^1.0",
         "drupal/simple_sitemap": "^4.1",
         "drupal/redirect": "^1.10",
-        "drupal/search_api": "^1.21",
         "drupal/simple_sitemap": "^4.1",
         "drush/drush": ">=10",
         "enyo/dropzone": "^6.0.0-beta.2",
