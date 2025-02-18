@@ -11,7 +11,7 @@ on:
 
 jobs:
   tests:
-    uses: localgovdrupal/localgov_shared_workflows/.github/workflows/test-module.yml@1.x
+    uses: localgovdrupal/localgov_shared_workflows/.github/workflows/test-module.yml@1.x-d10
     with:
       project: 'localgovdrupal/localgov'
       project_path: 'web/profiles/contrib/localgov'
