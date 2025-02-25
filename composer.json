@@ -29,7 +29,7 @@
         "localgovdrupal/localgov_demo": "dev-feature/drupal-11-support as 3.0.1",
         "localgovdrupal/localgov_directories": "dev-feature/3.x/394-drupal-11-support as 3.2.2",
         "localgovdrupal/localgov_events": "dev-feature/drupal-11-support as 3.0.3",
-        "localgovdrupal/localgov_guides": "dev-feature/2.x/drupal-11-support as 2.1.13",
+        "localgovdrupal/localgov_guides": "^2.1.0",
         "localgovdrupal/localgov_login_redirect": "^1.0.0",
         "localgovdrupal/localgov_menu_link_group": "^1.1.0",
         "localgovdrupal/localgov_news": "^2.3.0",
