@@ -35,7 +35,6 @@ install:
   - admin_toolbar:admin_toolbar
   - admin_toolbar:admin_toolbar_tools
   - entity_browser:entity_browser
-  - dropzonejs:dropzonejs
   - gin_login:gin_login
   - gin_toolbar:gin_toolbar
   - masquerade:masquerade
