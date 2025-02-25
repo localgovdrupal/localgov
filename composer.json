@@ -4,12 +4,12 @@
     "type": "drupal-profile",
     "license": "GPL-2.0-or-later",
     "homepage": "https://github.com/localgovdrupal/localgov",
-    "repositories": {
-        "drupal": {
+    "repositories": [
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
-    },
+    ],
     "require": {
         "drupal/admin_toolbar": "^3.0",
         "drupal/core": "^10.0",
