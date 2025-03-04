@@ -37,10 +37,12 @@ install:
   - entity_browser:entity_browser
   - gin_login:gin_login
   - gin_toolbar:gin_toolbar
+  - disable_html5_validation:disable_html5_validation
   - masquerade:masquerade
   - preview_link:preview_link
   - redirect:redirect
   - redirect:redirect_404
+  - simple_media_bulk_upload:simple_media_bulk_upload
   - simple_sitemap:simple_sitemap
   # LocalGov Drupal
   - localgov_core:localgov_admin_role

@@ -95,3 +95,12 @@ function localgov_update_9503() {
     }
   }
 }
+
+/**
+ * Disable HTML5 form validation by default.
+ *
+ * To re-enable client side validation disable the module.
+ */
+function localgov_update_9504(): void {
+  \Drupal::service('module_installer')->install(['disable_html5_validation']);
+}
