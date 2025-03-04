@@ -26,7 +26,7 @@
         "localgovdrupal/localgov_base": "^1.3.1",
         "localgovdrupal/localgov_content_lock": "^1.0.0",
         "localgovdrupal/localgov_core": "^2.12.0",
-        "localgovdrupal/localgov_demo": "dev-feature/drupal-11-support as 3.0.1",
+        "localgovdrupal/localgov_demo": "^3.0",
         "localgovdrupal/localgov_directories": "^3.0",
         "localgovdrupal/localgov_events": "^3.0",
         "localgovdrupal/localgov_guides": "^2.1.0",
