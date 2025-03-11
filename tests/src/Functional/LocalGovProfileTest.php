@@ -27,9 +27,9 @@ class LocalGovProfileTest extends BrowserTestBase {
   public function testLocalGovDrupalProfile() {
 
     // Test localgov_core module is enabled and is not uninstallable.
-    $this->assertTrue($this->container->get('module_handler')->moduleExists('localgov_core'));
+    $this->assertTrue(\Drupal::moduleHandler()->moduleExists('localgov_core'));
     try {
-      $this->container->get('module_installer')->uninstall(['localgov_core']);
+      \Drupal::service('module_installer')->uninstall(['localgov_core']);
       $this->fail('Uninstalled localgov_core module.');
     }
     catch (ModuleUninstallValidatorException $e) {
@@ -38,7 +38,7 @@ class LocalGovProfileTest extends BrowserTestBase {
     }
 
     // Test localgov_core:localgov_roles submodule is enabled.
-    $this->assertTrue($this->container->get('module_handler')->moduleExists('localgov_roles'));
+    $this->assertTrue(\Drupal::moduleHandler()->moduleExists('localgov_roles'));
 
     // Test front page loads after site install.
     $this->drupalGet('<front>');
