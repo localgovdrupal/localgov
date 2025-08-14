@@ -63,7 +63,7 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     // Incorrect schema:
     // - scheduled_transitions.settings:retain_processed.duration.
     'scheduled_transitions.settings',
-    // Missing schema
+    // Missing schema:
     'views.view.localgov_directory_channel',
   ];
 
