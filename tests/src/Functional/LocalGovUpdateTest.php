@@ -27,6 +27,8 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     'core.entity_view_display.geo_entity.area.embed',
     'core.entity_view_display.geo_entity.area.full',
     'core.entity_view_display.geo_entity.address.default',
+    'core.entity_view_display.geo_entity.address.embed',
+    'core.entity_view_display.geo_entity.address.full',
     // Missing schema:
     // - content.location.settings.geometry_validation.
     // - content.location.settings.multiple_map.
