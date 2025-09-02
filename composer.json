@@ -21,7 +21,7 @@
         "drupal/localgov_utilities": "^1.0@beta",
         "drupal/masquerade": "^2.0",
         "drupal/preview_link": "^2.1@alpha",
-        "drupal/redirect": "^1.10",
+        "drupal/redirect": ">=1.10 <1.12",
         "drupal/simple_media_bulk_upload": "^2.0",
         "drupal/simple_sitemap": "^4.1",
         "drush/drush": ">=10",
