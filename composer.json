@@ -12,10 +12,10 @@
     ],
     "require": {
         "drupal/admin_toolbar": "^3.0",
-        "drupal/core": "^10.0 || ~11.0",
-        "drupal/gin": "^3.0 || ^4.0",
+        "drupal/core": "^10.0 || ~11.1.0",
+        "drupal/gin": "^3.0 || ^4.0 || ^5.0",
         "drupal/gin_login": "^2.0.3",
-        "drupal/gin_toolbar": "^1.0 || ^2.0",
+        "drupal/gin_toolbar": "^1.0 || ^2.0 || ^3.0",
         "drupal/entity_browser": "^2.9",
         "drupal/disable_html5_validation": "^2.0",
         "drupal/localgov_utilities": "^1.0@beta",
