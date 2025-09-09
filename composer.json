@@ -21,7 +21,7 @@
         "drupal/localgov_utilities": "^1.0@beta",
         "drupal/masquerade": "^2.0",
         "drupal/preview_link": "^2.1@alpha",
-        "drupal/redirect": ">=1.10 <1.12",
+        "drupal/redirect": "^1.12",
         "drupal/simple_media_bulk_upload": "^2.0",
         "drupal/simple_sitemap": "^4.1",
         "drush/drush": ">=10",
@@ -76,7 +76,7 @@
             },
             "drupal/redirect": {
                 "Create redirect from path alias change and workspaces https://www.drupal.org/project/redirect/issues/3431260": "https://www.drupal.org/files/issues/2024-03-18/3431260.patch",
-                "Validation issue on adding url redirect: https://www.drupal.org/project/redirect/issues/3057250": "https://www.drupal.org/files/issues/2024-08-11/redirect--2024-08-11--3057250-79.patch"
+                "Validation issue on adding url redirect: https://www.drupal.org/project/redirect/issues/3057250": "https://www.drupal.org/files/issues/2025-09-08/redirect--2025-09-08--3057250-110.patch"
             }
         }
     }
