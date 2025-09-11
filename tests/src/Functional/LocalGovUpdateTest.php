@@ -20,9 +20,15 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     // Missing schema:
     // - 'content.location.settings.reset_map.position'.
     // - 'content.location.settings.weight'.
+    'core.entity_view_display.localgov_geo.address.default',
+    'core.entity_view_display.localgov_geo.address.embed',
+    'core.entity_view_display.localgov_geo.address.full',
     'core.entity_view_display.localgov_geo.area.default',
     'core.entity_view_display.localgov_geo.area.embed',
     'core.entity_view_display.localgov_geo.area.full',
+    'core.entity_view_display.geo_entity.address.default',
+    'core.entity_view_display.geo_entity.address.embed',
+    'core.entity_view_display.geo_entity.address.full',
     'core.entity_view_display.geo_entity.area.default',
     'core.entity_view_display.geo_entity.area.embed',
     'core.entity_view_display.geo_entity.area.full',
@@ -57,6 +63,8 @@ class LocalGovUpdateTest extends UpdatePathTestBase {
     // Incorrect schema:
     // - scheduled_transitions.settings:retain_processed.duration.
     'scheduled_transitions.settings',
+    // Missing schema:
+    'views.view.localgov_directory_channel',
   ];
 
   /**
