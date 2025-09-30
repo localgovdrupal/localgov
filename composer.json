@@ -17,6 +17,7 @@
         "drupal/gin_login": "^2.0.3",
         "drupal/gin_toolbar": "^1.0 || ^2.0",
         "drupal/entity_browser": "^2.9",
+        "drupal/localgov_editoria11y": "^1.0.0@alpha",
         "drupal/disable_html5_validation": "^2.0",
         "drupal/localgov_utilities": "^1.0@beta",
         "drupal/masquerade": "^2.0",
