@@ -626,32 +626,29 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        revision_uid:
-          id: revision_uid
-          table: node_revision
-          field: revision_uid
-          relationship: none
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: revision_uid
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: revision_uid
-          plugin_id: numeric
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
+          entity_type: user
+          entity_field: uid
+          plugin_id: user_name
+          operator: in
+          value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: revision_uid_op
+            operator_id: uid_op
             label: 'Last updated by'
             description: ''
             use_operator: false
-            operator: revision_uid_op
+            operator: uid_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: revision_uid
+            identifier: uid
             required: false
             remember: false
             multiple: false
@@ -665,9 +662,7 @@ display:
               localgov_news_editor: '0'
               localgov_user_manager: '0'
               localgov_admin: '0'
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -786,7 +781,20 @@ display:
           id: uid
           table: node_field_data
           field: uid
-          admin_label: author
+          relationship: none
+          group_type: group
+          admin_label: Author
+          plugin_id: standard
+          required: true
+        revision_uid:
+          id: revision_uid
+          table: node_revision
+          field: revision_uid
+          relationship: none
+          group_type: group
+          admin_label: 'Last updated'
+          entity_type: node
+          entity_field: revision_uid
           plugin_id: standard
           required: true
       show_admin_links: false
