@@ -792,7 +792,7 @@ display:
           field: revision_uid
           relationship: none
           group_type: group
-          admin_label: 'Last updated'
+          admin_label: 'Last updated by'
           entity_type: node
           entity_field: revision_uid
           plugin_id: standard
