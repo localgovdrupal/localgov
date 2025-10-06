@@ -6,9 +6,9 @@
  */
 
 /**
- * Implements hook_page_attachments().
+ * Implements hook_page_attachments_alter().
  */
-function localgov_page_attachments(array &$attachments): void {
+function localgov_page_attachments_alter(array &$attachments): void {
   foreach ($attachments['#attached']['html_head'] as &$html_head) {
     $name = $html_head[1];
     $core_version = \Drupal::VERSION;
