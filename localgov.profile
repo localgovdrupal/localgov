@@ -6,17 +6,19 @@
  */
 
 /**
- * Implements hook_page_attachments().
+ * Implements hook_page_attachments_alter().
+ *
+ * Use LocalGov Drupal for site generator metatag.
  */
-function localgov_page_attachments(array &$attachments): void {
+function localgov_page_attachments_alter(array &$attachments): void {
   foreach ($attachments['#attached']['html_head'] as &$html_head) {
-    $name = $html_head[1];
-    $core_version = \Drupal::VERSION;
-    $parts = explode('.', $core_version);
+    if ($html_head[1] == 'system_meta_generator') {
+      $parts = explode('.', \Drupal::VERSION);
 
-    if ($name == 'system_meta_generator') {
       $tag = &$html_head[0];
       $tag['#attributes']['content'] = 'Drupal ' . $parts[0] . ' (LocalGov Drupal | https://localgovdrupal.org)';
+
+      break;
     }
   }
 }
