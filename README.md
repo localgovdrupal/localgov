@@ -1,4 +1,6 @@
-# LocalGov Drupal
+# [Archived] LocalGov Drupal
+
+This project is archived, please use the drupal.org version at https://www.drupal.org/project/localgov
 
 A Drupal distribution and installation profile designed to help UK and Irish councils collaborate and
 share Drupal code and build a culture of publishing excellent website content for everyone.
