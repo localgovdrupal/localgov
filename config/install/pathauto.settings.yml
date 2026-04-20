@@ -1,0 +1,20 @@
+enabled_entity_types:
+  - user
+punctuation:
+  hyphen: 1
+verbose : FALSE
+separator : '-'
+max_length : 100
+max_component_length: 100
+transliterate : TRUE
+reduce_ascii : FALSE
+case : TRUE
+ignore_words: 'a, an, and, are, as, at, before, but, by, for, from, get, if, is, in, into, it, like, of, off, on, onto, or, per, since, so, than, the, this, that, to, up, via, when, where, with, you'
+update_action : 2
+safe_tokens:
+  - alias
+  - path
+  - join-path
+  - login-url
+  - url
+  - url-brief
