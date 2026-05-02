@@ -49,7 +49,7 @@
     },
     "require-dev": {
         "drupal/core-dev": "^10.0",
-        "drupal/geofield_map": "^3.0"
+        "drupal/geofield_map": "^11.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
